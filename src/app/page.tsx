@@ -129,6 +129,7 @@ interface DrillData {
     anomaly: string
     severity: number
     confidence: string
+    signal_ids?: string[]
   }
   gap: {
     text: string
@@ -166,6 +167,7 @@ const drill: Record<string, DrillData> = {
       anomaly: "RLUSD market cap: $110M decline in 72 hours",
       severity: 7,
       confidence: "LOW (0.35)",
+      signal_ids: ["SIG-006", "SIG-011", "SIG-014"],
     },
     gap: {
       text: "RLUSD decline cross-referenced against 4 historical patterns. No precedent for decline of this magnitude without corresponding redemption activity.",
@@ -576,6 +578,26 @@ function Modal({ tx, onClose }: ModalProps) {
           <DataRow label="ANOMALY" value={d.signal.anomaly} color={C.amber} />
           <DataRow label="SEVERITY" value={`${d.signal.severity}/10`} />
           <DataRow label="CONFIDENCE" value={d.signal.confidence} />
+          {d.signal.signal_ids && d.signal.signal_ids.length > 0 && (
+            <div className="flex justify-between items-center py-1.5" style={{ borderBottom: `1px solid ${C.row}` }}>
+              <span className="text-[10px] tracking-[0.5px] font-medium" style={{ color: C.lbl }}>SIGNAL DOSSIER</span>
+              <div className="flex gap-2">
+                {d.signal.signal_ids.map((sid) => (
+                  <a
+                    key={sid}
+                    href={`https://integrity-protocol.github.io/Overwatch-Terminal/signal-dossier.html?signal_id=${sid}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[10px] font-semibold cursor-pointer"
+                    style={{ color: C.slate, textDecoration: "underline", textDecorationColor: C.section }}
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    {sid}
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
         </Node>
 
         {/* GAP Node */}
@@ -644,9 +666,9 @@ function Modal({ tx, onClose }: ModalProps) {
               </StatusBlock>
               {d.correct.cid && (
                 <StatusBlock borderColor={C.lavender} label="CORRECTION LOGGED">
-                  <span className="text-[11px] font-semibold" style={{ color: C.lavender }}>
-                    {d.correct.cid}
-                  </span>
+                  <a href={`https://integrity-protocol.github.io/Overwatch-Terminal/flight-recorder.html?chain_id=${d.correct.cid.replace(/\D/g, "")}`} target="_blank" rel="noopener noreferrer" className="text-[11px] font-semibold cursor-pointer" style={{ color: C.lavender, textDecoration: "underline", textDecorationColor: C.section }} onClick={(e) => e.stopPropagation()}>
+                    {d.correct.cid} →
+                  </a>
                 </StatusBlock>
               )}
             </div>
@@ -710,6 +732,11 @@ function Modal({ tx, onClose }: ModalProps) {
             </div>
           </StatusBlock>
         </Node>
+        <div className="mt-4 pt-3 flex justify-end" style={{ borderTop: `1px solid ${C.section}` }}>
+          <a href={`https://integrity-protocol.github.io/Overwatch-Terminal/trace.html?request_id=${tx.rid}`} target="_blank" rel="noopener noreferrer" className="text-[10px] font-semibold tracking-[1px] cursor-pointer" style={{ color: C.slate, textDecoration: "underline", textDecorationColor: C.section }} onClick={(e) => e.stopPropagation()}>
+            VIEW FULL COGNITIVE TRACE →
+          </a>
+        </div>
       </div>
     </div>
   )
