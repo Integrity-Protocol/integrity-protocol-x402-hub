@@ -891,11 +891,12 @@ export default function AgentHub() {
             {bd.approved.map((a) => (
               <div
                 key={a.request_id}
-                className="grid gap-1.5 py-1 items-start"
+                className="grid gap-1.5 py-1 items-start cursor-pointer"
                 style={{
                   gridTemplateColumns: "55px 55px 75px 1fr",
                   borderBottom: `1px solid ${C.row}`,
                 }}
+                onClick={() => { const tx = [...rTxs, ...wTxs].find(t => t.rid === a.request_id); if (tx) { setSel(tx); setModal(tx); } }}
               >
                 <span className="text-[10px] font-bold" style={{ color: C.olive }}>
                   {a.request_id}
