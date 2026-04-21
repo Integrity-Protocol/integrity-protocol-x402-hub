@@ -234,6 +234,9 @@ const nodeDesc: Record<string, string> = {
   ACQUIRE: "What it paid for to resolve the gap",
   CORRECT: "How its reasoning changed with verified data",
   OUTCOME: "The final decision and what it prevented",
+  DEFERRED: "Why the system chose not to act",
+  "EMERGENT GAP": "What the system discovered it cannot resolve",
+  STATUS: "Where this request stands now",
 }
 
 // ── Primitives ──────────────────────────────────────────────────────
@@ -716,6 +719,7 @@ function Modal({ tx, onClose }: ModalProps) {
 export default function AgentHub() {
   const [sel, setSel] = useState<Transaction | null>(null)
   const [modal, setModal] = useState<Transaction | null>(null)
+  const [deferredModal, setDeferredModal] = useState<typeof bd.deferred[0] | null>(null)
 
   const handleTxClick = (tx: Transaction) => {
     setSel(tx)
@@ -853,11 +857,12 @@ export default function AgentHub() {
             {bd.deferred.map((d) => (
               <div
                 key={d.request_id}
-                className="grid gap-1.5 py-1 items-start"
+                className="grid gap-1.5 py-1 items-start cursor-pointer"
                 style={{
                   gridTemplateColumns: "55px 55px 75px 1fr",
                   borderBottom: `1px solid ${C.row}`,
                 }}
+                onClick={() => setDeferredModal(d)}
               >
                 <span className="text-[10px] font-semibold" style={{ color: C.val }}>
                   {d.request_id}
@@ -874,7 +879,7 @@ export default function AgentHub() {
                 <div>
                   <ExpandableText text={d.reasoning} max={80} />
                   {d.knowledge_gap && (
-                    <StatusBlock borderColor={C.lavender} label="KNOWLEDGE GAP">
+                    <StatusBlock borderColor={C.lavender} label="THE SYSTEM FLAGGED THIS AND REFUSED TO GUESS">
                       <div className="text-[10px] leading-snug font-medium" style={{ color: C.val }}>
                         {d.knowledge_gap}
                       </div>
@@ -917,6 +922,71 @@ export default function AgentHub() {
       </div>
 
       <Modal tx={modal} onClose={() => { setModal(null); setSel(null); }} />
+      {deferredModal && (
+        <div
+          className="fixed inset-0 flex items-center justify-center z-[1000] backdrop-blur-sm"
+          style={{ background: "rgba(0,0,0,0.85)" }}
+          onClick={() => setDeferredModal(null)}
+        >
+          <div
+            className="rounded-[4px] w-[94%] max-w-[740px] max-h-[90vh] overflow-y-auto p-5"
+            style={{ background: C.bg, border: `1px solid ${C.wire}` }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex justify-between items-center mb-4 pb-3" style={{ borderBottom: `1px solid ${C.section}` }}>
+              <div>
+                <div className="text-[9px] tracking-[2px] mb-1 font-semibold" style={{ color: C.lbl }}>DEFERRED REQUEST</div>
+                <span className="text-[11px] font-bold tracking-[1.5px]" style={{ color: C.hi }}>
+                  Acquisition Request #{deferredModal.request_id.replace(/\D/g, "")}
+                </span>
+              </div>
+              <button onClick={() => setDeferredModal(null)} className="border rounded-[4px] px-3 py-1 cursor-pointer text-[10px] font-medium" style={{ background: "none", borderColor: C.section, color: C.lbl }}>ESC</button>
+            </div>
+
+            <Node label="SIGNAL" color={C.lbl} icon={<span style={{ color: C.lbl }}>◇</span>}>
+              <div className="text-xs leading-relaxed mb-2 font-medium" style={{ color: C.val }}>
+                Acquisition request generated from pipeline analysis.
+              </div>
+              <DataRow label="REQUEST" value={deferredModal.request_id} />
+              <DataRow label="SOURCE" value={deferredModal._source.toUpperCase()} />
+              {deferredModal.cross_cited && <DataRow label="RANKED AGAINST" value={deferredModal.cross_cited} color={C.slate} />}
+            </Node>
+
+            <Node label="GAP" color={C.slate} icon={<span style={{ color: C.slate }}>◎</span>}>
+              <div className="text-xs leading-relaxed mb-2 font-medium" style={{ color: C.val }}>
+                {deferredModal.reasoning}
+              </div>
+              <DataRow label="BUDGET REMAINING" value={`$${bd.cycle_allowance_usd}`} color={C.amber} />
+              <DataRow label="SLOTS AVAILABLE" value={bd.cycle_slots_available} color={C.amber} />
+            </Node>
+
+            <Node label="DEFERRED" color={C.amber} icon={<span style={{ color: C.amber, fontWeight: 700 }}>⏸</span>}>
+              <StatusBlock borderColor={C.amber} label={deferredModal.deferral_type === "budget_constraint" ? "DEFERRED — BUDGET FORCED A CHOICE" : "DEFERRED — LOWER PRIORITY"}>
+                <div className="text-xs leading-relaxed font-medium" style={{ color: C.val }}>
+                  {deferredModal.reasoning}
+                </div>
+              </StatusBlock>
+            </Node>
+
+            {deferredModal.knowledge_gap && (
+              <Node label="EMERGENT GAP" color={C.lavender} icon={<span style={{ color: C.lavender }}>?</span>}>
+                <StatusBlock borderColor={C.lavender} label="THE SYSTEM FLAGGED THIS AND REFUSED TO GUESS">
+                  <div className="text-xs leading-relaxed font-medium" style={{ color: C.val }}>
+                    {deferredModal.knowledge_gap}
+                  </div>
+                </StatusBlock>
+              </Node>
+            )}
+
+            <Node label="STATUS" color={C.lbl} icon={<span style={{ color: C.lbl }}>○</span>} last>
+              <StatusBlock borderColor={C.lbl} label="PENDING — QUEUED FOR NEXT CYCLE">
+                <DataRow label="STATUS" value="DEFERRED" color={C.amber} />
+                <DataRow label="DISPOSITION" value={deferredModal.deferral_type ? deferredModal.deferral_type.replace("_", " ").toUpperCase() : "PRIORITY RANKING"} color={C.amber} />
+              </StatusBlock>
+            </Node>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
