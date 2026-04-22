@@ -1,55 +1,8 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
-// ── Data ────────────────────────────────────────────────────────────
-const bd = {
-  cycle_allowance_usd: 0.218,
-  cycle_slots_available: 1,
-  approved_count: 1,
-  deferred_count: 3,
-  denied_count: 0,
-  approved: [
-    {
-      request_id: "ACQ-001",
-      reasoning:
-        "RLUSD chain breakdown is the highest-impact acquisition candidate. It directly addresses two active tension points — RLUSD-regulatory divergence and RLUSD pace of decline — by resolving whether the $110M decline represents redemptions, transfers, or liquidity management. This is the single most ambiguous data point in the assessment — the RLUSD decline is verified but the cause is unknown. Resolution would directly affect the discrete threat flag trajectory assessment. Within budget ($0.218 remaining, 1 slot). Expected impact score 4 (significant). The independent auditor flagged the system for hoarding budget instead of deploying it — this is the deployment that addresses the most critical unresolved question.",
-      estimated_cost_usd: 0,
-      _source: "first_call",
-    },
-  ],
-  deferred: [
-    {
-      request_id: "ACQ-002",
-      reasoning:
-        "Schwab primary source confirmation would resolve a binary question but the null hypothesis holds — this is a lower priority than RLUSD chain breakdown. The Schwab announcement does not affect the settlement thesis core; it affects the financial product thesis component. One slot remaining, allocated to ACQ-001.",
-      deferral_type: null,
-      _source: "first_call",
-      cross_cited: "ACQ-001",
-      knowledge_gap: null,
-    },
-    {
-      request_id: "ACQ-004",
-      reasoning:
-        "Zero slots remain this cycle after first-call approvals. This request directly addresses competitive displacement — whether XRPL's institutional tokenization share is near-zero or merely unreported. A consequential gap. Prioritized above ACQ-003 because competitive displacement is the inverse index whose convergence directly weakens the thesis.",
-      deferral_type: "budget_constraint",
-      _source: "retry",
-      cross_cited: "ACQ-003",
-      knowledge_gap: null,
-    },
-    {
-      request_id: "ACQ-003",
-      reasoning:
-        "Zero slots remain this cycle. BOJ/MOF intervention preparation intelligence would resolve timing on the compound stress chain's most proximate cascade trigger, but ranks below ACQ-004 because intervention dynamics affect the thesis indirectly through macro stress transmission, whereas competitive chain distribution data addresses falsification directly. Tiebreaker is proximity to a falsification threshold.",
-      deferral_type: "budget_constraint",
-      _source: "retry",
-      cross_cited: "ACQ-004",
-      knowledge_gap:
-        "The system cannot determine whether BOJ intervention success or failure would produce a larger second-order effect on institutional settlement demand than competitive displacement acceleration. It flagged this question and refused to guess.",
-    },
-  ],
-}
-
+// ── Interfaces ─────────────────────────────────────────────────────
 interface Transaction {
   id: string
   hash: string
@@ -61,67 +14,6 @@ interface Transaction {
   ts: string
   model: string
 }
-
-const rTxs: Transaction[] = [
-  {
-    id: "r1",
-    hash: "B87B0D62FE63..451E8943",
-    amt: "0.003 RLUSD",
-    vendor: "BlockRun LLM",
-    query: "RLUSD chain breakdown — redemptions vs transfers vs liquidity mgmt",
-    rid: "ACQ-001",
-    status: "confirmed",
-    ts: "Apr 17 02:24 PM",
-    model: "nvidia/gpt-oss-120b",
-  },
-  {
-    id: "r2",
-    hash: "4B30EE2A7F19..C8D4E501",
-    amt: "0.005 RLUSD",
-    vendor: "BlockRun LLM",
-    query: "SBI Holdings XRPL integration status — institutional custody pipeline",
-    rid: "ACQ-L3-04-16",
-    status: "confirmed",
-    ts: "Apr 16 09:23 PM",
-    model: "claude-sonnet-4-20250514",
-  },
-  {
-    id: "r3",
-    hash: "DA877C43B291..7F3A0E82",
-    amt: "0.003 RLUSD",
-    vendor: "BlockRun LLM",
-    query: "CBDC settlement layer competitive positioning — XRPL vs Ethereum L2s",
-    rid: "ACQ-L3-04-15",
-    status: "confirmed",
-    ts: "Apr 15 09:11 AM",
-    model: "nvidia/gpt-oss-120b",
-  },
-]
-
-const wTxs: Transaction[] = [
-  {
-    id: "w1",
-    hash: "0x7a3f8e21c4b9..d82e1f06",
-    amt: "$0.01 USDC",
-    vendor: "Chainlink CRE",
-    query: "BTC/USD price verification — oracle consensus check",
-    rid: "ACQ-CRE-001",
-    status: "confirmed",
-    ts: "Apr 17 02:15 PM",
-    model: "price-alerts",
-  },
-  {
-    id: "w2",
-    hash: "0x2b91f4a8e7c3..a04b6d19",
-    amt: "$0.01 USDC",
-    vendor: "Chainlink CRE",
-    query: "ETH/USD verified price feed — 24h VWAP cross-check",
-    rid: "ACQ-CRE-002",
-    status: "confirmed",
-    ts: "Apr 16 08:45 PM",
-    model: "price-alerts",
-  },
-]
 
 interface DrillData {
   signal: {
@@ -160,47 +52,35 @@ interface DrillData {
   }
 }
 
-const drill: Record<string, DrillData> = {
-  "ACQ-001": {
-    signal: {
-      text: "14 signals ingested. 3 new. RLUSD market cap decline of $110M flagged as high-priority anomaly. DXY at 99.74, JPN 10Y at 2.274%.",
-      anomaly: "RLUSD market cap: $110M decline in 72 hours",
-      severity: 7,
-      confidence: "LOW (0.35)",
-      signal_ids: ["SIG-006", "SIG-011", "SIG-014"],
-    },
-    gap: {
-      text: "RLUSD decline cross-referenced against 4 historical patterns. No precedent for decline of this magnitude without corresponding redemption activity.",
-      gap_identified: "Cause of $110M RLUSD decline unknown — redemptions, transfers, or liquidity management?",
-      budget: "$0.218",
-      slots: 1,
-      sac1: { id: "ACQ-002", desc: "Schwab primary source confirmation", why: "Does not affect settlement thesis core." },
-      sac2: { id: "ACQ-004", desc: "Competitive displacement quantification", why: "Zero slots remain. Deferred to next cycle." },
-    },
-    acquire: {
-      vendor: "BlockRun LLM",
-      model: "nvidia/gpt-oss-120b",
-      amt: "0.003 RLUSD",
-      chain: "XRPL Mainnet",
-      hash: "B87B0D62FE63..451E8943",
-      query: "RLUSD chain breakdown — redemptions vs transfers vs liquidity management",
-    },
-    correct: {
-      old: "The $110M RLUSD market cap decline likely represents institutional redemptions signaling loss of confidence in the stablecoin product, directly threatening the settlement thesis via reduced on-chain liquidity.",
-      new_r: "The $110M RLUSD decline is attributable to inter-wallet treasury rebalancing by a single institutional holder, not redemption activity. On-chain liquidity pools remain stable. No confidence signal detected.",
-      cid: "Correction #67 logged",
-    },
-    outcome: {
-      status: "SURVIVED",
-      impact: "Prevented false threat escalation on two active tension points. Prior reasoning would have triggered a severity upgrade to CRITICAL based on incorrect redemption assumption. Verified data de-escalated both tensions.",
-      threat: false,
-      thesis: "MAINTAINED",
-    },
-  },
+interface BudgetDeliberation {
+  cycle_allowance_usd: number
+  cycle_slots_available: number
+  approved_count: number
+  deferred_count: number
+  denied_count: number
+  approved: { request_id: string; reasoning: string; estimated_cost_usd: number; _source: string }[]
+  deferred: { request_id: string; reasoning: string; deferral_type: string | null; _source: string; cross_cited: string | null; knowledge_gap: string | null }[]
+  denied: { request_id: string; reasoning: string; _source: string }[]
+  knowledge_gaps_named_during_ranking: string[]
 }
 
-const rTel = { up: "48h 12m", last: "Apr 17 02:24 PM", acq: 13, spent: "0.041 RLUSD" }
-const wTel = { up: "48h 12m", last: "Apr 17 02:15 PM", acq: 8, spent: "$0.08 USDC" }
+interface AgentTel {
+  up: string
+  last: string
+  acq: number
+  spent: string
+}
+
+interface HubData {
+  bd: BudgetDeliberation | null
+  rTxs: Transaction[]
+  wTxs: Transaction[]
+  rTel: AgentTel
+  wTel: AgentTel
+  drill: Record<string, DrillData>
+  assessment: { thesis_status: string; confidence_in_status: string; action_recommendation: string; timestamp: string } | null
+  _generated_at: string | null
+}
 
 // ── Tactical Color Palette ──────────────────────────────────────────
 // Military-grade institutional colors - Anduril/Palantir aesthetic
@@ -489,10 +369,11 @@ function SacrificedBlock({ s }: { s: { id: string; desc: string; why: string } |
 // ── Modal ───────────────────────────────────────────────────────────
 interface ModalProps {
   tx: Transaction | null
+  drill: Record<string, DrillData>
   onClose: () => void
 }
 
-function Modal({ tx, onClose }: ModalProps) {
+function Modal({ tx, drill, onClose }: ModalProps) {
   if (!tx) return null
 
   const d: DrillData = drill[tx.rid] || {
@@ -746,7 +627,61 @@ function Modal({ tx, onClose }: ModalProps) {
 export default function AgentHub() {
   const [sel, setSel] = useState<Transaction | null>(null)
   const [modal, setModal] = useState<Transaction | null>(null)
-  const [deferredModal, setDeferredModal] = useState<typeof bd.deferred[0] | null>(null)
+  const [deferredModal, setDeferredModal] = useState<any>(null)
+  const [data, setData] = useState<HubData | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    fetch("/api/targets")
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to load payload")
+        return res.json()
+      })
+      .then((d: HubData) => {
+        setData(d)
+        setLoading(false)
+      })
+      .catch((err) => {
+        setError(err.message)
+        setLoading(false)
+      })
+  }, [])
+
+  if (loading) {
+    return (
+      <div className="h-screen flex items-center justify-center" style={{ background: C.bg }}>
+        <span className="text-[11px] tracking-[2px] font-semibold" style={{ color: C.lbl }}>LOADING PAYLOAD...</span>
+      </div>
+    )
+  }
+
+  if (error || !data) {
+    return (
+      <div className="h-screen flex items-center justify-center" style={{ background: C.bg }}>
+        <span className="text-[11px] tracking-[2px] font-semibold" style={{ color: C.coral }}>
+          {error || "NO DATA"}
+        </span>
+      </div>
+    )
+  }
+
+  const bd = data.bd || {
+    cycle_allowance_usd: 0,
+    cycle_slots_available: 0,
+    approved_count: 0,
+    deferred_count: 0,
+    denied_count: 0,
+    approved: [],
+    deferred: [],
+    denied: [],
+    knowledge_gaps_named_during_ranking: [],
+  }
+  const rTxs = data.rTxs || []
+  const wTxs = data.wTxs || []
+  const rTel = data.rTel || { up: "—", last: "—", acq: 0, spent: "0 RLUSD" }
+  const wTel = data.wTel || { up: "—", last: "—", acq: 0, spent: "$0 USDC" }
+  const drill = data.drill || {}
 
   const handleTxClick = (tx: Transaction) => {
     setSel(tx)
@@ -826,8 +761,8 @@ export default function AgentHub() {
           <Agent
             name="RESEARCH AGENT"
             chain="xrpl"
-            wallet="rPiok45Qs88..Cr9PnX5M"
-            bal="14.9868"
+            wallet="rhwEHBYeXbSpK1n6HNUjqCdjzjjBAHD5dd"
+            bal="7.057"
             asset="RLUSD"
             txs={rTxs}
             tel={rTel}
@@ -837,8 +772,8 @@ export default function AgentHub() {
           <Agent
             name="WORKFLOW AGENT"
             chain="base"
-            wallet="0x7a3f..d82e1f06"
-            bal="4.97"
+            wallet="NOT DEPLOYED"
+            bal="0.00"
             asset="USDC"
             txs={wTxs}
             tel={wTel}
@@ -932,7 +867,7 @@ export default function AgentHub() {
                   APPROVED
                 </span>
                 <span className="text-[9px] font-medium" style={{ color: C.lbl }}>
-                  {a._source.toUpperCase()}
+                  {a._source ? a._source.toUpperCase() : "—"}
                 </span>
                 <ExpandableText text={a.reasoning} max={80} />
               </div>
@@ -946,10 +881,10 @@ export default function AgentHub() {
         className="absolute bottom-3 right-5 text-[9px] tracking-[1px] font-medium"
         style={{ color: C.lbl }}
       >
-        UPTIME 48h 12m
+        UPTIME —
       </div>
 
-      <Modal tx={modal} onClose={() => { setModal(null); setSel(null); }} />
+      <Modal tx={modal} drill={drill} onClose={() => { setModal(null); setSel(null); }} />
       {deferredModal && (
         <div
           className="fixed inset-0 flex items-center justify-center z-[1000] backdrop-blur-sm"
@@ -976,7 +911,7 @@ export default function AgentHub() {
                 Acquisition request generated from pipeline analysis.
               </div>
               <DataRow label="REQUEST" value={deferredModal.request_id} />
-              <DataRow label="SOURCE" value={deferredModal._source.toUpperCase()} />
+              <DataRow label="SOURCE" value={deferredModal._source ? deferredModal._source.toUpperCase() : "—"} />
               {deferredModal.cross_cited && <DataRow label="RANKED AGAINST" value={deferredModal.cross_cited} color={C.slate} />}
             </Node>
 
