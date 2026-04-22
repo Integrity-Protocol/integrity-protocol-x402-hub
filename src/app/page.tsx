@@ -171,6 +171,14 @@ function ExpandableText({ text, max = 80 }: { text: string; max?: number }) {
   )
 }
 
+function shortId(requestId: string): string {
+  if (!requestId) return "—"
+  const parts = requestId.split("-")
+  const seq = parts[parts.length - 1]
+  const layer = parts.find(p => p === "L2" || p === "L3" || p === "L4") || ""
+  return "ACQ-" + seq
+}
+
 function StatusBlock({
   borderColor,
   label,
@@ -826,8 +834,8 @@ export default function AgentHub() {
                 }}
                 onClick={() => setDeferredModal(d)}
               >
-                <span className="text-[10px] font-semibold" style={{ color: C.val }}>
-                  {d.request_id}
+                <span className="text-[10px] font-semibold" style={{ color: C.val }} title={d.request_id}>
+                  {shortId(d.request_id)}
                 </span>
                 <span className="text-[10px] font-semibold" style={{ color: C.slate }}>
                   {d.cross_cited}
@@ -860,8 +868,8 @@ export default function AgentHub() {
                 }}
                 onClick={() => { const tx = [...rTxs, ...wTxs].find(t => t.rid === a.request_id); if (tx) { setSel(tx); setModal(tx); } }}
               >
-                <span className="text-[10px] font-bold" style={{ color: C.olive }}>
-                  {a.request_id}
+                <span className="text-[10px] font-bold" style={{ color: C.olive }} title={a.request_id}>
+                  {shortId(a.request_id)}
                 </span>
                 <span className="text-[9px] font-bold" style={{ color: C.olive }}>
                   APPROVED
