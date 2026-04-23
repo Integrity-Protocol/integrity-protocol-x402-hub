@@ -5,6 +5,7 @@ import path from 'path';
 interface Transaction {
   id: string;
   hash: string;
+  fullHash: string | null;
   amt: string;
   vendor: string;
   query: string;
@@ -36,12 +37,35 @@ interface DrillData {
     amt: string;
     chain: string;
     hash: string;
+    fullHash: string | null;
     query: string;
   };
   correct: {
     old: string | null;
     new_r: string | null;
     cid: string | null;
+    reasoning_diff: Array<{ value: string; added?: boolean; removed?: boolean }> | null;
+    corrections_hydrated: Array<{
+      id: string;
+      belief: string;
+      reality: string;
+      root_cause: string;
+      root_cause_type: string;
+      lesson: string;
+      trigger: string;
+      lesson_type: string;
+      confidence_in_lesson: string;
+      status: string;
+    }>;
+    all_matches: Array<{
+      lineage_id: string;
+      canonical_name: string;
+      signal_id: string;
+      reasoning_diff: Array<{ value: string; added?: boolean; removed?: boolean }>;
+      corrections_applied: Array<any>;
+      old_reasoning: string;
+      new_reasoning: string;
+    }>;
   };
   outcome: {
     status: string;
@@ -201,11 +225,29 @@ export async function GET() {
           fullHash: t.tx_hash || null,
           query: t.description || '—',
         },
-        correct: {
-          old: null,
-          new_r: null,
-          cid: null,
-        },
+        correct: (() => {
+          const cd = t.correct_data;
+          if (cd?.has_correction && Array.isArray(cd.matches) && cd.matches.length > 0) {
+            const match = cd.matches[0];
+            const firstCid = match.corrections_applied?.[0]?.id ?? null;
+            return {
+              old: match.old_reasoning ?? null,
+              new_r: match.new_reasoning ?? null,
+              cid: firstCid,
+              reasoning_diff: match.reasoning_diff ?? null,
+              corrections_hydrated: match.corrections_applied ?? [],
+              all_matches: cd.matches,
+            };
+          }
+          return {
+            old: null,
+            new_r: null,
+            cid: null,
+            reasoning_diff: null,
+            corrections_hydrated: [],
+            all_matches: [],
+          };
+        })(),
         outcome: {
           status: t.outcome || 'PENDING',
           impact: t.outcome_evidence || 'Awaiting pipeline integration.',

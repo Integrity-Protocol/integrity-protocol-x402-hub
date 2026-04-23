@@ -1,6 +1,833 @@
 {
   "transactions": [
     {
+      "request_id": "ACQ-L3-2026-04-22T02-50-22-674Z-003",
+      "signal_ids": [
+        "20260422-0250-SIG-001",
+        "20260422-0250-SIG-013"
+      ],
+      "requesting_layer": 3,
+      "request_type": "INTELLIGENCE_GAP",
+      "description": "What is the current operational status of the Strait of Hormuz from a maritime intelligence perspective — shipping volumes, insurance rates, transit delays?",
+      "intended_epistemic_vector": "INFORM",
+      "expected_impact_score": 4,
+      "l3_impact_on_analysis": "Would provide domain-appropriate evidence for the operational severity of Hormuz disruption, rather than inferring it from crypto-scam secondary effects (CoinDesk). Directly affects Brent trajectory assessment and compound stress chain.",
+      "l3_confidence_data_exists": "high",
+      "l3_estimated_value": "High — directly resolves the Brent trajectory uncertainty and compound stress proximity assessment",
+      "tension_id": "T-10",
+      "structural_gap_id": null,
+      "source_category": "market_data",
+      "preferred_vendor": "Lloyd's of London maritime intelligence, Marine Traffic AIS data, war risk insurance pricing",
+      "channel_id": null,
+      "disposition": "APPROVED",
+      "disposition_reasoning": "Hormuz operational status directly affects T-1 and T-10 (compound stress and oil supply risk). Compound stress is at days-level action window. Maritime intelligence would provide domain-appropriate evidence rather than inferring from crypto-scam reports. Budget: ~$0.15 estimated. IMMEDIATE urgency justified.",
+      "dispositioned_at": "2026-04-22T03:10:28.210Z",
+      "agent": "workflow-agent",
+      "chain": "base",
+      "settlement_asset": "USDC",
+      "vendor": "chainlink_cre",
+      "tx_hash": "0xef50a9f15632735b4987b86a4767164fefc541a9b0359ee42f7336d0041892d0",
+      "amount": null,
+      "response_status": "SUCCESS",
+      "response_data": {
+        "request_id": "ACQ-L3-2026-04-22T02-50-22-674Z-003",
+        "result": {
+          "status": "SUCCESS",
+          "source": "duckduckgo-instant-answer",
+          "source_category": "market_data",
+          "response": "No structured data available for this query. The acquisition request targeted: What is the current operational status of the Strait of Hormuz from a maritime intelligence perspective — shipping volumes, insurance rates, transit delays?",
+          "chars_acquired": 235,
+          "timestamp": "2026-04-23T03:57:42.005Z"
+        },
+        "settlement": {
+          "network": "base-sepolia",
+          "receiver": "0x5104E0Cc9E1c5A70ac23C13Ded8D8c73baFae022",
+          "price": "$0.01"
+        }
+      },
+      "model": null,
+      "mock": false,
+      "executed_at": "2026-04-23T03:57:42.539Z",
+      "cycle_generated_at": "2026-04-22T03:09:59.027Z",
+      "outcome": "CONFIRMED",
+      "outcome_evidence": "Tension T-10 maintained — baseline verified by acquisition",
+      "outcome_run_trace_id": "2026-04-22T02:50:22.674Z",
+      "outcome_recorded_at": "2026-04-22T03:10:28.219Z",
+      "cost_usd_actual": 0.01,
+      "payment_method": null,
+      "correct_data": {
+        "has_correction": true,
+        "matches": [
+          {
+            "lineage_id": "MACRO-OIL-BRENT",
+            "canonical_name": "Brent Crude Price Threshold",
+            "signal_id": "20260422-0250-SIG-001",
+            "reasoning_diff": [
+              {
+                "value": "Brent at $"
+              },
+              {
+                "value": "94",
+                "removed": true
+              },
+              {
+                "value": "98",
+                "added": true
+              },
+              {
+                "value": "."
+              },
+              {
+                "value": "81 is",
+                "removed": true
+              },
+              {
+                "value": "28 confirmed above",
+                "added": true
+              },
+              {
+                "value": " $"
+              },
+              {
+                "value": "0.19 below the $",
+                "removed": true
+              },
+              {
+                "value": "95 critical threshold"
+              },
+              {
+                "value": ". Per ",
+                "removed": true
+              },
+              {
+                "value": " (",
+                "added": true
+              },
+              {
+                "value": "CL-047"
+              },
+              {
+                "value": ", this",
+                "removed": true
+              },
+              {
+                "value": " verification passed). This",
+                "added": true
+              },
+              {
+                "value": " is "
+              },
+              {
+                "value": "elevated-approaching-",
+                "removed": true
+              },
+              {
+                "value": "the first genuine ",
+                "added": true
+              },
+              {
+                "value": "critical"
+              },
+              {
+                "value": ", not critical",
+                "removed": true
+              },
+              {
+                "value": "-"
+              },
+              {
+                "value": "breached",
+                "removed": true
+              },
+              {
+                "value": "level breach in the Compound Stress Matrix oil leg",
+                "added": true
+              },
+              {
+                "value": ". "
+              },
+              {
+                "value": "However",
+                "removed": true
+              },
+              {
+                "value": "Combined with USD/JPY elevated and JGB elevated",
+                "added": true
+              },
+              {
+                "value": ", "
+              },
+              {
+                "value": "severity",
+                "removed": true
+              },
+              {
+                "value": "the matrix",
+                "added": true
+              },
+              {
+                "value": " is "
+              },
+              {
+                "value": "9 because: (1) margin is functionally noise, (2) binary catalyst (ceasefire expiry) within 48 hours could push above $95, (3) previous thesis context said 'Hormuz resolved' ",
+                "removed": true
+              },
+              {
+                "value": "at "
+              },
+              {
+                "value": "$90.38 — that",
+                "removed": true
+              },
+              {
+                "value": "ELEVATED",
+                "added": true
+              },
+              {
+                "value": " status "
+              },
+              {
+                "value": "is now contradicted by active blockade rhetoric and ceasefire expiry. Trajectory is clearly toward",
+                "removed": true
+              },
+              {
+                "value": "with one",
+                "added": true
+              },
+              {
+                "value": " critical "
+              },
+              {
+                "value": "leg — creating severe pre-loading",
+                "added": true
+              },
+              {
+                "value": ". "
+              },
+              {
+                "value": "Weighted",
+                "removed": true
+              },
+              {
+                "value": "The structure needs only USD/JPY",
+                "added": true
+              },
+              {
+                "value": " to "
+              },
+              {
+                "value": "6.3 at Tier",
+                "removed": true
+              },
+              {
+                "value": "cross 160 OR JGB to cross",
+                "added": true
+              },
+              {
+                "value": " 2"
+              },
+              {
+                "value": " sourcing but compound",
+                "removed": true
+              },
+              {
+                "value": ".5% to reach full CRITICAL. Indirect to thesis: oil",
+                "added": true
+              },
+              {
+                "value": " stress "
+              },
+              {
+                "value": "implications amplify this through the matrix",
+                "removed": true
+              },
+              {
+                "value": "→ Japan import costs → trade deficit → yen pressure → BOJ constraint → Japan corridor stress",
+                "added": true
+              },
+              {
+                "value": ". "
+              },
+              {
+                "value": "The $7.90 jump from $90.38 represents significant velocity.",
+                "added": true
+              }
+            ],
+            "corrections_applied": [
+              {
+                "id": "CL-047",
+                "belief": "Layer 2 signal title 'Brent crude at $94.35 — CRITICAL threshold breached' — Layer 1 headline claimed critical breach",
+                "reality": "Layer 2 correctly identified and corrected this in the knowledge audit: $94.35 < $95 critical threshold. The title said 'CRITICAL threshold breached' but the data shows elevated, not critical. Layer 2's correction is confirmed. The signal is scored at elevated (8/10) not critical.",
+                "root_cause": "Layer 1 applied a categorical severity label that overstated the data's relationship to the threshold. The value was below the critical threshold, making the label factually incorrect. Proximity was conflated with breach.",
+                "root_cause_type": "OVERCONFIDENCE",
+                "lesson": "Proximity to a threshold is not breach of a threshold. Categorical severity labels must reflect the actual relationship between the observed value and the defined boundary.",
+                "trigger": "When any layer assigns a categorical severity label (CRITICAL, EMERGENCY, BREACHED) to a quantitative signal, verify the observed value against the threshold boundary. If not crossed, the label must reflect pre-breach state.",
+                "lesson_type": "FALSE_THREAT",
+                "confidence_in_lesson": "HIGH",
+                "status": "ACTIVE"
+              },
+              {
+                "id": "CL-035",
+                "belief": "Coordinated central bank intervention (SPR release, G7 statement) is likely if oil sustains above $100",
+                "reality": "SPECULATIVE at 3 assumptions with no supporting data. No intervention signals observed. Forward-looking prediction about central bank behavior per LZ-RC-005. Does not meet burden of proof for thesis status influence.",
+                "root_cause": "Layer 3 predicted a specific coordinated response based on historical precedent patterns without any current-cycle indicators that coordination is occurring.",
+                "root_cause_type": "APOPHENIA",
+                "lesson": "Historical precedent establishes what is possible, not what is occurring. A prediction of coordinated multi-party action requires current-cycle evidence of coordination — communications between parties, scheduling of joint meetings, pre-positioning of resources, or public signaling of intent.",
+                "trigger": "When a strategic inference predicts coordinated action among multiple parties based entirely on historical precedent without citing any current-cycle evidence that coordination is underway.",
+                "lesson_type": "FALSE_CONFIDENCE",
+                "confidence_in_lesson": "HIGH",
+                "status": "ACTIVE"
+              }
+            ],
+            "old_reasoning": "Brent at $94.81 is $0.19 below the $95 critical threshold. Per CL-047, this is elevated-approaching-critical, not critical-breached. However, severity is 9 because: (1) margin is functionally noise, (2) binary catalyst (ceasefire expiry) within 48 hours could push above $95, (3) previous thesis context said 'Hormuz resolved' at $90.38 — that status is now contradicted by active blockade rhetoric and ceasefire expiry. Trajectory is clearly toward critical. Weighted to 6.3 at Tier 2 sourcing but compound stress implications amplify this through the matrix.",
+            "new_reasoning": "Brent at $98.28 confirmed above $95 critical threshold (CL-047 verification passed). This is the first genuine critical-level breach in the Compound Stress Matrix oil leg. Combined with USD/JPY elevated and JGB elevated, the matrix is at ELEVATED status with one critical leg — creating severe pre-loading. The structure needs only USD/JPY to cross 160 OR JGB to cross 2.5% to reach full CRITICAL. Indirect to thesis: oil stress → Japan import costs → trade deficit → yen pressure → BOJ constraint → Japan corridor stress. The $7.90 jump from $90.38 represents significant velocity."
+          },
+          {
+            "lineage_id": "GEO-HORMUZ-IRAN",
+            "canonical_name": "Strait of Hormuz / Iran Conflict",
+            "signal_id": "20260422-0250-SIG-013",
+            "reasoning_diff": [
+              {
+                "value": "Verified binary event 48 hours away. Ceasefire expiry is a measurement (confirmed date), not a prediction. Trump's statements about non-extension sourced from multiple outlets.",
+                "removed": true
+              },
+              {
+                "value": "Confirms",
+                "added": true
+              },
+              {
+                "value": " Hormuz disruption is "
+              },
+              {
+                "value": "an automatic CRITICAL trigger under compound stress matrix regardless of Brent price level",
+                "removed": true
+              },
+              {
+                "value": "active and severe enough to generate secondary criminal exploitation",
+                "added": true
+              },
+              {
+                "value": ". "
+              },
+              {
+                "value": "NYSE analyst's 'fireworks' comment corroborates market awareness. ",
+                "removed": true
+              },
+              {
+                "value": "Per CL-"
+              },
+              {
+                "value": "035",
+                "removed": true
+              },
+              {
+                "value": "054",
+                "added": true
+              },
+              {
+                "value": ", "
+              },
+              {
+                "value": "specific outcomes post",
+                "removed": true
+              },
+              {
+                "value": "CoinDesk is domain",
+                "added": true
+              },
+              {
+                "value": "-"
+              },
+              {
+                "value": "expiry are predictions —",
+                "removed": true
+              },
+              {
+                "value": "appropriate for crypto extortion reporting",
+                "added": true
+              },
+              {
+                "value": " but "
+              },
+              {
+                "value": "the risk profile of the event itself is scorable",
+                "removed": true
+              },
+              {
+                "value": "not for maritime operational severity assessment",
+                "added": true
+              },
+              {
+                "value": ". "
+              },
+              {
+                "value": "This",
+                "removed": true
+              },
+              {
+                "value": "The finding that crypto",
+                "added": true
+              },
+              {
+                "value": " is "
+              },
+              {
+                "value": "the single highest-proximity macro catalyst",
+                "removed": true
+              },
+              {
+                "value": "being used",
+                "added": true
+              },
+              {
+                "value": " in "
+              },
+              {
+                "value": "the current cycle",
+                "removed": true
+              },
+              {
+                "value": "Hormuz-related extortion is novel but tangential to thesis",
+                "added": true
+              },
+              {
+                "value": ". "
+              },
+              {
+                "value": "The useful signal: Hormuz disruption continues, supporting Brent crude stress. Tier 2 source with 0.7x weighting.",
+                "added": true
+              }
+            ],
+            "corrections_applied": [
+              {
+                "id": "CL-035",
+                "belief": "Coordinated central bank intervention (SPR release, G7 statement) is likely if oil sustains above $100",
+                "reality": "SPECULATIVE at 3 assumptions with no supporting data. No intervention signals observed. Forward-looking prediction about central bank behavior per LZ-RC-005. Does not meet burden of proof for thesis status influence.",
+                "root_cause": "Layer 3 predicted a specific coordinated response based on historical precedent patterns without any current-cycle indicators that coordination is occurring.",
+                "root_cause_type": "APOPHENIA",
+                "lesson": "Historical precedent establishes what is possible, not what is occurring. A prediction of coordinated multi-party action requires current-cycle evidence of coordination — communications between parties, scheduling of joint meetings, pre-positioning of resources, or public signaling of intent.",
+                "trigger": "When a strategic inference predicts coordinated action among multiple parties based entirely on historical precedent without citing any current-cycle evidence that coordination is underway.",
+                "lesson_type": "FALSE_CONFIDENCE",
+                "confidence_in_lesson": "HIGH",
+                "status": "ACTIVE"
+              },
+              {
+                "id": "CL-054",
+                "belief": "F-35 combat vulnerability as geopolitical escalation indicator",
+                "reality": "Single Tier 2 source from non-domain commentator (crypto/legal). No independent military/defense corroboration. Per LZ-EH-004, anomalous data from non-domain source treated as potential source failure. Stripped from scoring entirely.",
+                "root_cause": "Single Tier 2 source from non-domain commentator (crypto/legal). No independent military/defense corroboration. Per LZ-EH-004, anomalous data from non-domain source treated as potential source failure. Stripped from scoring entirely.",
+                "root_cause_type": "SINGLE_SOURCE",
+                "lesson": "When a source produces analysis outside their verified domain of expertise, their claims carry no independent evidentiary weight regardless of the source's credibility within their own domain. A credible legal analyst making military assessments is functionally equivalent to an unverified source for military claims.",
+                "trigger": "When a signal cites a source whose verified expertise domain does not match the claim domain — particularly cross-domain assertions from commentators, analysts, or executives opining outside their professional scope",
+                "lesson_type": "DOMAIN_BOUNDARY",
+                "confidence_in_lesson": "HIGH",
+                "status": "ACTIVE"
+              }
+            ],
+            "old_reasoning": "Verified binary event 48 hours away. Ceasefire expiry is a measurement (confirmed date), not a prediction. Trump's statements about non-extension sourced from multiple outlets. Hormuz disruption is an automatic CRITICAL trigger under compound stress matrix regardless of Brent price level. NYSE analyst's 'fireworks' comment corroborates market awareness. Per CL-035, specific outcomes post-expiry are predictions — but the risk profile of the event itself is scorable. This is the single highest-proximity macro catalyst in the current cycle.",
+            "new_reasoning": "Confirms Hormuz disruption is active and severe enough to generate secondary criminal exploitation. Per CL-054, CoinDesk is domain-appropriate for crypto extortion reporting but not for maritime operational severity assessment. The finding that crypto is being used in Hormuz-related extortion is novel but tangential to thesis. The useful signal: Hormuz disruption continues, supporting Brent crude stress. Tier 2 source with 0.7x weighting."
+          }
+        ]
+      },
+      "verdict_cycle_timestamp": "2026-04-22T03:10:28.319Z",
+      "verdict_budget_deliberation": {
+        "cycle_allowance_usd": 0.5,
+        "cycle_slots_available": 5,
+        "approved_count": 3,
+        "approved_cost_usd": 0,
+        "deferred_count": 1,
+        "denied_count": 1,
+        "inference_budget_context": {
+          "first_call": {
+            "allowance_usd_seen": 0.5,
+            "slots_seen": 5
+          },
+          "retry": null
+        },
+        "approved": [
+          {
+            "request_id": "ACQ-L3-2026-04-22T02-50-22-674Z-002",
+            "reasoning": "XRP ETF fund reporting gap directly affects the zero-outflow finding that supports CI-2 and T-8. Low cost expected (market_data category, publicly available). The 3 non-reporting funds represent a data quality gap that could change the ETF narrative. Budget: ~$0.10 estimated.",
+            "estimated_cost_usd": 0,
+            "tension_id": "T-8",
+            "structural_gap_id": null,
+            "_source": null
+          },
+          {
+            "request_id": "ACQ-L3-2026-04-22T02-50-22-674Z-003",
+            "reasoning": "Hormuz operational status directly affects T-1 and T-10 (compound stress and oil supply risk). Compound stress is at days-level action window. Maritime intelligence would provide domain-appropriate evidence rather than inferring from crypto-scam reports. Budget: ~$0.15 estimated. IMMEDIATE urgency justified.",
+            "estimated_cost_usd": 0,
+            "tension_id": "T-10",
+            "structural_gap_id": null,
+            "_source": null
+          },
+          {
+            "request_id": "ACQ-L3-2026-04-22T02-50-22-674Z-004",
+            "reasoning": "BOJ intervention signals directly affect T-1 (compound stress). USD/JPY at 159.04, less than 1 yen from critical trigger. BOJ verbal intervention or silence at this level is decision-relevant intelligence. Budget: ~$0.10 estimated. IMMEDIATE urgency justified.",
+            "estimated_cost_usd": 0,
+            "tension_id": "T-1",
+            "structural_gap_id": null,
+            "_source": null
+          }
+        ],
+        "deferred": [
+          {
+            "request_id": "ACQ-L3-2026-04-22T02-50-22-674Z-001",
+            "reasoning": "RLUSD holder breakdown on Ethereum vs XRPL would directly resolve T-7 (infrastructure-activity divergence). High expected impact. However, the Blind Auditor flags on_chain_analytics as a repeated category (6x) and notes 60% NO_CHANGE outcome rate on prior acquisitions. Deferring this cycle to prioritize immediate compound stress intelligence. Will reassess next cycle.",
+            "deferral_type": null,
+            "_source": null,
+            "_reasoning_validation": null,
+            "_validation_fail_reason": null,
+            "knowledge_gap_named": null,
+            "cross_cited_request_ids": []
+          }
+        ],
+        "denied": [
+          {
+            "request_id": "ACQ-L3-2026-04-22T02-50-22-674Z-005",
+            "reasoning": "Independent XRPL payment volume measurement maps to SG-1 (ODL structural gap). Layer 3 estimated confidence_data_exists as LOW. The Blind Auditor flags on_chain_analytics as a repeated category (6x) and this specific tension (T-9, now SG-1) has been recycled 4x per QUESTION_RECYCLING finding. Per CL-048, no resolution path exists. Spending budget on a LOW confidence acquisition for a structural gap is not justified. The gap is real but unresolvable through available channels.",
+            "_source": null
+          }
+        ],
+        "knowledge_gaps_named_during_ranking": [],
+        "reasoning_weak_count": 0,
+        "retry_fired": false,
+        "_generated_at": "2026-04-22T03:09:03.596Z"
+      },
+      "verdict_thesis_status": "WEAKENING",
+      "verdict_confidence": "medium",
+      "verdict_action_recommendation": "REDUCE_EXPOSURE"
+    },
+    {
+      "request_id": "ACQ-L3-2026-04-22T02-50-22-674Z-002",
+      "signal_ids": [
+        "20260422-0250-SIG-010"
+      ],
+      "requesting_layer": 3,
+      "request_type": "INTELLIGENCE_GAP",
+      "description": "Why are only 4 of 7 XRP ETF funds reporting? Are the other 3 delisted, paused, or experiencing data delivery issues?",
+      "intended_epistemic_vector": "INFORM",
+      "expected_impact_score": 3,
+      "l3_impact_on_analysis": "If 3 non-reporting funds had outflows, the zero-outflow finding from reporting funds would be misleading. If they are simply delayed in reporting, the finding holds. If delisted, that's a negative signal about XRP ETF ecosystem viability.",
+      "l3_confidence_data_exists": "high",
+      "l3_estimated_value": "Medium — clarifies data completeness for a key supporting signal",
+      "tension_id": "T-8",
+      "structural_gap_id": null,
+      "source_category": "market_data",
+      "preferred_vendor": "ETF issuer filings (SEC EDGAR), Coinglass data quality inquiry, fund sponsor websites",
+      "channel_id": null,
+      "disposition": "APPROVED",
+      "disposition_reasoning": "XRP ETF fund reporting gap directly affects the zero-outflow finding that supports CI-2 and T-8. Low cost expected (market_data category, publicly available). The 3 non-reporting funds represent a data quality gap that could change the ETF narrative. Budget: ~$0.10 estimated.",
+      "dispositioned_at": "2026-04-22T03:10:28.210Z",
+      "agent": "workflow-agent",
+      "chain": "base",
+      "settlement_asset": "USDC",
+      "vendor": "chainlink_cre",
+      "tx_hash": "0x2dd6a104d9f02d3a6115b21ad9ccf2b6125b0f11a0bd4d3cc134b7f172dcb989",
+      "amount": null,
+      "response_status": "SUCCESS",
+      "response_data": {
+        "request_id": "ACQ-L3-2026-04-22T02-50-22-674Z-002",
+        "result": {
+          "status": "SUCCESS",
+          "source": "duckduckgo-instant-answer",
+          "source_category": "market_data",
+          "response": "No structured data available for this query. The acquisition request targeted: Why are only 4 of 7 XRP ETF funds reporting? Are the other 3 delisted, paused, or experiencing data delivery issues?",
+          "chars_acquired": 195,
+          "timestamp": "2026-04-23T03:57:41.207Z"
+        },
+        "settlement": {
+          "network": "base-sepolia",
+          "receiver": "0x5104E0Cc9E1c5A70ac23C13Ded8D8c73baFae022",
+          "price": "$0.01"
+        }
+      },
+      "model": null,
+      "mock": false,
+      "executed_at": "2026-04-23T03:57:41.762Z",
+      "cycle_generated_at": "2026-04-22T03:09:59.027Z",
+      "outcome": "CONFIRMED",
+      "outcome_evidence": "Tension T-8 maintained — baseline verified by acquisition",
+      "outcome_run_trace_id": "2026-04-22T02:50:22.674Z",
+      "outcome_recorded_at": "2026-04-22T03:10:28.219Z",
+      "cost_usd_actual": 0.01,
+      "payment_method": null,
+      "correct_data": {
+        "has_correction": true,
+        "matches": [
+          {
+            "lineage_id": "STRUCTURE-XRP-ETF",
+            "canonical_name": "XRP ETF AUM & Flows",
+            "signal_id": "20260422-0250-SIG-010",
+            "reasoning_diff": [
+              {
+                "value": "XRP ETF ",
+                "added": true
+              },
+              {
+                "value": "AUM $1."
+              },
+              {
+                "value": "187B",
+                "removed": true
+              },
+              {
+                "value": "19B",
+                "added": true
+              },
+              {
+                "value": " with "
+              },
+              {
+                "value": "$3M",
+                "removed": true
+              },
+              {
+                "value": "positive",
+                "added": true
+              },
+              {
+                "value": " daily "
+              },
+              {
+                "value": "inflow and",
+                "removed": true
+              },
+              {
+                "value": "flows (+$3.0M,",
+                "added": true
+              },
+              {
+                "value": " zero "
+              },
+              {
+                "value": "outflows",
+                "removed": true
+              },
+              {
+                "value": "outflow) during a day when BTC ETFs saw -$27",
+                "added": true
+              },
+              {
+                "value": "."
+              },
+              {
+                "value": " Direction",
+                "removed": true
+              },
+              {
+                "value": "5M net outflow. Weekly flows +$48.7M. This flow divergence during macro stress",
+                "added": true
+              },
+              {
+                "value": " is "
+              },
+              {
+                "value": "unambiguously positive",
+                "removed": true
+              },
+              {
+                "value": "notable — institutional demand for XRP exposure appears resilient",
+                "added": true
+              },
+              {
+                "value": ". "
+              },
+              {
+                "value": "However,",
+                "removed": true
+              },
+              {
+                "value": "At 24% of",
+                "added": true
+              },
+              {
+                "value": " $"
+              },
+              {
+                "value": "57M/week pace requires ~67 weeks to reach $",
+                "removed": true
+              },
+              {
+                "value": "5B target "
+              },
+              {
+                "value": "— past EOY 2026 deadline. Per LZ-EH-005",
+                "removed": true
+              },
+              {
+                "value": "with 8 months remaining",
+                "added": true
+              },
+              {
+                "value": ", "
+              },
+              {
+                "value": "the contradiction between positive direction and insufficient pace is the finding",
+                "removed": true
+              },
+              {
+                "value": "mathematical path exists but requires acceleration",
+                "added": true
+              },
+              {
+                "value": ". "
+              },
+              {
+                "value": "Only ",
+                "removed": true
+              },
+              {
+                "value": "4 "
+              },
+              {
+                "value": "of 7 ETFs",
+                "removed": true
+              },
+              {
+                "value": "funds",
+                "added": true
+              },
+              {
+                "value": " reporting "
+              },
+              {
+                "value": "creates a",
+                "removed": true
+              },
+              {
+                "value": "vs 7 previously —",
+                "added": true
+              },
+              {
+                "value": " data "
+              },
+              {
+                "value": "completeness ",
+                "removed": true
+              },
+              {
+                "value": "gap "
+              },
+              {
+                "value": "on missing funds",
+                "added": true
+              },
+              {
+                "value": ". Per CL-002, "
+              },
+              {
+                "value": "no sell-the-news pattern detected. The contradictory classification is preserved as the honest output. 24% of target",
+                "removed": true
+              },
+              {
+                "value": "XRP ETFs are new launches",
+                "added": true
+              },
+              {
+                "value": " with "
+              },
+              {
+                "value": "~8 months remaining requires significant acceleration",
+                "removed": true
+              },
+              {
+                "value": "fundamentally different flow dynamics than GBTC conversions",
+                "added": true
+              },
+              {
+                "value": "."
+              }
+            ],
+            "corrections_applied": [
+              {
+                "id": "CL-002",
+                "belief": "ETF Approval Is a Sell-the-News Liquidity Exit — Layer 3 correctly rejected this but Layer 1 scored it at 7/10 pre-audit",
+                "reality": "The GBTC comparison is structurally invalid (conversion vs. new launch). Available data ($1.4B positive cumulative inflows) directly contradicts the exit narrative. XRP positive during extreme fear is inconsistent with sell-the-news.",
+                "root_cause": "System applied a historical analogy (GBTC conversion outflows) to a structurally different product launch (new spot ETF). Analogical reasoning without verifying structural equivalence.",
+                "root_cause_type": "CONTRADICTED_BY_DATA",
+                "lesson": "Historical analogies require structural equivalence before they carry evidentiary weight. GBTC was a conversion; XRP ETFs are new launches — the outflow pattern does not transfer.",
+                "trigger": "Any threat inference built on historical analogy, especially involving ETF flow comparisons, product launch precedents, or 'last time X happened, Y followed' reasoning.",
+                "lesson_type": "FALSE_THREAT",
+                "confidence_in_lesson": "HIGH",
+                "status": "ACTIVE"
+              }
+            ],
+            "old_reasoning": "AUM $1.187B with $3M daily inflow and zero outflows. Direction is unambiguously positive. However, $57M/week pace requires ~67 weeks to reach $5B target — past EOY 2026 deadline. Per LZ-EH-005, the contradiction between positive direction and insufficient pace is the finding. Only 4 of 7 ETFs reporting creates a data completeness gap. Per CL-002, no sell-the-news pattern detected. The contradictory classification is preserved as the honest output. 24% of target with ~8 months remaining requires significant acceleration.",
+            "new_reasoning": "XRP ETF AUM $1.19B with positive daily flows (+$3.0M, zero outflow) during a day when BTC ETFs saw -$27.5M net outflow. Weekly flows +$48.7M. This flow divergence during macro stress is notable — institutional demand for XRP exposure appears resilient. At 24% of $5B target with 8 months remaining, mathematical path exists but requires acceleration. 4 funds reporting vs 7 previously — data gap on missing funds. Per CL-002, XRP ETFs are new launches with fundamentally different flow dynamics than GBTC conversions."
+          }
+        ]
+      },
+      "verdict_cycle_timestamp": "2026-04-22T03:10:28.319Z",
+      "verdict_budget_deliberation": {
+        "cycle_allowance_usd": 0.5,
+        "cycle_slots_available": 5,
+        "approved_count": 3,
+        "approved_cost_usd": 0,
+        "deferred_count": 1,
+        "denied_count": 1,
+        "inference_budget_context": {
+          "first_call": {
+            "allowance_usd_seen": 0.5,
+            "slots_seen": 5
+          },
+          "retry": null
+        },
+        "approved": [
+          {
+            "request_id": "ACQ-L3-2026-04-22T02-50-22-674Z-002",
+            "reasoning": "XRP ETF fund reporting gap directly affects the zero-outflow finding that supports CI-2 and T-8. Low cost expected (market_data category, publicly available). The 3 non-reporting funds represent a data quality gap that could change the ETF narrative. Budget: ~$0.10 estimated.",
+            "estimated_cost_usd": 0,
+            "tension_id": "T-8",
+            "structural_gap_id": null,
+            "_source": null
+          },
+          {
+            "request_id": "ACQ-L3-2026-04-22T02-50-22-674Z-003",
+            "reasoning": "Hormuz operational status directly affects T-1 and T-10 (compound stress and oil supply risk). Compound stress is at days-level action window. Maritime intelligence would provide domain-appropriate evidence rather than inferring from crypto-scam reports. Budget: ~$0.15 estimated. IMMEDIATE urgency justified.",
+            "estimated_cost_usd": 0,
+            "tension_id": "T-10",
+            "structural_gap_id": null,
+            "_source": null
+          },
+          {
+            "request_id": "ACQ-L3-2026-04-22T02-50-22-674Z-004",
+            "reasoning": "BOJ intervention signals directly affect T-1 (compound stress). USD/JPY at 159.04, less than 1 yen from critical trigger. BOJ verbal intervention or silence at this level is decision-relevant intelligence. Budget: ~$0.10 estimated. IMMEDIATE urgency justified.",
+            "estimated_cost_usd": 0,
+            "tension_id": "T-1",
+            "structural_gap_id": null,
+            "_source": null
+          }
+        ],
+        "deferred": [
+          {
+            "request_id": "ACQ-L3-2026-04-22T02-50-22-674Z-001",
+            "reasoning": "RLUSD holder breakdown on Ethereum vs XRPL would directly resolve T-7 (infrastructure-activity divergence). High expected impact. However, the Blind Auditor flags on_chain_analytics as a repeated category (6x) and notes 60% NO_CHANGE outcome rate on prior acquisitions. Deferring this cycle to prioritize immediate compound stress intelligence. Will reassess next cycle.",
+            "deferral_type": null,
+            "_source": null,
+            "_reasoning_validation": null,
+            "_validation_fail_reason": null,
+            "knowledge_gap_named": null,
+            "cross_cited_request_ids": []
+          }
+        ],
+        "denied": [
+          {
+            "request_id": "ACQ-L3-2026-04-22T02-50-22-674Z-005",
+            "reasoning": "Independent XRPL payment volume measurement maps to SG-1 (ODL structural gap). Layer 3 estimated confidence_data_exists as LOW. The Blind Auditor flags on_chain_analytics as a repeated category (6x) and this specific tension (T-9, now SG-1) has been recycled 4x per QUESTION_RECYCLING finding. Per CL-048, no resolution path exists. Spending budget on a LOW confidence acquisition for a structural gap is not justified. The gap is real but unresolvable through available channels.",
+            "_source": null
+          }
+        ],
+        "knowledge_gaps_named_during_ranking": [],
+        "reasoning_weak_count": 0,
+        "retry_fired": false,
+        "_generated_at": "2026-04-22T03:09:03.596Z"
+      },
+      "verdict_thesis_status": "WEAKENING",
+      "verdict_confidence": "medium",
+      "verdict_action_recommendation": "REDUCE_EXPOSURE"
+    },
+    {
       "request_id": "ACQ-L3-2026-04-22T02-50-22-674Z-004",
       "signal_ids": [
         "20260422-0250-SIG-002",
@@ -18,7 +845,7 @@
       "structural_gap_id": null,
       "source_category": "regulatory_intelligence",
       "preferred_vendor": "BOJ official communications, Ministry of Finance press conferences, Japanese financial press (Nikkei, Reuters Japan)",
-      "channel_id": "blockrun-xrpl",
+      "channel_id": null,
       "disposition": "APPROVED",
       "disposition_reasoning": "BOJ intervention signals directly affect T-1 (compound stress). USD/JPY at 159.04, less than 1 yen from critical trigger. BOJ verbal intervention or silence at this level is decision-relevant intelligence. Budget: ~$0.10 estimated. IMMEDIATE urgency justified.",
       "dispositioned_at": "2026-04-22T03:10:28.210Z",
@@ -26,7 +853,7 @@
       "chain": "xrpl",
       "settlement_asset": "RLUSD",
       "vendor": "blockrun_llm",
-      "tx_hash": null,
+      "tx_hash": "E82F661E13CD4606C885F14749D1A39417798EC7864034D6AA943C90B04844BB",
       "amount": null,
       "response_status": "SUCCESS",
       "response_data": "# BOJ Recent Actions - Last 48 Hours\n\nI don't have real-time data access, so I cannot confirm specific events from the past 48 hours. My knowledge was last updated in April 2024.\n\n## To find current BOJ signals, check:\n\n**Official sources:**\n- BOJ website (boj.or.jp) - press releases & statements\n- Official BOJ social media channels\n- Reuters/Bloomberg terminals (institutional access)\n\n**Recent context (as of my last update):**\n- The BOJ has been gradually normalizing policy after years of YCC\n- Any emergency meetings or verbal interventions are typically announced immediately through official channels\n- Currency intervention statements (if yen-related) often come from MOF/BOJ jointly\n\n## What to monitor:\n- Official BOJ Governor statements\n- Unscheduled press conferences\n- Emergency policy board meetings\n- MOF-BOJ joint communications (for FX intervention)\n- Major economic data releases that might trigger responses\n\n**For live updates:** Set up alerts on Bloomberg, Reuters, or follow the BOJ's official English press release feed directly.\n\nWould you like guidance on where to find this information for today specifically, or context on BOJ's recent policy trajectory?",
@@ -40,6 +867,448 @@
       "outcome_recorded_at": "2026-04-22T03:10:28.219Z",
       "cost_usd_actual": 0.01,
       "payment_method": null,
+      "correct_data": {
+        "has_correction": true,
+        "matches": [
+          {
+            "lineage_id": "MACRO-JAPAN-STRESS",
+            "canonical_name": "Japan Stress / BOJ / JGB Yields",
+            "signal_id": "20260422-0250-SIG-002",
+            "reasoning_diff": [
+              {
+                "value": "FinanceFlow data verified: ",
+                "removed": true
+              },
+              {
+                "value": "JGB 10Y at 2."
+              },
+              {
+                "value": "387",
+                "removed": true
+              },
+              {
+                "value": "403",
+                "added": true
+              },
+              {
+                "value": "%"
+              },
+              {
+                "value": ", confirmed above 2",
+                "added": true
+              },
+              {
+                "value": "."
+              },
+              {
+                "value": " This leg has crossed from normal to",
+                "removed": true
+              },
+              {
+                "value": "3%",
+                "added": true
+              },
+              {
+                "value": " elevated "
+              },
+              {
+                "value": "since last assessment (was",
+                "removed": true
+              },
+              {
+                "value": "threshold, 10bps from",
+                "added": true
+              },
+              {
+                "value": " 2."
+              },
+              {
+                "value": "24",
+                "removed": true
+              },
+              {
+                "value": "5",
+                "added": true
+              },
+              {
+                "value": "%"
+              },
+              {
+                "value": ", now",
+                "removed": true
+              },
+              {
+                "value": " critical. Velocity: +16bps from",
+                "added": true
+              },
+              {
+                "value": " 2."
+              },
+              {
+                "value": "387",
+                "removed": true
+              },
+              {
+                "value": "24",
+                "added": true
+              },
+              {
+                "value": "%"
+              },
+              {
+                "value": ")",
+                "removed": true
+              },
+              {
+                "value": ". "
+              },
+              {
+                "value": "The 14",
+                "removed": true
+              },
+              {
+                "value": "In Japan's tightly managed yield environment, this move compresses BOJ policy space",
+                "added": true
+              },
+              {
+                "value": "."
+              },
+              {
+                "value": "7bps increase is the largest",
+                "removed": true
+              },
+              {
+                "value": " The proximity to critical means a small further",
+                "added": true
+              },
+              {
+                "value": " move "
+              },
+              {
+                "value": "observed in this",
+                "removed": true
+              },
+              {
+                "value": "triggers the second critical",
+                "added": true
+              },
+              {
+                "value": " leg "
+              },
+              {
+                "value": "in the compound matrix",
+                "added": true
+              },
+              {
+                "value": ". "
+              },
+              {
+                "value": "Track record: 26 appearances, 85% survival rate, -0.06 drift.",
+                "removed": true
+              },
+              {
+                "value": "Per",
+                "added": true
+              },
+              {
+                "value": " CL-057"
+              },
+              {
+                "value": " applied:",
+                "removed": true
+              },
+              {
+                "value": ", this is",
+                "added": true
+              },
+              {
+                "value": " environmental "
+              },
+              {
+                "value": "data",
+                "removed": true
+              },
+              {
+                "value": "pressure on Japan",
+                "added": true
+              },
+              {
+                "value": ", not "
+              },
+              {
+                "value": "adoption ",
+                "removed": true
+              },
+              {
+                "value": "evidence "
+              },
+              {
+                "value": "of Japanese institutional XRPL adoption behavior",
+                "added": true
+              },
+              {
+                "value": "."
+              },
+              {
+                "value": " The significance is primarily in the compound context — this is the third leg crossing elevated, completing the all-elevated configuration for the first time.",
+                "removed": true
+              }
+            ],
+            "corrections_applied": [
+              {
+                "id": "CL-057",
+                "belief": "BOJ policy signals scored as DECLINING Japan adoption component in CI-4",
+                "reality": "Layer 2 scored macro stress on Japan (USD/JPY, JGB) as a DECLINING component of the Japan/Asia Adoption Index (CI-4-C). Per CL-050, macro stress on Japan is environmental pressure, not evidence of declining adoption of XRPL by Japanese institutions. The macro data is about what is happening TO Japan, not about what Japanese institutions are DOING regarding XRPL adoption. These are fundamentally different evidentiary categories.",
+                "root_cause": "Layer 2 scored macro stress on Japan (USD/JPY, JGB) as a DECLINING component of the Japan/Asia Adoption Index (CI-4-C). Per CL-050, macro stress on Japan is environmental pressure, not evidence of declining adoption of XRPL by Japanese institutions. The macro data is about what is happening TO Japan, not about what Japanese institutions are DOING regarding XRPL adoption. These are fundamentally different evidentiary categories.",
+                "root_cause_type": "APOPHENIA",
+                "lesson": "Environmental conditions acting on a population are not evidence of that population's behavior. Macro stress indicators measure what is happening TO an economy or sector, not what institutions WITHIN that economy are choosing to do. These are distinct evidentiary categories that must not be conflated when scoring adoption or behavioral indices.",
+                "trigger": "When macro or environmental data (currency stress, interest rates, trade conditions) is scored as evidence of institutional adoption, integration, or behavioral decisions within a compound index component",
+                "lesson_type": "CATEGORY_CONFUSION",
+                "confidence_in_lesson": "HIGH",
+                "status": "ACTIVE"
+              },
+              {
+                "id": "CL-050",
+                "belief": "SBI silence during USD/JPY stress indicates focus shifted to core business stability over XRPL expansion — Japanese institutions in 'defensive mode'",
+                "reality": "Absence of SBI signals cannot be interpreted as evidence of defensive positioning per LZ-RC-003. The macro stress on Japan is verified data; the behavioral inference about SBI is built on absence of evidence. There could be multiple explanations for SBI silence this cycle (timing, internal focus, no newsworthy activity, etc.). Inferring 'defensive mode' from silence is apophenia.",
+                "root_cause": "Layer 3 interpreted the absence of communications or observable actions from a specific entity during a stress period as evidence of that entity's internal state or strategic posture. The system selected the most narratively consistent explanation for the silence and presented it as an inference.",
+                "root_cause_type": "APOPHENIA",
+                "lesson": "Silence from an entity is informationally empty. The absence of signals cannot support any specific behavioral inference. Multiple equally valid explanations exist for any absence, and selecting among them without evidence is pattern-matching on noise. Absence is a data gap to be declared, not evidence to be interpreted.",
+                "trigger": "When any inference attributes a specific behavioral state, strategic posture, or organizational decision to an entity based on the absence of that entity's communications, actions, or data output.",
+                "lesson_type": "FALSE_CONFIDENCE",
+                "confidence_in_lesson": "HIGH",
+                "status": "ACTIVE"
+              }
+            ],
+            "old_reasoning": "FinanceFlow data verified: JGB 10Y at 2.387%. This leg has crossed from normal to elevated since last assessment (was 2.24%, now 2.387%). The 14.7bps increase is the largest move observed in this leg. Track record: 26 appearances, 85% survival rate, -0.06 drift. CL-057 applied: environmental data, not adoption evidence. The significance is primarily in the compound context — this is the third leg crossing elevated, completing the all-elevated configuration for the first time.",
+            "new_reasoning": "JGB 10Y at 2.403%, confirmed above 2.3% elevated threshold, 10bps from 2.5% critical. Velocity: +16bps from 2.24%. In Japan's tightly managed yield environment, this move compresses BOJ policy space. The proximity to critical means a small further move triggers the second critical leg in the compound matrix. Per CL-057, this is environmental pressure on Japan, not evidence of Japanese institutional XRPL adoption behavior."
+          },
+          {
+            "lineage_id": "MACRO-USDJPY",
+            "canonical_name": "USD/JPY Exchange Rate",
+            "signal_id": "20260422-0250-SIG-003",
+            "reasoning_diff": [
+              {
+                "value": "USD/JPY at "
+              },
+              {
+                "value": "158",
+                "removed": true
+              },
+              {
+                "value": "159",
+                "added": true
+              },
+              {
+                "value": "."
+              },
+              {
+                "value": "91 is deep in the elevated zone",
+                "removed": true
+              },
+              {
+                "value": "04",
+                "added": true
+              },
+              {
+                "value": " ("
+              },
+              {
+                "value": ">157",
+                "removed": true
+              },
+              {
+                "value": "data from 2026-04-21, one day stale",
+                "added": true
+              },
+              {
+                "value": "), "
+              },
+              {
+                "value": "above 157 elevated threshold, <",
+                "added": true
+              },
+              {
+                "value": "1"
+              },
+              {
+                "value": ".09",
+                "removed": true
+              },
+              {
+                "value": " yen",
+                "added": true
+              },
+              {
+                "value": " from "
+              },
+              {
+                "value": "critical (",
+                "removed": true
+              },
+              {
+                "value": "160"
+              },
+              {
+                "value": ")",
+                "removed": true
+              },
+              {
+                "value": " critical",
+                "added": true
+              },
+              {
+                "value": ". "
+              },
+              {
+                "value": "Notable: prior thesis context reading was 159",
+                "removed": true
+              },
+              {
+                "value": "Move of +1",
+                "added": true
+              },
+              {
+                "value": "."
+              },
+              {
+                "value": "13, so current 158",
+                "removed": true
+              },
+              {
+                "value": "6 yen from 157",
+                "added": true
+              },
+              {
+                "value": "."
+              },
+              {
+                "value": "91 is marginally improved (not deteriorating)",
+                "removed": true
+              },
+              {
+                "value": "45",
+                "added": true
+              },
+              {
+                "value": ". "
+              },
+              {
+                "value": "Combined with JGB 10Y",
+                "removed": true
+              },
+              {
+                "value": "BOJ intervention risk increases",
+                "added": true
+              },
+              {
+                "value": " at "
+              },
+              {
+                "value": "2",
+                "removed": true
+              },
+              {
+                "value": "these levels",
+                "added": true
+              },
+              {
+                "value": "."
+              },
+              {
+                "value": "386% (above 2",
+                "removed": true
+              },
+              {
+                "value": " Confidence reduced to MEDIUM due to one-day data lag on a volatile pair",
+                "added": true
+              },
+              {
+                "value": "."
+              },
+              {
+                "value": "3% elevated), two of three stress matrix legs are simultaneously elevated — meeting the ELEVATED compound stress definition.",
+                "removed": true
+              },
+              {
+                "value": " Per CL-"
+              },
+              {
+                "value": "057",
+                "removed": true
+              },
+              {
+                "value": "050",
+                "added": true
+              },
+              {
+                "value": ", "
+              },
+              {
+                "value": "this is macro stress",
+                "removed": true
+              },
+              {
+                "value": "the absence of BOJ commentary in our",
+                "added": true
+              },
+              {
+                "value": " data "
+              },
+              {
+                "value": "routed to compound stress matrix,",
+                "removed": true
+              },
+              {
+                "value": "is",
+                "added": true
+              },
+              {
+                "value": " not "
+              },
+              {
+                "value": "Japan adoption scoring",
+                "removed": true
+              },
+              {
+                "value": "evidence of any BOJ posture",
+                "added": true
+              },
+              {
+                "value": "."
+              }
+            ],
+            "corrections_applied": [
+              {
+                "id": "CL-057",
+                "belief": "BOJ policy signals scored as DECLINING Japan adoption component in CI-4",
+                "reality": "Layer 2 scored macro stress on Japan (USD/JPY, JGB) as a DECLINING component of the Japan/Asia Adoption Index (CI-4-C). Per CL-050, macro stress on Japan is environmental pressure, not evidence of declining adoption of XRPL by Japanese institutions. The macro data is about what is happening TO Japan, not about what Japanese institutions are DOING regarding XRPL adoption. These are fundamentally different evidentiary categories.",
+                "root_cause": "Layer 2 scored macro stress on Japan (USD/JPY, JGB) as a DECLINING component of the Japan/Asia Adoption Index (CI-4-C). Per CL-050, macro stress on Japan is environmental pressure, not evidence of declining adoption of XRPL by Japanese institutions. The macro data is about what is happening TO Japan, not about what Japanese institutions are DOING regarding XRPL adoption. These are fundamentally different evidentiary categories.",
+                "root_cause_type": "APOPHENIA",
+                "lesson": "Environmental conditions acting on a population are not evidence of that population's behavior. Macro stress indicators measure what is happening TO an economy or sector, not what institutions WITHIN that economy are choosing to do. These are distinct evidentiary categories that must not be conflated when scoring adoption or behavioral indices.",
+                "trigger": "When macro or environmental data (currency stress, interest rates, trade conditions) is scored as evidence of institutional adoption, integration, or behavioral decisions within a compound index component",
+                "lesson_type": "CATEGORY_CONFUSION",
+                "confidence_in_lesson": "HIGH",
+                "status": "ACTIVE"
+              },
+              {
+                "id": "CL-050",
+                "belief": "SBI silence during USD/JPY stress indicates focus shifted to core business stability over XRPL expansion — Japanese institutions in 'defensive mode'",
+                "reality": "Absence of SBI signals cannot be interpreted as evidence of defensive positioning per LZ-RC-003. The macro stress on Japan is verified data; the behavioral inference about SBI is built on absence of evidence. There could be multiple explanations for SBI silence this cycle (timing, internal focus, no newsworthy activity, etc.). Inferring 'defensive mode' from silence is apophenia.",
+                "root_cause": "Layer 3 interpreted the absence of communications or observable actions from a specific entity during a stress period as evidence of that entity's internal state or strategic posture. The system selected the most narratively consistent explanation for the silence and presented it as an inference.",
+                "root_cause_type": "APOPHENIA",
+                "lesson": "Silence from an entity is informationally empty. The absence of signals cannot support any specific behavioral inference. Multiple equally valid explanations exist for any absence, and selecting among them without evidence is pattern-matching on noise. Absence is a data gap to be declared, not evidence to be interpreted.",
+                "trigger": "When any inference attributes a specific behavioral state, strategic posture, or organizational decision to an entity based on the absence of that entity's communications, actions, or data output.",
+                "lesson_type": "FALSE_CONFIDENCE",
+                "confidence_in_lesson": "HIGH",
+                "status": "ACTIVE"
+              }
+            ],
+            "old_reasoning": "USD/JPY at 158.91 is deep in the elevated zone (>157), 1.09 from critical (160). Notable: prior thesis context reading was 159.13, so current 158.91 is marginally improved (not deteriorating). Combined with JGB 10Y at 2.386% (above 2.3% elevated), two of three stress matrix legs are simultaneously elevated — meeting the ELEVATED compound stress definition. Per CL-057, this is macro stress data routed to compound stress matrix, not Japan adoption scoring.",
+            "new_reasoning": "USD/JPY at 159.04 (data from 2026-04-21, one day stale), above 157 elevated threshold, <1 yen from 160 critical. Move of +1.6 yen from 157.45. BOJ intervention risk increases at these levels. Confidence reduced to MEDIUM due to one-day data lag on a volatile pair. Per CL-050, the absence of BOJ commentary in our data is not evidence of any BOJ posture."
+          }
+        ]
+      },
       "verdict_cycle_timestamp": "2026-04-22T03:10:28.319Z",
       "verdict_budget_deliberation": {
         "cycle_allowance_usd": 0.5,
@@ -135,7 +1404,7 @@
       "chain": "xrpl",
       "settlement_asset": "RLUSD",
       "vendor": "blockrun_llm",
-      "tx_hash": null,
+      "tx_hash": "6556BED860C7DEEF2E7422795DF1BB1EAB351CC58357DA11EA8C18F79CA2A961",
       "amount": null,
       "response_status": "SUCCESS",
       "response_data": "# Banking Lobby and the Clarity Act\n\nI don't have reliable information about specific text provisions the banking lobby is currently targeting in a \"Clarity Act\" related to municipal bonds or securities regulation.\n\nTo give you accurate details, I'd need to know:\n\n- **Which Clarity Act** you're referencing (there have been multiple bills with this name addressing different sectors)\n- **The current legislative session** and bill number\n- **Whether this concerns municipal bonds, securities registration, or another banking matter**\n\n## What I'd recommend:\n\n1. **Check current sources:**\n   - Congress.gov for the specific bill text\n   - Recent statements from groups like the American Bankers Association or Securities Industry and Financial Markets Association (SIFMA)\n   - Trade publications covering financial regulation\n\n2. **For yield restriction specifics**, look for:\n   - Comparative language between current law and proposed changes\n   - Technical explanations from the bill sponsors\n   - Comment letters filed during markup\n\nIf you can share more details about which specific Clarity Act version you're asking about, I can help you think through where to find this information or discuss the general mechanics of how yield restrictions typically work in securities law.",
@@ -149,6 +1418,10 @@
       "outcome_recorded_at": "2026-04-19T04:44:43.061Z",
       "cost_usd_actual": 0.01,
       "payment_method": null,
+      "correct_data": {
+        "has_correction": false,
+        "matches": []
+      },
       "verdict_cycle_timestamp": "2026-04-19T04:44:43.158Z",
       "verdict_budget_deliberation": {
         "cycle_allowance_usd": null,
@@ -238,55 +1511,47 @@
     }
   ],
   "summary": {
-    "total": 2,
+    "total": 4,
     "by_agent": {
       "research": 2,
-      "workflow": 0
+      "workflow": 2
     },
     "by_outcome": {
-      "CONFIRMED": 1,
+      "CONFIRMED": 3,
       "NO_CHANGE": 1
     },
     "by_chain": {
       "xrpl": 2,
-      "base": 0
+      "base": 2
     }
   },
-  "_generated_at": "2026-04-22T05:13:26.132Z",
+  "_generated_at": "2026-04-23T16:46:57.031Z",
   "latest_budget_deliberation": {
-    "cycle_allowance_usd": 0.5,
-    "cycle_slots_available": 5,
-    "approved_count": 3,
+    "cycle_allowance_usd": 0.499,
+    "cycle_slots_available": 4,
+    "approved_count": 2,
     "approved_cost_usd": 0,
-    "deferred_count": 1,
-    "denied_count": 1,
+    "deferred_count": 3,
+    "denied_count": 0,
     "inference_budget_context": {
       "first_call": {
-        "allowance_usd_seen": 0.5,
-        "slots_seen": 5
+        "allowance_usd_seen": 0.499,
+        "slots_seen": 4
       },
       "retry": null
     },
     "approved": [
       {
-        "request_id": "ACQ-L3-2026-04-22T02-50-22-674Z-002",
-        "reasoning": "XRP ETF fund reporting gap directly affects the zero-outflow finding that supports CI-2 and T-8. Low cost expected (market_data category, publicly available). The 3 non-reporting funds represent a data quality gap that could change the ETF narrative. Budget: ~$0.10 estimated.",
-        "estimated_cost_usd": 0,
-        "tension_id": "T-8",
-        "structural_gap_id": null,
-        "_source": null
-      },
-      {
-        "request_id": "ACQ-L3-2026-04-22T02-50-22-674Z-003",
-        "reasoning": "Hormuz operational status directly affects T-1 and T-10 (compound stress and oil supply risk). Compound stress is at days-level action window. Maritime intelligence would provide domain-appropriate evidence rather than inferring from crypto-scam reports. Budget: ~$0.15 estimated. IMMEDIATE urgency justified.",
+        "request_id": "ACQ-L3-2026-04-23T14-06-20-560Z-002",
+        "reasoning": "Hormuz shipping transit patterns directly resolve the rhetoric-vs-operational gap on Trump's statement and inform compound stress assessment (T-1, T-10). Expected impact score 5. IMMEDIATE urgency. Geopolitical_analysis category has not been flagged for repetition. The gap between Trump's rhetoric and operational reality is the single highest-impact unresolved question for compound stress. This acquisition could determine whether Brent at $103 is fear-driven or operationally driven — the difference matters for cascade proximity.",
         "estimated_cost_usd": 0,
         "tension_id": "T-10",
         "structural_gap_id": null,
         "_source": null
       },
       {
-        "request_id": "ACQ-L3-2026-04-22T02-50-22-674Z-004",
-        "reasoning": "BOJ intervention signals directly affect T-1 (compound stress). USD/JPY at 159.04, less than 1 yen from critical trigger. BOJ verbal intervention or silence at this level is decision-relevant intelligence. Budget: ~$0.10 estimated. IMMEDIATE urgency justified.",
+        "request_id": "ACQ-L3-2026-04-23T14-06-20-560Z-004",
+        "reasoning": "BOJ/MOF verbal warnings at USD/JPY 159+ directly inform compound stress catalyst proximity (T-1). IMMEDIATE urgency. Verbal warnings historically precede intervention by days to weeks. Presence or absence of warnings at current levels would materially inform the operator action window. This is the second highest-impact acquisition for compound stress assessment.",
         "estimated_cost_usd": 0,
         "tension_id": "T-1",
         "structural_gap_id": null,
@@ -295,8 +1560,28 @@
     ],
     "deferred": [
       {
-        "request_id": "ACQ-L3-2026-04-22T02-50-22-674Z-001",
-        "reasoning": "RLUSD holder breakdown on Ethereum vs XRPL would directly resolve T-7 (infrastructure-activity divergence). High expected impact. However, the Blind Auditor flags on_chain_analytics as a repeated category (6x) and notes 60% NO_CHANGE outcome rate on prior acquisitions. Deferring this cycle to prioritize immediate compound stress intelligence. Will reassess next cycle.",
+        "request_id": "ACQ-L3-2026-04-23T14-06-20-560Z-001",
+        "reasoning": "RLUSD chain-level distribution data would resolve SG-3 and inform T-4. However, the Blind Auditor flagged on_chain_analytics as a repeated purchase category (6x) and INQUIRY_SCOPE_CREEP with 60% NO_CHANGE outcomes. Similar acquisitions have not moved the assessment historically. Deferring in favor of higher-impact immediate requests this cycle. Will reassess if RLUSD decline continues next cycle.",
+        "deferral_type": null,
+        "_source": null,
+        "_reasoning_validation": null,
+        "_validation_fail_reason": null,
+        "knowledge_gap_named": null,
+        "cross_cited_request_ids": []
+      },
+      {
+        "request_id": "ACQ-L3-2026-04-23T14-06-20-560Z-003",
+        "reasoning": "ETF fund count discrepancy (7→4) is worth investigating but impact score 3 is lower priority than Hormuz and BOJ signals. Market_data category flagged for repetition (4x). ETF flows are positive regardless of fund count — the anomaly affects completeness but not direction. Defer to next cycle.",
+        "deferral_type": null,
+        "_source": null,
+        "_reasoning_validation": null,
+        "_validation_fail_reason": null,
+        "knowledge_gap_named": null,
+        "cross_cited_request_ids": []
+      },
+      {
+        "request_id": "ACQ-L3-2026-04-23T14-06-20-560Z-005",
+        "reasoning": "PermDEX institutional wallet activity would directly inform the PermDEX kill switch (now escalated to WARNING). On_chain_analytics category flagged for repetition (6x) by Blind Auditor. However, this is a different sub-target than previous on_chain_analytics acquisitions (PermDEX-specific, not RLUSD-specific). Deferring due to budget constraint — two IMMEDIATE acquisitions approved this cycle take priority. This should be first priority next cycle.",
         "deferral_type": null,
         "_source": null,
         "_reasoning_validation": null,
@@ -305,22 +1590,16 @@
         "cross_cited_request_ids": []
       }
     ],
-    "denied": [
-      {
-        "request_id": "ACQ-L3-2026-04-22T02-50-22-674Z-005",
-        "reasoning": "Independent XRPL payment volume measurement maps to SG-1 (ODL structural gap). Layer 3 estimated confidence_data_exists as LOW. The Blind Auditor flags on_chain_analytics as a repeated category (6x) and this specific tension (T-9, now SG-1) has been recycled 4x per QUESTION_RECYCLING finding. Per CL-048, no resolution path exists. Spending budget on a LOW confidence acquisition for a structural gap is not justified. The gap is real but unresolvable through available channels.",
-        "_source": null
-      }
-    ],
+    "denied": [],
     "knowledge_gaps_named_during_ranking": [],
     "reasoning_weak_count": 0,
     "retry_fired": false,
-    "_generated_at": "2026-04-22T03:09:03.596Z"
+    "_generated_at": "2026-04-23T14:24:03.873Z"
   },
   "latest_assessment": {
     "thesis_status": "WEAKENING",
     "confidence_in_status": "medium",
     "action_recommendation": "REDUCE_EXPOSURE",
-    "timestamp": "2026-04-22T03:10:28.319Z"
+    "timestamp": "2026-04-23T14:26:41.307Z"
   }
 }

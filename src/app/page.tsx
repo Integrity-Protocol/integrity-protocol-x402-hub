@@ -45,6 +45,18 @@ interface DrillData {
     old: string | null
     new_r: string | null
     cid: string | null
+    reasoning_diff: Array<{ value: string; added?: boolean; removed?: boolean }> | null
+    corrections_hydrated: Array<{
+      id: string
+      belief: string
+      reality: string
+      root_cause: string
+      lesson: string
+      trigger: string
+      lesson_type: string
+      status: string
+    }>
+    all_matches: Array<any>
   }
   outcome: {
     status: string
@@ -384,6 +396,8 @@ interface ModalProps {
 }
 
 function Modal({ tx, drill, onClose }: ModalProps) {
+  const [expandedCorrections, setExpandedCorrections] = useState<Record<string, boolean>>({})
+
   if (!tx) return null
 
   const d: DrillData = drill[tx.rid] || {
@@ -410,7 +424,7 @@ function Modal({ tx, drill, onClose }: ModalProps) {
       fullHash: tx.fullHash,
       query: tx.query,
     },
-    correct: { old: null, new_r: null, cid: null },
+    correct: { old: null, new_r: null, cid: null, reasoning_diff: null, corrections_hydrated: [], all_matches: [] },
     outcome: {
       status: "CONFIRMED",
       impact: "Acquired data integrated into next pipeline cycle.",
@@ -570,13 +584,67 @@ function Modal({ tx, drill, onClose }: ModalProps) {
                   {d.correct.new_r}
                 </div>
               </StatusBlock>
-              {d.correct.cid && (
-                <StatusBlock borderColor={C.lavender} label="CORRECTION LOGGED">
+              {d.correct.corrections_hydrated && d.correct.corrections_hydrated.length > 0 ? (
+                d.correct.corrections_hydrated.map((c) => (
+                  <StatusBlock key={c.id} borderColor={C.lavender} label={`CORRECTION APPLIED — ${c.id}`}>
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        setExpandedCorrections((prev) => ({ ...prev, [c.id]: !prev[c.id] }))
+                      }}
+                      className="text-[10px] font-semibold tracking-wider cursor-pointer"
+                      style={{ color: C.lavender }}
+                    >
+                      {expandedCorrections[c.id] ? "[−] DETAILS" : "[+] DETAILS"}
+                    </button>
+                    {expandedCorrections[c.id] && (
+                      <div className="mt-2 space-y-1.5">
+                        <div>
+                          <div className="text-[9px] font-semibold tracking-wider mb-0.5" style={{ color: C.lbl }}>
+                            BELIEF
+                          </div>
+                          <div className="text-[11px] leading-relaxed font-medium" style={{ color: C.val }}>
+                            {c.belief}
+                          </div>
+                        </div>
+                        <div>
+                          <div className="text-[9px] font-semibold tracking-wider mb-0.5" style={{ color: C.lbl }}>
+                            REALITY
+                          </div>
+                          <div className="text-[11px] leading-relaxed font-medium" style={{ color: C.val }}>
+                            {c.reality}
+                          </div>
+                        </div>
+                        <div>
+                          <div className="text-[9px] font-semibold tracking-wider mb-0.5" style={{ color: C.lbl }}>
+                            LESSON
+                          </div>
+                          <div className="text-[11px] leading-relaxed font-medium" style={{ color: C.val }}>
+                            {c.lesson}
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                    <a
+                      href={`https://integrity-protocol.github.io/Overwatch-Terminal/flight-recorder.html?chain_id=${c.id.replace(/\D/g, "")}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block mt-2 text-[11px] font-semibold cursor-pointer"
+                      style={{ color: C.lavender, textDecoration: "underline", textDecorationColor: C.section }}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      VIEW FULL CORRECTION CHAIN →
+                    </a>
+                  </StatusBlock>
+                ))
+              ) : d.correct.cid ? (
+                <StatusBlock borderColor={C.lavender} label={`CORRECTION APPLIED — ${d.correct.cid}`}>
                   <a href={`https://integrity-protocol.github.io/Overwatch-Terminal/flight-recorder.html?chain_id=${d.correct.cid.replace(/\D/g, "")}`} target="_blank" rel="noopener noreferrer" className="text-[11px] font-semibold cursor-pointer" style={{ color: C.lavender, textDecoration: "underline", textDecorationColor: C.section }} onClick={(e) => e.stopPropagation()}>
-                    {d.correct.cid} →
+                    VIEW FULL CORRECTION CHAIN →
                   </a>
                 </StatusBlock>
-              )}
+              ) : null}
             </div>
           ) : (
             <div className="text-[11px] italic font-medium" style={{ color: C.lbl }}>
