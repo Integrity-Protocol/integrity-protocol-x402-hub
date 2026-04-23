@@ -707,7 +707,7 @@ function Modal({ tx, drill, onClose }: ModalProps) {
           </StatusBlock>
         </Node>
         <div className="mt-4 pt-3 flex justify-end" style={{ borderTop: `1px solid ${C.section}` }}>
-          <a href={`https://integrity-protocol.github.io/Overwatch-Terminal/trace.html?request_id=${tx.rid}`} target="_blank" rel="noopener noreferrer" className="text-[10px] font-semibold tracking-[1px] cursor-pointer" style={{ color: C.slate, textDecoration: "underline", textDecorationColor: C.section }} onClick={(e) => e.stopPropagation()}>
+          <a href={`https://integrity-protocol.github.io/Overwatch-Terminal/trace.html?signal_id=${d.signal.signal_ids && d.signal.signal_ids.length > 0 ? d.signal.signal_ids[0] : ''}`} target="_blank" rel="noopener noreferrer" className="text-[10px] font-semibold tracking-[1px] cursor-pointer" style={{ color: C.slate, textDecoration: "underline", textDecorationColor: C.section }} onClick={(e) => e.stopPropagation()}>
             VIEW FULL COGNITIVE TRACE →
           </a>
         </div>
