@@ -654,6 +654,20 @@ export default function AgentHub() {
   const [modal, setModal] = useState<Transaction | null>(null)
   const [deferredModal, setDeferredModal] = useState<any>(null)
   const [deniedModal, setDeniedModal] = useState<any>(null)
+
+    const [wBal, setWBal] = useState<string>("—")
+
+    useEffect(() => {
+      const fetchBal = () => {
+        fetch("/api/balance")
+          .then((r) => r.json())
+          .then((d) => { if (d.balance) setWBal(d.balance) })
+          .catch(() => {})
+      }
+      fetchBal()
+      const iv = setInterval(fetchBal, 30000)
+      return () => clearInterval(iv)
+    }, [])
   const [data, setData] = useState<HubData | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -798,8 +812,8 @@ export default function AgentHub() {
           <Agent
             name="WORKFLOW AGENT"
             chain="base"
-            wallet="NOT DEPLOYED"
-            bal="0.00"
+            wallet="0x5104E0Cc9E1c5A70ac23C13Ded8D8c73baFae022"
+            bal={wBal}
             asset="USDC"
             txs={wTxs}
             tel={wTel}
