@@ -134,6 +134,7 @@ export async function GET() {
       const shaped: Transaction = {
         id: t.request_id || '',
         hash: truncateHash(t.tx_hash),
+        fullHash: t.tx_hash || null,
         amt: formatAmount(t),
         vendor: t.vendor || '—',
         query: t.description || '—',
@@ -197,6 +198,7 @@ export async function GET() {
           amt: formatAmount(t),
           chain: t.chain === 'xrpl' ? 'XRPL Mainnet' : t.chain === 'base' ? 'Base Mainnet' : '—',
           hash: truncateHash(t.tx_hash),
+          fullHash: t.tx_hash || null,
           query: t.description || '—',
         },
         correct: {

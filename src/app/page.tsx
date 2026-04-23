@@ -6,6 +6,7 @@ import { useState, useEffect } from "react"
 interface Transaction {
   id: string
   hash: string
+  fullHash: string | null
   amt: string
   vendor: string
   query: string
@@ -37,6 +38,7 @@ interface DrillData {
     amt: string
     chain: string
     hash: string
+    fullHash: string | null
     query: string
   }
   correct: {
@@ -405,6 +407,7 @@ function Modal({ tx, drill, onClose }: ModalProps) {
       amt: tx.amt,
       chain: tx.hash?.startsWith("0x") ? "Base Mainnet" : "XRPL Mainnet",
       hash: tx.hash,
+      fullHash: tx.fullHash,
       query: tx.query,
     },
     correct: { old: null, new_r: null, cid: null },
@@ -512,7 +515,21 @@ function Modal({ tx, drill, onClose }: ModalProps) {
             <DataRow label="AMOUNT" value={d.acquire.amt} color={C.olive} />
             <DataRow label="CHAIN" value={d.acquire.chain} />
             <DataRow label="MODEL" value={d.acquire.model} />
-            <DataRow label="TX HASH" value={d.acquire.hash} color={C.slate} />
+            {d.acquire.fullHash ? (
+              <a
+                href={d.acquire.fullHash.startsWith("0x")
+                  ? `https://sepolia.basescan.org/tx/${d.acquire.fullHash}`
+                  : `https://bithomp.com/explorer/${d.acquire.fullHash}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="block"
+              >
+                <DataRow label="TX HASH" value={d.acquire.hash} color="#60a5fa" />
+              </a>
+            ) : (
+              <DataRow label="TX HASH" value="PENDING" color={C.slate} />
+            )}
             <div className="py-1.5">
               <span className="text-[10px] tracking-[0.5px] font-semibold" style={{ color: C.lbl }}>
                 QUERY
@@ -636,6 +653,7 @@ export default function AgentHub() {
   const [sel, setSel] = useState<Transaction | null>(null)
   const [modal, setModal] = useState<Transaction | null>(null)
   const [deferredModal, setDeferredModal] = useState<any>(null)
+  const [deniedModal, setDeniedModal] = useState<any>(null)
   const [data, setData] = useState<HubData | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -824,6 +842,28 @@ export default function AgentHub() {
 
           {/* Deferred & Approved Rows */}
           <div className="flex-1 min-h-0" style={{ overflowY: "auto" }}>
+            {bd.denied.map((n: any) => (
+              <div
+                key={n.request_id}
+                className="grid gap-1.5 py-1 items-start cursor-pointer"
+                style={{
+                  gridTemplateColumns: "55px 55px 75px 1fr",
+                  borderBottom: `1px solid ${C.row}`,
+                }}
+                onClick={() => setDeniedModal(n)}
+              >
+                <span className="text-[10px] font-bold" style={{ color: C.coral }} title={n.request_id}>
+                  {shortId(n.request_id)}
+                </span>
+                <span className="text-[9px] font-bold" style={{ color: C.coral }}>
+                  DENIED
+                </span>
+                <span className="text-[9px] font-medium" style={{ color: C.lbl }}>
+                  {n._source ? n._source.toUpperCase() : "—"}
+                </span>
+                <ExpandableText text={n.reasoning} max={80} />
+              </div>
+            ))}
             {bd.deferred.map((d) => (
               <div
                 key={d.request_id}
@@ -958,6 +998,52 @@ export default function AgentHub() {
           </div>
         </div>
       )}
+        {deniedModal && (
+          <div
+            className="fixed inset-0 flex items-center justify-center z-[1000] backdrop-blur-sm"
+            style={{ background: "rgba(0,0,0,0.85)" }}
+            onClick={() => setDeniedModal(null)}
+          >
+            <div
+              className="rounded-[4px] w-[94%] max-w-[740px] max-h-[90vh] overflow-y-auto p-5"
+              style={{ background: C.bg, border: `1px solid ${C.wire}` }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex justify-between items-center mb-4 pb-3" style={{ borderBottom: `1px solid ${C.section}` }}>
+                <div>
+                  <div className="text-[9px] tracking-[2px] mb-1 font-semibold" style={{ color: C.coral }}>DENIED REQUEST</div>
+                  <span className="text-[11px] font-bold tracking-[1.5px]" style={{ color: C.hi }}>
+                    Acquisition Request #{deniedModal.request_id.replace(/\D/g, "")}
+                  </span>
+                </div>
+                <button onClick={() => setDeniedModal(null)} className="border rounded-[4px] px-3 py-1 cursor-pointer text-[10px] font-medium" style={{ background: "none", borderColor: C.section, color: C.lbl }}>ESC</button>
+              </div>
+
+              <Node label="SIGNAL" color={C.lbl} icon={<span style={{ color: C.lbl }}>◇</span>}>
+                <div className="text-xs leading-relaxed mb-2 font-medium" style={{ color: C.val }}>
+                  Acquisition request generated from pipeline analysis.
+                </div>
+                <DataRow label="REQUEST" value={deniedModal.request_id} />
+                <DataRow label="SOURCE" value={deniedModal._source ? deniedModal._source.toUpperCase() : "—"} />
+              </Node>
+
+              <Node label="DENIED" color={C.coral} icon={<span style={{ color: C.coral, fontWeight: 700 }}>✕</span>}>
+                <StatusBlock borderColor={C.coral} label="DENIED — THE SYSTEM REFUSED TO SPEND">
+                  <div className="text-xs leading-relaxed font-medium" style={{ color: C.val }}>
+                    {deniedModal.reasoning}
+                  </div>
+                </StatusBlock>
+              </Node>
+
+              <Node label="STATUS" color={C.lbl} icon={<span style={{ color: C.lbl }}>○</span>} last>
+                <StatusBlock borderColor={C.lbl} label="TERMINAL — NO ACQUISITION WILL BE MADE">
+                  <DataRow label="STATUS" value="DENIED" color={C.coral} />
+                  <DataRow label="DISPOSITION" value="REJECTED BY LAYER 4" color={C.coral} />
+                </StatusBlock>
+              </Node>
+            </div>
+          </div>
+        )}
     </div>
   )
 }
