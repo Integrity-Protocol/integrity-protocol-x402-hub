@@ -673,7 +673,7 @@ function Modal({ tx, drill, onClose }: ModalProps) {
             </div>
           ) : (
             <div className="text-[11px] italic font-medium" style={{ color: C.lbl }}>
-              Awaiting pipeline integration.
+              Acquisition confirmed existing assessment. No reasoning change detected.
             </div>
           )}
         </Node>
