@@ -132,13 +132,14 @@ export async function GET() {
       approved_count: budgetDelib.approved_count ?? 0,
       deferred_count: budgetDelib.deferred_count ?? 0,
       denied_count: budgetDelib.denied_count ?? 0,
-      approved: (budgetDelib.approved || []).map((a: any) => ({
+      approved: (budgetDelib.approved || []).map((a: any, aIndex: number) => ({
         request_id: a.request_id,
         reasoning: a.reasoning || '',
         estimated_cost_usd: a.estimated_cost_usd ?? 0,
         _source: a._source || 'first_call',
+        rank: aIndex + 1,
       })),
-      deferred: (budgetDelib.deferred || []).map((d: any) => ({
+      deferred: (budgetDelib.deferred || []).map((d: any, dIndex: number) => ({
         request_id: d.request_id,
         reasoning: d.reasoning || '',
         deferral_type: d.deferral_type || null,
@@ -147,11 +148,13 @@ export async function GET() {
           ? d.cross_cited_request_ids[0]
           : null,
         knowledge_gap: d.knowledge_gap_named || null,
+        rank: dIndex + 1 + (budgetDelib.approved || []).length,
       })),
       denied: (budgetDelib.denied || []).map((n: any) => ({
         request_id: n.request_id,
         reasoning: n.reasoning || '',
         _source: n._source || 'first_call',
+        rank: null,
       })),
       knowledge_gaps_named_during_ranking: budgetDelib.knowledge_gaps_named_during_ranking || [],
     } : null;

@@ -78,9 +78,9 @@ interface BudgetDeliberation {
   approved_count: number
   deferred_count: number
   denied_count: number
-  approved: { request_id: string; reasoning: string; estimated_cost_usd: number; _source: string }[]
-  deferred: { request_id: string; reasoning: string; deferral_type: string | null; _source: string; cross_cited: string | null; knowledge_gap: string | null }[]
-  denied: { request_id: string; reasoning: string; _source: string }[]
+  approved: { request_id: string; reasoning: string; estimated_cost_usd: number; _source: string; rank: number | null }[]
+  deferred: { request_id: string; reasoning: string; deferral_type: string | null; _source: string; cross_cited: string | null; knowledge_gap: string | null; rank: number | null }[]
+  denied: { request_id: string; reasoning: string; _source: string; rank: number | null }[]
   knowledge_gaps_named_during_ranking: string[]
 }
 
@@ -950,7 +950,7 @@ export default function AgentHub() {
                   {shortId(n.request_id)}
                 </span>
                 <span className="text-[9px] font-bold" style={{ color: C.coral }}>
-                  DENIED
+                  {n.rank ?? "—"}
                 </span>
                 <span className="text-[9px] font-medium" style={{ color: C.lbl }}>
                   {n._source ? n._source.toUpperCase() : "—"}
@@ -972,7 +972,7 @@ export default function AgentHub() {
                   {shortId(d.request_id)}
                 </span>
                 <span className="text-[10px] font-semibold" style={{ color: C.slate }}>
-                  {d.cross_cited}
+                  {d.rank ?? "—"}
                 </span>
                 <span
                   className="text-[8px] font-bold tracking-[0.3px]"
@@ -1006,7 +1006,7 @@ export default function AgentHub() {
                   {shortId(a.request_id)}
                 </span>
                 <span className="text-[9px] font-bold" style={{ color: C.olive }}>
-                  APPROVED
+                  {a.rank ?? "—"}
                 </span>
                 <span className="text-[9px] font-medium" style={{ color: C.lbl }}>
                   {a._source ? a._source.toUpperCase() : "—"}
