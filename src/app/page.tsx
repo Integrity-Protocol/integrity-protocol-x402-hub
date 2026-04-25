@@ -259,7 +259,7 @@ function Agent({ name, chain, wallet, bal, asset, txs, tel, onTx, sel }: AgentPr
             border: `1px solid ${C.badgeOlive}`,
           }}
         >
-          {chain === "xrpl" ? "XRPL MAINNET" : "BASE MAINNET"}
+          {chain === "xrpl" ? "XRPL MAINNET" : "BASE SEPOLIA"}
         </span>
       </div>
 
