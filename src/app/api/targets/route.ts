@@ -148,11 +148,17 @@ export async function GET() {
           ? d.cross_cited_request_ids[0]
           : null,
         knowledge_gap: d.knowledge_gap_named || null,
+        description: d.description || null,
+        signal_ids: d.signal_ids || [],
+        signal_descriptions: d.signal_descriptions || [],
         rank: dIndex + 1 + (budgetDelib.approved || []).length,
       })),
       denied: (budgetDelib.denied || []).map((n: any) => ({
         request_id: n.request_id,
         reasoning: n.reasoning || '',
+        description: n.description || null,
+        signal_ids: n.signal_ids || [],
+        signal_descriptions: n.signal_descriptions || [],
         _source: n._source || 'first_call',
         rank: null,
       })),

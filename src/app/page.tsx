@@ -79,8 +79,8 @@ interface BudgetDeliberation {
   deferred_count: number
   denied_count: number
   approved: { request_id: string; reasoning: string; estimated_cost_usd: number; _source: string; rank: number | null }[]
-  deferred: { request_id: string; reasoning: string; deferral_type: string | null; _source: string; cross_cited: string | null; knowledge_gap: string | null; rank: number | null }[]
-  denied: { request_id: string; reasoning: string; _source: string; rank: number | null }[]
+  deferred: { request_id: string; reasoning: string; deferral_type: string | null; _source: string; cross_cited: string | null; knowledge_gap: string | null; rank: number | null; description: string | null; signal_ids: string[]; signal_descriptions: Array<{ lineage_id: string; canonical_name: string; signal_id: string; l1_evidence: string | null }> }[]
+  denied: { request_id: string; reasoning: string; _source: string; rank: number | null; description: string | null; signal_ids: string[]; signal_descriptions: Array<{ lineage_id: string; canonical_name: string; signal_id: string; l1_evidence: string | null }> }[]
   knowledge_gaps_named_during_ranking: string[]
 }
 
@@ -1062,9 +1062,19 @@ export default function AgentHub() {
             </div>
 
             <Node label="SIGNAL" color={C.lbl} icon={<span style={{ color: C.lbl }}>◇</span>}>
-              <div className="text-xs leading-relaxed mb-2 font-medium" style={{ color: C.val }}>
-                Acquisition request generated from pipeline analysis.
-              </div>
+              {deferredModal.signal_descriptions && deferredModal.signal_descriptions.length > 0 ? (
+                deferredModal.signal_descriptions.map((sd: { lineage_id: string; canonical_name: string; signal_id: string; l1_evidence: string | null }) => (
+                  <StatusBlock key={sd.lineage_id} borderColor={C.lbl} label={sd.canonical_name.toUpperCase()}>
+                    <div className="text-xs leading-relaxed font-medium" style={{ color: C.val }}>
+                      <ExpandableText text={sd.l1_evidence || ''} max={150} />
+                    </div>
+                  </StatusBlock>
+                ))
+              ) : (
+                <div className="text-xs leading-relaxed mb-2 font-medium" style={{ color: C.val }}>
+                  {deferredModal.description || 'Acquisition request generated from pipeline analysis.'}
+                </div>
+              )}
               <DataRow label="REQUEST" value={deferredModal.request_id} />
               <DataRow label="SOURCE" value={deferredModal._source ? deferredModal._source.toUpperCase() : "—"} />
               {deferredModal.cross_cited && <DataRow label="RANKED AGAINST" value={deferredModal.cross_cited} color={C.slate} />}
@@ -1127,9 +1137,19 @@ export default function AgentHub() {
               </div>
 
               <Node label="SIGNAL" color={C.lbl} icon={<span style={{ color: C.lbl }}>◇</span>}>
-                <div className="text-xs leading-relaxed mb-2 font-medium" style={{ color: C.val }}>
-                  Acquisition request generated from pipeline analysis.
-                </div>
+                {deniedModal.signal_descriptions && deniedModal.signal_descriptions.length > 0 ? (
+                  deniedModal.signal_descriptions.map((sd: { lineage_id: string; canonical_name: string; signal_id: string; l1_evidence: string | null }) => (
+                    <StatusBlock key={sd.lineage_id} borderColor={C.lbl} label={sd.canonical_name.toUpperCase()}>
+                      <div className="text-xs leading-relaxed font-medium" style={{ color: C.val }}>
+                        <ExpandableText text={sd.l1_evidence || ''} max={150} />
+                      </div>
+                    </StatusBlock>
+                  ))
+                ) : (
+                  <div className="text-xs leading-relaxed mb-2 font-medium" style={{ color: C.val }}>
+                    {deniedModal.description || 'Acquisition request generated from pipeline analysis.'}
+                  </div>
+                )}
                 <DataRow label="REQUEST" value={deniedModal.request_id} />
                 <DataRow label="SOURCE" value={deniedModal._source ? deniedModal._source.toUpperCase() : "—"} />
               </Node>
