@@ -22,6 +22,12 @@ interface DrillData {
     severity: number;
     confidence: string;
     signal_ids?: string[];
+    signal_descriptions?: Array<{
+      lineage_id: string;
+      canonical_name: string;
+      signal_id: string;
+      l1_evidence: string | null;
+    }>;
   };
   gap: {
     text: string;
@@ -200,13 +206,16 @@ export async function GET() {
 
       drill[rid] = {
         signal: {
-          text: t.signal_ids && t.signal_ids.length > 0
-            ? `${t.signal_ids.length} signals linked to this acquisition request.`
-            : 'Signal data ingested.',
+          text: t.signal_descriptions && t.signal_descriptions.length > 0
+            ? t.signal_descriptions.map((s: { canonical_name: string }) => s.canonical_name).join(' / ')
+            : (t.signal_ids && t.signal_ids.length > 0
+              ? `${t.signal_ids.length} signals linked to this acquisition request.`
+              : 'Signal data ingested.'),
           anomaly: t.description || 'Anomaly detected',
           severity: t.expected_impact_score || 5,
           confidence: t.l3_confidence_data_exists || 'MEDIUM',
           signal_ids: t.signal_ids || [],
+          signal_descriptions: t.signal_descriptions || [],
         },
         gap: {
           text: t.l3_impact_on_analysis || 'Knowledge gap identified.',

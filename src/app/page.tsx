@@ -23,6 +23,12 @@ interface DrillData {
     severity: number
     confidence: string
     signal_ids?: string[]
+    signal_descriptions?: Array<{
+      lineage_id: string
+      canonical_name: string
+      signal_id: string
+      l1_evidence: string | null
+    }>
   }
   gap: {
     text: string
@@ -481,7 +487,13 @@ function Modal({ tx, drill, onClose }: ModalProps) {
           <div className="text-xs leading-relaxed mb-2 font-medium" style={{ color: C.val }}>
             {d.signal.text}
           </div>
-          <DataRow label="ANOMALY" value={d.signal.anomaly} color={C.amber} />
+          {d.signal.signal_descriptions && d.signal.signal_descriptions.length > 0 && d.signal.signal_descriptions.map((sd) => (
+            <StatusBlock key={sd.lineage_id} borderColor={C.lbl} label={sd.canonical_name.toUpperCase()}>
+              <div className="text-xs leading-relaxed font-medium" style={{ color: C.val }}>
+                <ExpandableText text={sd.l1_evidence || ''} max={150} />
+              </div>
+            </StatusBlock>
+          ))}
           <DataRow label="SEVERITY" value={`${d.signal.severity}/10`} />
           <DataRow label="CONFIDENCE" value={d.signal.confidence} />
           {d.signal.signal_ids && d.signal.signal_ids.length > 0 && (
