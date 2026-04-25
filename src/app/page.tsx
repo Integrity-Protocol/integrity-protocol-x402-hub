@@ -264,7 +264,20 @@ function Agent({ name, chain, wallet, bal, asset, txs, tel, onTx, sel }: AgentPr
       </div>
 
       {/* Stats */}
-      <DataRow label="AGENT ADDRESS" value={wallet} color={C.slate} />
+      <div className="flex justify-between items-center py-1.5" style={{ borderBottom: `1px solid ${C.row}` }}>
+        <span className="text-[10px] tracking-[0.5px] font-medium" style={{ color: C.lbl }}>
+          AGENT ADDRESS
+        </span>
+        <a
+          href={chain === "xrpl" ? `https://bithomp.com/explorer/${wallet}` : `https://sepolia.basescan.org/address/${wallet}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-xs font-semibold"
+          style={{ color: C.slate, textDecoration: "underline" }}
+        >
+          {wallet}
+        </a>
+      </div>
       <DataRow label="BALANCE" value={`${bal} ${asset}`} color={C.olive} />
       <DataRow label="PAYMENTS SENT" value={tel.acq} />
       <DataRow label="TOTAL SPENT" value={tel.spent} color={C.olive} />
