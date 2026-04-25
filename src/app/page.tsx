@@ -928,7 +928,7 @@ export default function AgentHub() {
               TRIAGE LEDGER
             </span>
             <span className="text-[9px] tracking-[1px] font-semibold" style={{ color: C.lbl }}>
-              {bd.deferred.length} DEFERRED
+              {bd.approved.length} APPROVED · {bd.deferred.length} DEFERRED · {bd.denied.length} DENIED
             </span>
           </div>
 
