@@ -106,8 +106,8 @@ interface HubData {
 // Military-grade institutional colors - Anduril/Palantir aesthetic
 const C = {
   bg: "#0a0f1a",
-  wire: "rgba(255,179,71,0.12)", // amber/gold wire border
-  tint: "rgba(255,179,71,0.02)", // subtle amber tint
+  wire: "#2a3a55", // amber/gold wire border
+  tint: "#141e2e", // subtle amber tint
   row: "rgba(26,39,64,0.35)", // barely visible row dividers
   section: "#1a2740",
 
