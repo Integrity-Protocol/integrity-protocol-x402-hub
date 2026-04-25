@@ -6,6 +6,20 @@
         "20260422-0250-SIG-001",
         "20260422-0250-SIG-013"
       ],
+      "signal_descriptions": [
+        {
+          "lineage_id": "MACRO-OIL-BRENT",
+          "canonical_name": "Brent Crude Price Threshold",
+          "signal_id": "20260422-0250-SIG-001",
+          "l1_evidence": "Brent $98.28 (financeflow 2026-04-22), USD/JPY 159.04 (2026-04-21), JGB 10Y 2.403% (2026-04-22). Matrix definition: two of three at critical = CRITICAL status. | Brent at $98.28 — above the $95 CRITICAL threshold defined in the Compound Stress Matrix. Previous read was $90.38. This is the first confirmed breach of the oil critical line. Combined with USD/JPY 159.04 (elevated, 1 point from critical) and JGB 10Y 2.403% (above 2.3% elevated threshold), the matrix now has all three legs in elevated-to-critical range simultaneously."
+        },
+        {
+          "lineage_id": "GEO-HORMUZ-IRAN",
+          "canonical_name": "Strait of Hormuz / Iran Conflict",
+          "signal_id": "20260422-0250-SIG-013",
+          "l1_evidence": "CoinDesk report (2026-04-22): Scammers demanding BTC/USDT for Strait of Hormuz passage; vessel fired upon. | Scammers posing as Iranian authorities demanding BTC or USDT for 'safe passage' through Strait of Hormuz. At least one vessel believed conned and subsequently fired upon. Indicates operational disruption severity has reached levels generating secondary criminal exploitation. Hormuz situation remains active and dangerous."
+        }
+      ],
       "requesting_layer": 3,
       "request_type": "INTELLIGENCE_GAP",
       "description": "What is the current operational status of the Strait of Hormuz from a maritime intelligence perspective — shipping volumes, insurance rates, transit delays?",
@@ -503,6 +517,14 @@
       "signal_ids": [
         "20260422-0250-SIG-010"
       ],
+      "signal_descriptions": [
+        {
+          "lineage_id": "STRUCTURE-XRP-ETF",
+          "canonical_name": "XRP ETF AUM & Flows",
+          "signal_id": "20260422-0250-SIG-010",
+          "l1_evidence": "ETF data (2026-04-21): AUM $1.19B, daily net flow +$3.0M, weekly net flow +$48.7M. GXRP +$2.2M, XRPZ +$777K. | XRP ETF AUM at $1.19B. Daily net inflow $3.0M (all inflow, zero outflow). Weekly net flow $48.7M positive. Only 4 funds reporting (down from 7 previously noted). GXRP and XRPZ showing daily inflows. 24% of $5B target achieved. Flows remain positive despite stressed macro environment."
+        }
+      ],
       "requesting_layer": 3,
       "request_type": "INTELLIGENCE_GAP",
       "description": "Why are only 4 of 7 XRP ETF funds reporting? Are the other 3 delisted, paused, or experiencing data delivery issues?",
@@ -832,6 +854,20 @@
       "signal_ids": [
         "20260422-0250-SIG-002",
         "20260422-0250-SIG-003"
+      ],
+      "signal_descriptions": [
+        {
+          "lineage_id": "MACRO-JAPAN-STRESS",
+          "canonical_name": "Japan Stress / BOJ / JGB Yields",
+          "signal_id": "20260422-0250-SIG-002",
+          "l1_evidence": "JGB 10Y 2.403% (financeflow 2026-04-22). Previous thesis context: 2.24%. Elevated threshold: 2.3%. Critical threshold: 2.5%. | Japanese 10-year government bond yield at 2.403%, above the 2.3% elevated threshold and approaching the 2.5% critical threshold. Previous context noted 2.24%. This is a ~16bps increase, compressing BOJ policy space. The 2.5% critical line is now only ~10bps away."
+        },
+        {
+          "lineage_id": "MACRO-USDJPY",
+          "canonical_name": "USD/JPY Exchange Rate",
+          "signal_id": "20260422-0250-SIG-003",
+          "l1_evidence": "USD/JPY 159.04 (frankfurter 2026-04-21). Previous: 157.45. Critical threshold: 160. | USD/JPY at 159.04, above the 157 elevated threshold and less than 1 yen from the 160 critical threshold. Previous reading was 157.45. Yen weakness is accelerating. BOJ intervention risk increases at these levels."
+        }
       ],
       "requesting_layer": 3,
       "request_type": "INTELLIGENCE_GAP",
@@ -1384,6 +1420,7 @@
         "20260419-0424-SIG-004",
         "20260419-0424-SIG-013"
       ],
+      "signal_descriptions": [],
       "requesting_layer": 3,
       "request_type": "INTELLIGENCE_GAP",
       "description": "What specific text provisions is the banking lobby targeting in the Clarity Act? What would the yield restrictions look like for non-bank issuers?",
@@ -1525,65 +1562,58 @@
       "base": 2
     }
   },
-  "_generated_at": "2026-04-23T16:46:57.031Z",
+  "_generated_at": "2026-04-25T05:03:24.463Z",
   "latest_budget_deliberation": {
-    "cycle_allowance_usd": 0.499,
-    "cycle_slots_available": 4,
+    "cycle_allowance_usd": 0.5,
+    "cycle_slots_available": 5,
     "approved_count": 2,
-    "approved_cost_usd": 0,
-    "deferred_count": 3,
+    "approved_cost_usd": 0.03,
+    "deferred_count": 2,
     "denied_count": 0,
     "inference_budget_context": {
       "first_call": {
-        "allowance_usd_seen": 0.499,
-        "slots_seen": 4
+        "allowance_usd_seen": 0.5,
+        "slots_seen": 5
       },
-      "retry": null
+      "retry": {
+        "allowance_usd_seen": 0.5,
+        "slots_seen": 4
+      }
     },
     "approved": [
       {
-        "request_id": "ACQ-L3-2026-04-23T14-06-20-560Z-002",
-        "reasoning": "Hormuz shipping transit patterns directly resolve the rhetoric-vs-operational gap on Trump's statement and inform compound stress assessment (T-1, T-10). Expected impact score 5. IMMEDIATE urgency. Geopolitical_analysis category has not been flagged for repetition. The gap between Trump's rhetoric and operational reality is the single highest-impact unresolved question for compound stress. This acquisition could determine whether Brent at $103 is fear-driven or operationally driven — the difference matters for cascade proximity.",
+        "request_id": "ACQ-L3-2026-04-25T02-43-33-405Z-002",
+        "reasoning": "RLUSD Ethereum supply verification maps to SG-4 and informs T-4 (RLUSD trajectory). High confidence the data exists (Ethereum is fully public). Would resolve the 76% off-XRPL inference from estimated to verified. Would reveal whether RLUSD on Ethereum is active (DeFi) or parked (wallets). This directly informs CI-1 settlement activity and KS-2 RLUSD trajectory. Estimated cost within budget. Unlike PermDEX data, Ethereum on-chain data is publicly available and acquirable.",
         "estimated_cost_usd": 0,
-        "tension_id": "T-10",
-        "structural_gap_id": null,
-        "_source": null
+        "tension_id": "T-4",
+        "structural_gap_id": "SG-4",
+        "_source": "first_call"
       },
       {
-        "request_id": "ACQ-L3-2026-04-23T14-06-20-560Z-004",
-        "reasoning": "BOJ/MOF verbal warnings at USD/JPY 159+ directly inform compound stress catalyst proximity (T-1). IMMEDIATE urgency. Verbal warnings historically precede intervention by days to weeks. Presence or absence of warnings at current levels would materially inform the operator action window. This is the second highest-impact acquisition for compound stress assessment.",
-        "estimated_cost_usd": 0,
-        "tension_id": "T-1",
+        "request_id": "ACQ-L3-2026-04-25T02-43-33-405Z-004",
+        "reasoning": "Tether's $5B growth claim originates from an interested party (Ardoino, per CL-061 conflict of interest flag) and per LZ-EH-002 requires verification from the originating measurement source — public market cap trackers. CoinGecko/CoinMarketCap data is freely queryable, estimated cost is negligible, and verification would either confirm or deflate the 24x competitive velocity gap cited in the CI-5 competitive displacement assessment. Budget allows: $0.50 remaining minus ~$0.03 estimated cost leaves $0.47; 4 slots remaining minus 1 leaves 3.",
+        "estimated_cost_usd": 0.03,
+        "tension_id": null,
         "structural_gap_id": null,
-        "_source": null
+        "_source": "retry"
       }
     ],
     "deferred": [
       {
-        "request_id": "ACQ-L3-2026-04-23T14-06-20-560Z-001",
-        "reasoning": "RLUSD chain-level distribution data would resolve SG-3 and inform T-4. However, the Blind Auditor flagged on_chain_analytics as a repeated purchase category (6x) and INQUIRY_SCOPE_CREEP with 60% NO_CHANGE outcomes. Similar acquisitions have not moved the assessment historically. Deferring in favor of higher-impact immediate requests this cycle. Will reassess if RLUSD decline continues next cycle.",
+        "request_id": "ACQ-L3-2026-04-25T02-43-33-405Z-001",
+        "reasoning": "PermDEX institutional volume is the highest-value data gap (SG-2) and maps to T-7. However, confidence that this data exists and is acquirable through x402 is LOW per Layer 3's own assessment. The Blind Auditor flagged on_chain_analytics as a repeated purchase category (6x) that consistently fails to move the assessment. Additionally, per STRUCTURAL_GAP_NEGLECT advisory, this gap has no probing records despite 60 runs. Deferring because: (1) low confidence data exists in acquirable form, (2) repeated purchases in this category have not produced assessment changes, (3) limited cycle budget ($0.50) should target higher-probability resolution paths. Will re-evaluate if a specific data source is identified.",
         "deferral_type": null,
-        "_source": null,
+        "_source": "first_call",
         "_reasoning_validation": null,
         "_validation_fail_reason": null,
         "knowledge_gap_named": null,
         "cross_cited_request_ids": []
       },
       {
-        "request_id": "ACQ-L3-2026-04-23T14-06-20-560Z-003",
-        "reasoning": "ETF fund count discrepancy (7→4) is worth investigating but impact score 3 is lower priority than Hormuz and BOJ signals. Market_data category flagged for repetition (4x). ETF flows are positive regardless of fund count — the anomaly affects completeness but not direction. Defer to next cycle.",
+        "request_id": "ACQ-L3-2026-04-25T02-43-33-405Z-003",
+        "reasoning": "BOJ intervention preparation data maps to T-1. Medium confidence it exists in acquirable form. However, this is a geopolitical analysis request, not on-chain analytics — different category from the over-purchased on_chain_analytics. Deferring primarily due to budget constraint: with $0.50 remaining and ACQ-002 approved, insufficient budget for this acquisition this cycle. Would prioritize this next cycle if compound stress remains CRITICAL.",
         "deferral_type": null,
-        "_source": null,
-        "_reasoning_validation": null,
-        "_validation_fail_reason": null,
-        "knowledge_gap_named": null,
-        "cross_cited_request_ids": []
-      },
-      {
-        "request_id": "ACQ-L3-2026-04-23T14-06-20-560Z-005",
-        "reasoning": "PermDEX institutional wallet activity would directly inform the PermDEX kill switch (now escalated to WARNING). On_chain_analytics category flagged for repetition (6x) by Blind Auditor. However, this is a different sub-target than previous on_chain_analytics acquisitions (PermDEX-specific, not RLUSD-specific). Deferring due to budget constraint — two IMMEDIATE acquisitions approved this cycle take priority. This should be first priority next cycle.",
-        "deferral_type": null,
-        "_source": null,
+        "_source": "first_call",
         "_reasoning_validation": null,
         "_validation_fail_reason": null,
         "knowledge_gap_named": null,
@@ -1593,13 +1623,13 @@
     "denied": [],
     "knowledge_gaps_named_during_ranking": [],
     "reasoning_weak_count": 0,
-    "retry_fired": false,
-    "_generated_at": "2026-04-23T14:24:03.873Z"
+    "retry_fired": true,
+    "_generated_at": "2026-04-25T03:00:53.914Z"
   },
   "latest_assessment": {
     "thesis_status": "WEAKENING",
     "confidence_in_status": "medium",
     "action_recommendation": "REDUCE_EXPOSURE",
-    "timestamp": "2026-04-23T14:26:41.307Z"
+    "timestamp": "2026-04-25T03:02:16.621Z"
   }
 }
