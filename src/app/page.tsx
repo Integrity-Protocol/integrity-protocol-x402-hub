@@ -877,7 +877,7 @@ export default function AgentHub() {
         </div>
 
         {/* Agent Cards */}
-        <div className="flex gap-2 p-2 shrink-0 h-[48vh] min-h-[300px]">
+        <div className="flex gap-2 p-2 shrink-0 flex-col md:flex-row md:h-[48vh] md:min-h-[300px]">
           <Agent
             name="RESEARCH AGENT"
             chain="xrpl"
