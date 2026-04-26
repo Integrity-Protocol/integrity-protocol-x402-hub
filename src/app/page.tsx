@@ -610,8 +610,8 @@ function Modal({ tx, drill, onClose }: ModalProps) {
                 </div>
               </StatusBlock>
               {d.correct.corrections_hydrated && d.correct.corrections_hydrated.length > 0 ? (
-                d.correct.corrections_hydrated.map((c) => (
-                  <StatusBlock key={c.id} borderColor={C.lavender} label={`CORRECTION APPLIED — ${c.id}`}>
+                d.correct.corrections_hydrated.map((c, i) => (
+                  <StatusBlock key={`${c.id}-${i}`} borderColor={C.lavender} label={`CORRECTION APPLIED — ${c.id}`}>
                     <button
                       type="button"
                       onClick={(e) => {
