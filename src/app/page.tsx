@@ -66,9 +66,9 @@ interface DrillData {
   }
   outcome: {
     status: string
-    impact: string
-    threat: boolean
-    thesis: string
+    statusLabel: string
+    investigation: string
+    verdictLine: string
   }
 }
 
@@ -446,9 +446,9 @@ function Modal({ tx, drill, onClose }: ModalProps) {
     correct: { old: null, new_r: null, cid: null, reasoning_diff: null, corrections_hydrated: [], all_matches: [] },
     outcome: {
       status: "CONFIRMED",
-      impact: "Acquired data integrated into next pipeline cycle.",
-      threat: false,
-      thesis: "MAINTAINED",
+      statusLabel: "Acquired data verified existing assessment — no correction needed",
+      investigation: "Acquired data integrated into next pipeline cycle.",
+      verdictLine: "Thesis: — · Confidence: — · Action: —",
     },
   }
 
@@ -698,35 +698,25 @@ function Modal({ tx, drill, onClose }: ModalProps) {
               value={d.outcome.status}
               color={d.outcome.status === "SURVIVED" ? C.olive : C.amber}
             />
-            <DataRow label="THESIS" value={d.outcome.thesis} />
-            <div
-              className="flex justify-between items-center py-1.5"
-              style={{ borderBottom: `1px solid ${C.row}` }}
-            >
-              <span className="text-[10px] tracking-[0.5px] font-medium" style={{ color: C.lbl }}>
-                THREAT FLAG
+            <div className="py-1.5" style={{ borderBottom: `1px solid ${C.row}` }}>
+              <div className="text-[10px] leading-relaxed font-medium italic" style={{ color: C.val, opacity: 0.8 }}>
+                {d.outcome.statusLabel}
+              </div>
+            </div>
+            <div className="py-1.5" style={{ borderBottom: `1px solid ${C.row}` }}>
+              <span className="text-[10px] tracking-[0.5px] font-semibold" style={{ color: C.lbl }}>
+                WHAT THIS ACQUISITION INVESTIGATED
               </span>
-              <div className="flex items-center gap-1.5">
-                <div
-                  className="w-1.5 h-1.5 rounded-full"
-                  style={{
-                    background: d.outcome.threat ? C.coral : C.olive,
-                  }}
-                />
-                <span
-                  className="text-[10px] font-bold"
-                  style={{ color: d.outcome.threat ? C.coral : C.olive }}
-                >
-                  {d.outcome.threat ? "TRIGGERED" : "CLEAR"}
-                </span>
+              <div className="text-xs leading-relaxed mt-0.5 font-medium" style={{ color: C.val }}>
+                {d.outcome.investigation}
               </div>
             </div>
             <div className="py-1.5">
               <span className="text-[10px] tracking-[0.5px] font-semibold" style={{ color: C.lbl }}>
-                IMPACT
+                SYSTEM STATE AFTER INTEGRATION
               </span>
-              <div className="text-xs leading-relaxed mt-0.5 font-medium" style={{ color: C.val }}>
-                {d.outcome.impact}
+              <div className="text-[10px] leading-relaxed mt-0.5 font-bold tracking-wide" style={{ color: C.val }}>
+                {d.outcome.verdictLine}
               </div>
             </div>
           </StatusBlock>

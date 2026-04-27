@@ -75,9 +75,9 @@ interface DrillData {
   };
   outcome: {
     status: string;
-    impact: string;
-    threat: boolean;
-    thesis: string;
+    statusLabel: string;
+    investigation: string;
+    verdictLine: string;
   };
 }
 
@@ -268,9 +268,15 @@ export async function GET() {
         })(),
         outcome: {
           status: t.outcome || 'PENDING',
-          impact: t.outcome_evidence || 'Awaiting pipeline integration.',
-          threat: false,
-          thesis: assessment ? assessment.thesis_status : '—',
+          statusLabel: (() => {
+            const s = t.outcome || 'PENDING';
+            if (s === 'SURVIVED') return 'Acquired data survived all four analytical layers — the system changed its reasoning';
+            if (s === 'CONFIRMED') return 'Acquired data verified existing assessment — no correction needed';
+            if (s === 'NO_CHANGE') return 'Acquired data did not materially change the assessment';
+            return 'Awaiting pipeline integration';
+          })(),
+          investigation: t.l3_impact_on_analysis || t.outcome_evidence || t.description || 'No investigation context available.',
+          verdictLine: `Thesis: ${t.verdict_thesis_status || '—'} · Confidence: ${(t.verdict_confidence || '—').toUpperCase()} · Action: ${(t.verdict_action_recommendation || '—').replace(/_/g, ' ')}`,
         },
       };
     }
