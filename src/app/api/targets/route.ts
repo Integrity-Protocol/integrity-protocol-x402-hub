@@ -270,8 +270,11 @@ export async function GET() {
           status: t.outcome || 'PENDING',
           statusLabel: (() => {
             const s = t.outcome || 'PENDING';
+            const corrected = t.correct_data?.has_correction && t.correct_data?.matches?.length > 0;
             if (s === 'SURVIVED') return 'Acquired data survived all four analytical layers — the system changed its reasoning';
+            if (s === 'CONFIRMED' && corrected) return 'Acquired data verified the assessment and triggered corrections that refined the analysis';
             if (s === 'CONFIRMED') return 'Acquired data verified existing assessment — no correction needed';
+            if (s === 'NO_CHANGE' && corrected) return 'Acquired data corrected the analysis — prevented a scoring error without changing the thesis direction';
             if (s === 'NO_CHANGE') return 'Acquired data did not materially change the assessment';
             return 'Awaiting pipeline integration';
           })(),
