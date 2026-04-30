@@ -813,11 +813,11 @@ export default function AgentHub() {
 
   return (
     <div
-      className="h-screen flex flex-col overflow-hidden relative"
+      className="h-screen flex flex-col overflow-y-auto md:overflow-hidden relative"
       style={{ background: C.bg }}
     >
       <div
-        className="flex-1 flex flex-col overflow-hidden m-2 rounded-[4px]"
+        className="flex-1 flex flex-col overflow-y-auto md:overflow-hidden m-2 rounded-[4px]"
         style={{ border: `1px solid ${C.wire}` }}
       >
         {/* Header */}
@@ -880,7 +880,7 @@ export default function AgentHub() {
         </div>
 
         {/* Agent Cards */}
-        <div className="flex gap-2 p-2 shrink-0 flex-col md:flex-row md:h-[48vh] md:min-h-[300px]">
+        <div className="flex gap-2 p-2 shrink-0 flex-col max-h-[70vh] md:max-h-none md:flex-row md:h-[48vh] md:min-h-[300px]">
           <Agent
             name="RESEARCH AGENT"
             chain="xrpl"
