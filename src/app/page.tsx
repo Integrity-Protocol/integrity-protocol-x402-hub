@@ -69,6 +69,7 @@ interface DrillData {
     statusLabel: string
     investigation: string
     verdictLine: string
+    preventedLine: string
   }
 }
 
@@ -319,7 +320,7 @@ function Agent({ name, chain, wallet, bal, asset, txs, tel, onTx, sel }: AgentPr
 
       {/* Transaction Rows */}
       <div className="flex-1 min-h-0" style={{ overflowY: "auto" }}>
-        {txs.map((tx) => (
+        {txs.filter((tx) => tx.fullHash && tx.fullHash.length > 0).map((tx) => (
           <div
             key={tx.id}
             className="grid gap-2 py-1.5 cursor-pointer transition-colors hover:bg-[rgba(139,159,199,0.03)]"
@@ -449,6 +450,7 @@ function Modal({ tx, drill, onClose }: ModalProps) {
       statusLabel: "Acquired data verified existing assessment — no correction needed",
       investigation: "Acquired data integrated into next pipeline cycle.",
       verdictLine: "Thesis: — · Confidence: — · Action: —",
+      preventedLine: "Prior cycle data unavailable for comparison.",
     },
   }
 
@@ -705,10 +707,10 @@ function Modal({ tx, drill, onClose }: ModalProps) {
             </div>
             <div className="py-1.5" style={{ borderBottom: `1px solid ${C.row}` }}>
               <span className="text-[10px] tracking-[0.5px] font-semibold" style={{ color: C.lbl }}>
-                WHAT THIS ACQUISITION INVESTIGATED
+                WHAT THIS PREVENTED
               </span>
               <div className="text-xs leading-relaxed mt-0.5 font-medium" style={{ color: C.val }}>
-                {d.outcome.investigation}
+                {d.outcome.preventedLine}
               </div>
             </div>
             <div className="py-1.5">

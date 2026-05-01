@@ -78,6 +78,7 @@ interface DrillData {
     statusLabel: string;
     investigation: string;
     verdictLine: string;
+    preventedLine: string;
   };
 }
 
@@ -280,6 +281,40 @@ export async function GET() {
           })(),
           investigation: t.l3_impact_on_analysis || t.outcome_evidence || t.description || 'No investigation context available.',
           verdictLine: `Thesis: ${t.verdict_thesis_status || '—'} · Confidence: ${(t.verdict_confidence || '—').toUpperCase()} · Action: ${(t.verdict_action_recommendation || '—').replace(/_/g, ' ')}`,
+          preventedLine: (() => {
+            const status = t.outcome || 'PENDING';
+            if (status === 'NO_CHANGE') {
+              return 'Acquisition confirmed the existing assessment. No reasoning change required.';
+            }
+            if (status === 'CONFIRMED' || status === 'SURVIVED') {
+              const hasPrior = t.prior_thesis_status || t.prior_confidence || t.prior_action_recommendation;
+              const hasCurrent = t.verdict_thesis_status || t.verdict_confidence || t.verdict_action_recommendation;
+              if (!hasPrior || !hasCurrent) {
+                return 'Prior cycle data unavailable for comparison.';
+              }
+              const thesisChanged = t.prior_thesis_status !== t.verdict_thesis_status;
+              const confidenceChanged = t.prior_confidence !== t.verdict_confidence;
+              const actionChanged = t.prior_action_recommendation !== t.verdict_action_recommendation;
+              if (thesisChanged || confidenceChanged || actionChanged) {
+                const parts: string[] = [];
+                if (thesisChanged) {
+                  parts.push(`Acquired data shifted the thesis from ${t.prior_thesis_status || '—'} to ${t.verdict_thesis_status || '—'}.`);
+                }
+                if (confidenceChanged) {
+                  parts.push(`Confidence moved from ${t.prior_confidence || '—'} to ${t.verdict_confidence || '—'}.`);
+                }
+                if (actionChanged) {
+                  parts.push(`Action changed from ${(t.prior_action_recommendation || '—').replace(/_/g, ' ')} to ${(t.verdict_action_recommendation || '—').replace(/_/g, ' ')}.`);
+                }
+                return parts.join(' ');
+              }
+              if (status === 'CONFIRMED') {
+                return `Acquired data verified the current assessment. Thesis: ${t.verdict_thesis_status || '—'} at ${t.verdict_confidence || '—'} confidence. The system confirmed its position before acting.`;
+              }
+              return 'Acquired data challenged the assessment but the thesis survived. The system tested its own reasoning and held.';
+            }
+            return 'Prior cycle data unavailable for comparison.';
+          })(),
         },
       };
     }

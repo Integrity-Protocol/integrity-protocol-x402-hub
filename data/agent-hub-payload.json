@@ -1,152 +1,6 @@
 {
   "transactions": [
     {
-      "request_id": "ACQ-L3-2026-05-01T13-48-18-414Z-001",
-      "signal_ids": [
-        "20260501-1348-SIG-003"
-      ],
-      "signal_descriptions": [],
-      "requesting_layer": 3,
-      "request_type": "INTELLIGENCE_GAP",
-      "description": "What is the RLUSD supply breakdown by chain (XRPL, Ethereum, other)?",
-      "intended_epistemic_vector": "INFORM",
-      "expected_impact_score": 5,
-      "l3_impact_on_analysis": "Would resolve the structural question of whether RLUSD is primarily an XRPL product or an Ethereum product. If RLUSD is 80%+ on Ethereum, it fundamentally changes the thesis's XRPL-specific settlement narrative — RLUSD growth may benefit Ripple the company without benefiting XRPL the ledger.",
-      "l3_confidence_data_exists": "high",
-      "l3_estimated_value": "HIGH — this is the single most important data gap for thesis assessment",
-      "tension_id": "T-11",
-      "structural_gap_id": "SG-4",
-      "source_category": "deterministic_ledger_read",
-      "preferred_vendor": "On-chain analytics — Ethereum RLUSD contract supply, cross-referenced with XRPL verified supply",
-      "channel_id": "chainlink-cre-base",
-      "disposition": "APPROVED",
-      "disposition_reasoning": "RLUSD chain distribution is the highest-priority data gap in the system. It directly addresses T-11 (CI-1/CI-2 divergence), T-4 (RLUSD kill switch), T-7 (OKX test window), and SG-4 (structural gap). Knowing whether RLUSD is 83% on Ethereum would fundamentally change the XRPL-specific settlement thesis assessment. Impact score 5 is justified. Source category 'deterministic_ledger_read' suggests low cost for high-value deterministic data. This is the single most impactful acquisition possible this cycle.",
-      "dispositioned_at": "2026-05-01T14:07:17.639Z",
-      "agent": "workflow-agent",
-      "chain": "base",
-      "settlement_asset": "USDC",
-      "vendor": "chainlink_cre",
-      "tx_hash": "0xd2a87cb90dfb5f9ca3123bc5138c90f8133739baa0267535708de894e82aea88",
-      "amount": null,
-      "response_status": "SUCCESS",
-      "response_data": {
-        "request_id": "ACQ-L3-2026-05-01T13-48-18-414Z-001",
-        "result": {
-          "status": "SUCCESS",
-          "source": "xrpl-rlusd-supply",
-          "source_category": "deterministic_ledger_read",
-          "response": "RLUSD circulating supply on XRPL: 339,074,460.35 RLUSD (raw: 339074460.3517391). Source: XRPL gateway_balances against issuer rMxCKbEDwqr76QuheSUMdEGf4B9xJ8m5De (currency code 524C555344000000000000000000000000000000). Validated ledger index: 103940291. Ledger hash: AA131B58E3BCE0EA484541D65EB7681C5EC806CC481C49AA9E42704DB4C901F3. Node: wss://xrplcluster.com. Read timestamp: 2026-05-01T18:42:34.826Z.",
-          "chars_acquired": 403,
-          "rlusd_supply_xrpl": 339074460.3517391,
-          "ledger_index": 103940291,
-          "ledger_hash": "AA131B58E3BCE0EA484541D65EB7681C5EC806CC481C49AA9E42704DB4C901F3",
-          "timestamp": "2026-05-01T18:42:34.826Z"
-        },
-        "settlement": {
-          "network": "base-sepolia",
-          "receiver": "0xf8c4Be305969A821A581D8098D97E3E8a457Ea80",
-          "price": "$0.01"
-        }
-      },
-      "model": null,
-      "mock": false,
-      "executed_at": "2026-05-01T18:42:36.358Z",
-      "cycle_generated_at": "2026-05-01T14:06:53.048Z",
-      "outcome": "CONFIRMED",
-      "outcome_evidence": "Tension T-11 maintained — baseline verified by acquisition",
-      "outcome_run_trace_id": "2026-05-01T13:48:18.414Z",
-      "outcome_recorded_at": "2026-05-01T14:07:17.648Z",
-      "cost_usd_actual": 0.01,
-      "payment_method": null,
-      "correct_data": {
-        "has_correction": false,
-        "matches": []
-      },
-      "verdict_cycle_timestamp": "2026-05-01T14:07:17.785Z",
-      "verdict_budget_deliberation": {
-        "cycle_allowance_usd": 0.5,
-        "cycle_slots_available": 5,
-        "approved_count": 1,
-        "approved_cost_usd": 0,
-        "deferred_count": 3,
-        "denied_count": 0,
-        "inference_budget_context": {
-          "first_call": {
-            "allowance_usd_seen": 0.5,
-            "slots_seen": 5
-          },
-          "retry": null
-        },
-        "approved": [
-          {
-            "request_id": "ACQ-L3-2026-05-01T13-48-18-414Z-001",
-            "reasoning": "RLUSD chain distribution is the highest-priority data gap in the system. It directly addresses T-11 (CI-1/CI-2 divergence), T-4 (RLUSD kill switch), T-7 (OKX test window), and SG-4 (structural gap). Knowing whether RLUSD is 83% on Ethereum would fundamentally change the XRPL-specific settlement thesis assessment. Impact score 5 is justified. Source category 'deterministic_ledger_read' suggests low cost for high-value deterministic data. This is the single most impactful acquisition possible this cycle.",
-            "estimated_cost_usd": 0,
-            "tension_id": "T-11",
-            "structural_gap_id": "SG-4",
-            "_source": null
-          }
-        ],
-        "deferred": [
-          {
-            "request_id": "ACQ-L2-2026-05-01T13-48-18-414Z-001",
-            "reasoning": "Duplicate of ACQ-L3-2026-05-01T13-48-18-414Z-001 (same data, same question). Deferring L2 version in favor of L3 version which has higher urgency and impact score. Consolidating to avoid double-spending on identical data.",
-            "deferral_type": null,
-            "_source": null,
-            "_reasoning_validation": null,
-            "_validation_fail_reason": null,
-            "knowledge_gap_named": null,
-            "cross_cited_request_ids": [
-              "ACQ-L3-2026-05-01T13-48-18-414Z-001"
-            ],
-            "description": "RLUSD supply breakdown by chain (XRPL, Ethereum, others). This would reveal whether RLUSD is an XRPL product or primarily an Ethereum product that happens to also exist on XRPL.",
-            "signal_ids": [
-              "20260501-1348-SIG-003"
-            ],
-            "signal_descriptions": []
-          },
-          {
-            "request_id": "ACQ-L3-2026-05-01T13-48-18-414Z-002",
-            "reasoning": "Rakuten merchant spending mechanism clarification is important (impact score 4) but the assessment can proceed without it this cycle. The null hypothesis (investment on-ramp) is the working assumption. If Rakuten's integration turns out to be direct XRP payment at merchants, that would be a significant upgrade — but the downside of not knowing this cycle is modest because we score conservatively under the null. Deferring to preserve budget for the RLUSD chain distribution request which has broader thesis implications.",
-            "deferral_type": null,
-            "_source": null,
-            "_reasoning_validation": null,
-            "_validation_fail_reason": null,
-            "knowledge_gap_named": null,
-            "cross_cited_request_ids": [],
-            "description": "What does 'spend across 5M+ merchants' mean in the Rakuten Wallet XRP integration — direct XRP payment at merchants, or Rakuten Points conversion to XRP as an investment with points still used at merchants?",
-            "signal_ids": [
-              "20260501-1348-SIG-004"
-            ],
-            "signal_descriptions": []
-          },
-          {
-            "request_id": "ACQ-L3-2026-05-01T13-48-18-414Z-003",
-            "reasoning": "Full XRPL DEX order book depth would calibrate an existing signal but would not change the directional finding (volume is declining regardless of book depth measurement). Impact score 3 is appropriate. The volume decline from $5.6M to $4.28M is the more reliable metric and does not depend on book depth resolution. Deferring to preserve budget.",
-            "deferral_type": null,
-            "_source": null,
-            "_reasoning_validation": null,
-            "_validation_fail_reason": null,
-            "knowledge_gap_named": null,
-            "cross_cited_request_ids": [],
-            "description": "What is the full XRPL DEX order book depth beyond the top 10 levels for XRP/USD?",
-            "signal_ids": [
-              "20260501-1348-SIG-011"
-            ],
-            "signal_descriptions": []
-          }
-        ],
-        "denied": [],
-        "knowledge_gaps_named_during_ranking": [],
-        "reasoning_weak_count": 0,
-        "retry_fired": false,
-        "_generated_at": "2026-05-01T14:05:51.115Z"
-      },
-      "verdict_thesis_status": "CONTESTED",
-      "verdict_confidence": "medium",
-      "verdict_action_recommendation": "INCREASE_MONITORING"
-    },
-    {
       "request_id": "ACQ-L3-2026-04-30T14-21-08-173Z-005",
       "signal_ids": [
         "20260430-1421-SIG-003"
@@ -536,7 +390,11 @@
       },
       "verdict_thesis_status": "CONTESTED",
       "verdict_confidence": "medium",
-      "verdict_action_recommendation": "INCREASE_MONITORING"
+      "verdict_action_recommendation": "INCREASE_MONITORING",
+      "prior_cycle_timestamp": "2026-04-30T03:50:13.213Z",
+      "prior_thesis_status": "CONTESTED",
+      "prior_confidence": "high",
+      "prior_action_recommendation": "INCREASE_MONITORING"
     },
     {
       "request_id": "ACQ-L3-2026-04-30T03-30-47-269Z-003",
@@ -1127,7 +985,11 @@
       },
       "verdict_thesis_status": "CONTESTED",
       "verdict_confidence": "high",
-      "verdict_action_recommendation": "INCREASE_MONITORING"
+      "verdict_action_recommendation": "INCREASE_MONITORING",
+      "prior_cycle_timestamp": "2026-04-29T22:06:24.181Z",
+      "prior_thesis_status": "CONTESTED",
+      "prior_confidence": "medium",
+      "prior_action_recommendation": "INCREASE_MONITORING"
     },
     {
       "request_id": "ACQ-L3-2026-04-30T03-30-47-269Z-005",
@@ -1447,7 +1309,11 @@
       },
       "verdict_thesis_status": "CONTESTED",
       "verdict_confidence": "high",
-      "verdict_action_recommendation": "INCREASE_MONITORING"
+      "verdict_action_recommendation": "INCREASE_MONITORING",
+      "prior_cycle_timestamp": "2026-04-29T22:06:24.181Z",
+      "prior_thesis_status": "CONTESTED",
+      "prior_confidence": "medium",
+      "prior_action_recommendation": "INCREASE_MONITORING"
     },
     {
       "request_id": "ACQ-L3-2026-04-29T21-47-01-332Z-004",
@@ -1830,7 +1696,11 @@
       },
       "verdict_thesis_status": "CONTESTED",
       "verdict_confidence": "medium",
-      "verdict_action_recommendation": "INCREASE_MONITORING"
+      "verdict_action_recommendation": "INCREASE_MONITORING",
+      "prior_cycle_timestamp": "2026-04-29T19:47:38.236Z",
+      "prior_thesis_status": "CONTESTED",
+      "prior_confidence": "medium",
+      "prior_action_recommendation": "INCREASE_MONITORING"
     },
     {
       "request_id": "ACQ-L3-2026-04-29T03-30-18-914Z-004",
@@ -1940,7 +1810,11 @@
       },
       "verdict_thesis_status": "WEAKENING",
       "verdict_confidence": "medium",
-      "verdict_action_recommendation": "REDUCE_EXPOSURE"
+      "verdict_action_recommendation": "REDUCE_EXPOSURE",
+      "prior_cycle_timestamp": "2026-04-28T14:56:50.007Z",
+      "prior_thesis_status": "WEAKENING",
+      "prior_confidence": "medium",
+      "prior_action_recommendation": "INCREASE_MONITORING"
     },
     {
       "request_id": "ACQ-L3-2026-04-28T14-36-54-712Z-003",
@@ -2066,7 +1940,11 @@
       },
       "verdict_thesis_status": "WEAKENING",
       "verdict_confidence": "medium",
-      "verdict_action_recommendation": "INCREASE_MONITORING"
+      "verdict_action_recommendation": "INCREASE_MONITORING",
+      "prior_cycle_timestamp": "2026-04-28T03:51:06.271Z",
+      "prior_thesis_status": "WEAKENING",
+      "prior_confidence": "medium",
+      "prior_action_recommendation": "REDUCE_EXPOSURE"
     },
     {
       "request_id": "ACQ-L3-2026-04-26T16-12-04-232Z-003",
@@ -2442,7 +2320,11 @@
       },
       "verdict_thesis_status": "WEAKENING",
       "verdict_confidence": "medium",
-      "verdict_action_recommendation": "REDUCE_EXPOSURE"
+      "verdict_action_recommendation": "REDUCE_EXPOSURE",
+      "prior_cycle_timestamp": "2026-04-26T13:45:00.897Z",
+      "prior_thesis_status": "WEAKENING",
+      "prior_confidence": "medium",
+      "prior_action_recommendation": "REDUCE_EXPOSURE"
     },
     {
       "request_id": "ACQ-L3-2026-04-26T16-12-04-232Z-002",
@@ -2744,7 +2626,11 @@
       },
       "verdict_thesis_status": "WEAKENING",
       "verdict_confidence": "medium",
-      "verdict_action_recommendation": "REDUCE_EXPOSURE"
+      "verdict_action_recommendation": "REDUCE_EXPOSURE",
+      "prior_cycle_timestamp": "2026-04-26T13:45:00.897Z",
+      "prior_thesis_status": "WEAKENING",
+      "prior_confidence": "medium",
+      "prior_action_recommendation": "REDUCE_EXPOSURE"
     },
     {
       "request_id": "ACQ-L3-2026-04-26T16-12-04-232Z-001",
@@ -3094,7 +2980,11 @@
       },
       "verdict_thesis_status": "WEAKENING",
       "verdict_confidence": "medium",
-      "verdict_action_recommendation": "REDUCE_EXPOSURE"
+      "verdict_action_recommendation": "REDUCE_EXPOSURE",
+      "prior_cycle_timestamp": "2026-04-26T13:45:00.897Z",
+      "prior_thesis_status": "WEAKENING",
+      "prior_confidence": "medium",
+      "prior_action_recommendation": "REDUCE_EXPOSURE"
     },
     {
       "request_id": "ACQ-L3-2026-04-26T13-26-14-416Z-002",
@@ -3396,7 +3286,11 @@
       },
       "verdict_thesis_status": "WEAKENING",
       "verdict_confidence": "medium",
-      "verdict_action_recommendation": "REDUCE_EXPOSURE"
+      "verdict_action_recommendation": "REDUCE_EXPOSURE",
+      "prior_cycle_timestamp": "2026-04-26T03:40:11.291Z",
+      "prior_thesis_status": "WEAKENING",
+      "prior_confidence": "high",
+      "prior_action_recommendation": "REDUCE_EXPOSURE"
     },
     {
       "request_id": "ACQ-L3-2026-04-26T03-20-33-252Z-002",
@@ -3740,7 +3634,11 @@
       },
       "verdict_thesis_status": "WEAKENING",
       "verdict_confidence": "high",
-      "verdict_action_recommendation": "REDUCE_EXPOSURE"
+      "verdict_action_recommendation": "REDUCE_EXPOSURE",
+      "prior_cycle_timestamp": "2026-04-26T02:11:06.052Z",
+      "prior_thesis_status": "WEAKENING",
+      "prior_confidence": "medium",
+      "prior_action_recommendation": "REDUCE_EXPOSURE"
     },
     {
       "request_id": "ACQ-L3-2026-04-26T03-20-33-252Z-001",
@@ -4109,7 +4007,11 @@
       },
       "verdict_thesis_status": "WEAKENING",
       "verdict_confidence": "high",
-      "verdict_action_recommendation": "REDUCE_EXPOSURE"
+      "verdict_action_recommendation": "REDUCE_EXPOSURE",
+      "prior_cycle_timestamp": "2026-04-26T02:11:06.052Z",
+      "prior_thesis_status": "WEAKENING",
+      "prior_confidence": "medium",
+      "prior_action_recommendation": "REDUCE_EXPOSURE"
     },
     {
       "request_id": "ACQ-L3-2026-04-26T03-20-33-252Z-003",
@@ -4376,7 +4278,11 @@
       },
       "verdict_thesis_status": "WEAKENING",
       "verdict_confidence": "high",
-      "verdict_action_recommendation": "REDUCE_EXPOSURE"
+      "verdict_action_recommendation": "REDUCE_EXPOSURE",
+      "prior_cycle_timestamp": "2026-04-26T02:11:06.052Z",
+      "prior_thesis_status": "WEAKENING",
+      "prior_confidence": "medium",
+      "prior_action_recommendation": "REDUCE_EXPOSURE"
     },
     {
       "request_id": "ACQ-L3-2026-04-26T03-20-33-252Z-004",
@@ -4510,7 +4416,11 @@
       },
       "verdict_thesis_status": "WEAKENING",
       "verdict_confidence": "high",
-      "verdict_action_recommendation": "REDUCE_EXPOSURE"
+      "verdict_action_recommendation": "REDUCE_EXPOSURE",
+      "prior_cycle_timestamp": "2026-04-26T02:11:06.052Z",
+      "prior_thesis_status": "WEAKENING",
+      "prior_confidence": "medium",
+      "prior_action_recommendation": "REDUCE_EXPOSURE"
     },
     {
       "request_id": "ACQ-L2-2026-04-26T01-50-50-624Z-001",
@@ -4904,7 +4814,11 @@
       },
       "verdict_thesis_status": "WEAKENING",
       "verdict_confidence": "medium",
-      "verdict_action_recommendation": "REDUCE_EXPOSURE"
+      "verdict_action_recommendation": "REDUCE_EXPOSURE",
+      "prior_cycle_timestamp": "2026-04-25T13:45:39.085Z",
+      "prior_thesis_status": "WEAKENING",
+      "prior_confidence": "medium",
+      "prior_action_recommendation": "REDUCE_EXPOSURE"
     },
     {
       "request_id": "ACQ-L3-2026-04-25T13-25-17-344Z-005",
@@ -5436,7 +5350,11 @@
       },
       "verdict_thesis_status": "WEAKENING",
       "verdict_confidence": "medium",
-      "verdict_action_recommendation": "REDUCE_EXPOSURE"
+      "verdict_action_recommendation": "REDUCE_EXPOSURE",
+      "prior_cycle_timestamp": "2026-04-25T06:41:04.572Z",
+      "prior_thesis_status": "WEAKENING",
+      "prior_confidence": "medium",
+      "prior_action_recommendation": "REDUCE_EXPOSURE"
     },
     {
       "request_id": "ACQ-L3-2026-04-25T02-43-33-405Z-004",
@@ -5720,7 +5638,11 @@
       },
       "verdict_thesis_status": "WEAKENING",
       "verdict_confidence": "medium",
-      "verdict_action_recommendation": "REDUCE_EXPOSURE"
+      "verdict_action_recommendation": "REDUCE_EXPOSURE",
+      "prior_cycle_timestamp": "2026-04-24T14:19:17.270Z",
+      "prior_thesis_status": "WEAKENING",
+      "prior_confidence": "medium",
+      "prior_action_recommendation": "REDUCE_EXPOSURE"
     },
     {
       "request_id": "ACQ-L3-2026-04-22T02-50-22-674Z-003",
@@ -6232,7 +6154,11 @@
       },
       "verdict_thesis_status": "WEAKENING",
       "verdict_confidence": "medium",
-      "verdict_action_recommendation": "REDUCE_EXPOSURE"
+      "verdict_action_recommendation": "REDUCE_EXPOSURE",
+      "prior_cycle_timestamp": "2026-04-21T14:23:52.010Z",
+      "prior_thesis_status": "WEAKENING",
+      "prior_confidence": "medium",
+      "prior_action_recommendation": "REDUCE_EXPOSURE"
     },
     {
       "request_id": "ACQ-L3-2026-04-22T02-50-22-674Z-002",
@@ -6569,7 +6495,11 @@
       },
       "verdict_thesis_status": "WEAKENING",
       "verdict_confidence": "medium",
-      "verdict_action_recommendation": "REDUCE_EXPOSURE"
+      "verdict_action_recommendation": "REDUCE_EXPOSURE",
+      "prior_cycle_timestamp": "2026-04-21T14:23:52.010Z",
+      "prior_thesis_status": "WEAKENING",
+      "prior_confidence": "medium",
+      "prior_action_recommendation": "REDUCE_EXPOSURE"
     },
     {
       "request_id": "ACQ-L3-2026-04-22T02-50-22-674Z-004",
@@ -7134,7 +7064,11 @@
       },
       "verdict_thesis_status": "WEAKENING",
       "verdict_confidence": "medium",
-      "verdict_action_recommendation": "REDUCE_EXPOSURE"
+      "verdict_action_recommendation": "REDUCE_EXPOSURE",
+      "prior_cycle_timestamp": "2026-04-21T14:23:52.010Z",
+      "prior_thesis_status": "WEAKENING",
+      "prior_confidence": "medium",
+      "prior_action_recommendation": "REDUCE_EXPOSURE"
     },
     {
       "request_id": "ACQ-L3-2026-04-19T04-24-42-911Z-004",
@@ -7266,33 +7200,37 @@
       },
       "verdict_thesis_status": "WEAKENING",
       "verdict_confidence": "medium",
-      "verdict_action_recommendation": "REDUCE_EXPOSURE"
+      "verdict_action_recommendation": "REDUCE_EXPOSURE",
+      "prior_cycle_timestamp": "2026-04-19T00:55:49.385Z",
+      "prior_thesis_status": "WEAKENING",
+      "prior_confidence": "medium",
+      "prior_action_recommendation": "REDUCE_EXPOSURE"
     }
   ],
   "summary": {
-    "total": 22,
+    "total": 21,
     "by_agent": {
       "research": 10,
-      "workflow": 12
+      "workflow": 11
     },
     "by_outcome": {
-      "CONFIRMED": 6,
+      "CONFIRMED": 5,
       "SURVIVED": 3,
       "NO_CHANGE": 13
     },
     "by_chain": {
       "xrpl": 10,
-      "base": 12
+      "base": 11
     }
   },
-  "_generated_at": "2026-05-01T18:42:36.480Z",
+  "_generated_at": "2026-05-01T23:01:14.224Z",
   "latest_budget_deliberation": {
     "cycle_allowance_usd": 0.5,
     "cycle_slots_available": 5,
     "approved_count": 1,
     "approved_cost_usd": 0,
     "deferred_count": 3,
-    "denied_count": 0,
+    "denied_count": 1,
     "inference_budget_context": {
       "first_call": {
         "allowance_usd_seen": 0.5,
@@ -7302,68 +7240,57 @@
     },
     "approved": [
       {
-        "request_id": "ACQ-L3-2026-05-01T13-48-18-414Z-001",
-        "reasoning": "RLUSD chain distribution is the highest-priority data gap in the system. It directly addresses T-11 (CI-1/CI-2 divergence), T-4 (RLUSD kill switch), T-7 (OKX test window), and SG-4 (structural gap). Knowing whether RLUSD is 83% on Ethereum would fundamentally change the XRPL-specific settlement thesis assessment. Impact score 5 is justified. Source category 'deterministic_ledger_read' suggests low cost for high-value deterministic data. This is the single most impactful acquisition possible this cycle.",
+        "request_id": "ACQ-L3-2026-04-23T02-53-04-112Z-001",
+        "reasoning": "RLUSD decline mechanism is the highest-priority intelligence gap. Understanding whether the decline is concentrated (counterparty-specific) or broad-based (demand weakness) directly informs T-4 and T-3 tension scoring and the kill switch trajectory assessment. Expected impact score 4. Cost justified against the $0.50 cycle budget. This acquisition directly addresses the Blind Auditor's X402_NEGLIGENT_HOARDING flag.",
         "estimated_cost_usd": 0,
-        "tension_id": "T-11",
-        "structural_gap_id": "SG-4",
+        "tension_id": "T-4",
+        "structural_gap_id": null,
         "_source": null
       }
     ],
     "deferred": [
       {
-        "request_id": "ACQ-L2-2026-05-01T13-48-18-414Z-001",
-        "reasoning": "Duplicate of ACQ-L3-2026-05-01T13-48-18-414Z-001 (same data, same question). Deferring L2 version in favor of L3 version which has higher urgency and impact score. Consolidating to avoid double-spending on identical data.",
+        "request_id": "ACQ-L3-2026-04-23T02-53-04-112Z-002",
+        "reasoning": "Warsh CBDC direction is informative but CI-5 has 0 of 4 assessable components — resolving one direction on one component won't change the index from INSUFFICIENT_DATA. Lower priority than RLUSD mechanism and Hormuz shipping data. Budget constraint requires deferral.",
         "deferral_type": null,
         "_source": null,
         "_reasoning_validation": null,
         "_validation_fail_reason": null,
         "knowledge_gap_named": null,
-        "cross_cited_request_ids": [
-          "ACQ-L3-2026-05-01T13-48-18-414Z-001"
-        ],
-        "description": "RLUSD supply breakdown by chain (XRPL, Ethereum, others). This would reveal whether RLUSD is an XRPL product or primarily an Ethereum product that happens to also exist on XRPL.",
-        "signal_ids": [
-          "20260501-1348-SIG-003"
-        ],
-        "signal_descriptions": []
+        "cross_cited_request_ids": []
       },
       {
-        "request_id": "ACQ-L3-2026-05-01T13-48-18-414Z-002",
-        "reasoning": "Rakuten merchant spending mechanism clarification is important (impact score 4) but the assessment can proceed without it this cycle. The null hypothesis (investment on-ramp) is the working assumption. If Rakuten's integration turns out to be direct XRP payment at merchants, that would be a significant upgrade — but the downside of not knowing this cycle is modest because we score conservatively under the null. Deferring to preserve budget for the RLUSD chain distribution request which has broader thesis implications.",
+        "request_id": "ACQ-L3-2026-04-23T02-53-04-112Z-003",
+        "reasoning": "Hormuz shipping status would directly calibrate the most severe compound stress leg. Impact score 4, urgency IMMEDIATE. However, the cycle budget after approving the RLUSD acquisition may not support this. Per the Blind Auditor's QUESTION_RECYCLING flag on market_data category, previous acquisitions in this category have had mixed outcomes. Deferred to next cycle if budget permits, or if Brent moves >$105 (escalation trigger).",
         "deferral_type": null,
         "_source": null,
         "_reasoning_validation": null,
         "_validation_fail_reason": null,
         "knowledge_gap_named": null,
-        "cross_cited_request_ids": [],
-        "description": "What does 'spend across 5M+ merchants' mean in the Rakuten Wallet XRP integration — direct XRP payment at merchants, or Rakuten Points conversion to XRP as an investment with points still used at merchants?",
-        "signal_ids": [
-          "20260501-1348-SIG-004"
-        ],
-        "signal_descriptions": []
+        "cross_cited_request_ids": []
       },
       {
-        "request_id": "ACQ-L3-2026-05-01T13-48-18-414Z-003",
-        "reasoning": "Full XRPL DEX order book depth would calibrate an existing signal but would not change the directional finding (volume is declining regardless of book depth measurement). Impact score 3 is appropriate. The volume decline from $5.6M to $4.28M is the more reliable metric and does not depend on book depth resolution. Deferring to preserve budget.",
+        "request_id": "ACQ-L3-2026-04-23T02-53-04-112Z-004",
+        "reasoning": "BOJ intervention signals are relevant to T-1 compound stress assessment but impact score 3 and urgency NEXT_CYCLE. Lower priority than RLUSD mechanism. The pipeline would observe BOJ intervention through market price action (USD/JPY reversal) before intelligence sources report it. Market data provides the early warning; the intelligence acquisition would provide context but not lead time.",
         "deferral_type": null,
         "_source": null,
         "_reasoning_validation": null,
         "_validation_fail_reason": null,
         "knowledge_gap_named": null,
-        "cross_cited_request_ids": [],
-        "description": "What is the full XRPL DEX order book depth beyond the top 10 levels for XRP/USD?",
-        "signal_ids": [
-          "20260501-1348-SIG-011"
-        ],
-        "signal_descriptions": []
+        "cross_cited_request_ids": []
       }
     ],
-    "denied": [],
+    "denied": [
+      {
+        "request_id": "ACQ-L2-2026-04-23T02-53-04-112Z-001",
+        "reasoning": "Duplicate of ACQ-L3-2026-04-23T02-53-04-112Z-002 (same question about Warsh CBDC direction). Impact score 3 on a signal that affects CI-5 which has 0 of 4 components assessable — resolving one component would not change the INSUFFICIENT_DATA status. Budget better deployed elsewhere.",
+        "_source": null
+      }
+    ],
     "knowledge_gaps_named_during_ranking": [],
     "reasoning_weak_count": 0,
     "retry_fired": false,
-    "_generated_at": "2026-05-01T14:05:51.115Z"
+    "_generated_at": "2026-04-23T03:09:58.842Z"
   },
   "latest_assessment": {
     "thesis_status": "CONTESTED",
