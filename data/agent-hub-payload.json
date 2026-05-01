@@ -1,57 +1,75 @@
 {
   "transactions": [
     {
-      "request_id": "ACQ-L3-2026-04-30T14-21-08-173Z-003",
+      "request_id": "ACQ-L3-2026-05-01T13-48-18-414Z-001",
       "signal_ids": [
-        "20260430-1421-SIG-009"
+        "20260501-1348-SIG-003"
       ],
       "signal_descriptions": [],
       "requesting_layer": 3,
       "request_type": "INTELLIGENCE_GAP",
-      "description": "What is XRPL's share of total tokenized Treasuries across all chains?",
+      "description": "What is the RLUSD supply breakdown by chain (XRPL, Ethereum, other)?",
       "intended_epistemic_vector": "INFORM",
-      "expected_impact_score": 3,
-      "l3_impact_on_analysis": "Would distinguish between XRPL-specific institutional demand and market-wide RWA growth. If XRPL market share is growing, the $418M figure is thesis-confirmatory. If XRPL share is flat or declining while absolute value grows, the growth is just riding the broader wave.",
+      "expected_impact_score": 5,
+      "l3_impact_on_analysis": "Would resolve the structural question of whether RLUSD is primarily an XRPL product or an Ethereum product. If RLUSD is 80%+ on Ethereum, it fundamentally changes the thesis's XRPL-specific settlement narrative — RLUSD growth may benefit Ripple the company without benefiting XRPL the ledger.",
       "l3_confidence_data_exists": "high",
-      "l3_estimated_value": "MEDIUM — would add significant context to CI-2 RWA assessment",
-      "tension_id": "T-10",
-      "structural_gap_id": null,
-      "source_category": "on_chain_analytics",
-      "preferred_vendor": "RWA analytics platforms (rwa.xyz, DeFi Llama RWA tracker) — cross-chain tokenized Treasury comparison",
-      "channel_id": "blockrun-xrpl",
+      "l3_estimated_value": "HIGH — this is the single most important data gap for thesis assessment",
+      "tension_id": "T-11",
+      "structural_gap_id": "SG-4",
+      "source_category": "deterministic_ledger_read",
+      "preferred_vendor": "On-chain analytics — Ethereum RLUSD contract supply, cross-referenced with XRPL verified supply",
+      "channel_id": "chainlink-cre-base",
       "disposition": "APPROVED",
-      "disposition_reasoning": "XRPL tokenized Treasury market share data would resolve T-10 and determine whether the $418M figure (currently at 50% weight due to single source and null hypothesis) reflects XRPL-specific institutional demand or market-wide growth. This is the most efficient acquisition for resolving an active tension because the data likely exists on public analytics platforms (rwa.xyz, DeFi Llama). Expected impact score 3, maps to T-10. Cost justified by the ability to either confirm or reduce a CI-2 component assessment. Budget: within $0.50 cycle allowance.",
-      "dispositioned_at": "2026-04-30T14:41:09.471Z",
-      "agent": "research-agent",
-      "chain": "xrpl",
-      "settlement_asset": "RLUSD",
-      "vendor": "blockrun_llm",
-      "tx_hash": "C832925C3E0D47F691CB9E65BA819EAAFED9E630CCE1453C30312CD6178DCE02",
+      "disposition_reasoning": "RLUSD chain distribution is the highest-priority data gap in the system. It directly addresses T-11 (CI-1/CI-2 divergence), T-4 (RLUSD kill switch), T-7 (OKX test window), and SG-4 (structural gap). Knowing whether RLUSD is 83% on Ethereum would fundamentally change the XRPL-specific settlement thesis assessment. Impact score 5 is justified. Source category 'deterministic_ledger_read' suggests low cost for high-value deterministic data. This is the single most impactful acquisition possible this cycle.",
+      "dispositioned_at": "2026-05-01T14:07:17.639Z",
+      "agent": "workflow-agent",
+      "chain": "base",
+      "settlement_asset": "USDC",
+      "vendor": "chainlink_cre",
+      "tx_hash": "0xd2a87cb90dfb5f9ca3123bc5138c90f8133739baa0267535708de894e82aea88",
       "amount": null,
       "response_status": "SUCCESS",
-      "response_data": "# XRPL's Share of Tokenized Treasuries\n\nI don't have access to current, real-time data on tokenized Treasury distribution across blockchains. This metric changes frequently and requires up-to-date blockchain analytics.\n\n## What I'd recommend to find this information:\n\n1. **On-chain analytics platforms:**\n   - DeFiLlama\n   - Messari\n   - Glassnode\n   - CryptoQuant\n\n2. **XRPL-specific sources:**\n   - XRP Ledger Foundation reports\n   - XRPL validators' data dashboards\n\n3. **Treasury tokenization trackers:**\n   - Ethereum has been the dominant chain for tokenized Treasuries (USDC, USDT on Treasury rails)\n   - Solana has growing adoption\n   - XRPL's share would be relatively nascent compared to established chains\n\n## Key context:\n\nEthereum and Solana currently dominate tokenized asset issuance, but the landscape is evolving rapidly. XRPL has potential advantages (lower fees, faster settlement) that could increase Treasury adoption, but would need to check current sources for actual market share percentages.\n\nWould you like guidance on how to calculate this yourself or information about specific Treasury tokenization projects on XRPL?",
-      "model": "anthropic/claude-haiku-4.5",
+      "response_data": {
+        "request_id": "ACQ-L3-2026-05-01T13-48-18-414Z-001",
+        "result": {
+          "status": "SUCCESS",
+          "source": "xrpl-rlusd-supply",
+          "source_category": "deterministic_ledger_read",
+          "response": "RLUSD circulating supply on XRPL: 339,074,460.35 RLUSD (raw: 339074460.3517391). Source: XRPL gateway_balances against issuer rMxCKbEDwqr76QuheSUMdEGf4B9xJ8m5De (currency code 524C555344000000000000000000000000000000). Validated ledger index: 103940291. Ledger hash: AA131B58E3BCE0EA484541D65EB7681C5EC806CC481C49AA9E42704DB4C901F3. Node: wss://xrplcluster.com. Read timestamp: 2026-05-01T18:42:34.826Z.",
+          "chars_acquired": 403,
+          "rlusd_supply_xrpl": 339074460.3517391,
+          "ledger_index": 103940291,
+          "ledger_hash": "AA131B58E3BCE0EA484541D65EB7681C5EC806CC481C49AA9E42704DB4C901F3",
+          "timestamp": "2026-05-01T18:42:34.826Z"
+        },
+        "settlement": {
+          "network": "base-sepolia",
+          "receiver": "0xf8c4Be305969A821A581D8098D97E3E8a457Ea80",
+          "price": "$0.01"
+        }
+      },
+      "model": null,
       "mock": false,
-      "executed_at": "2026-04-30T18:11:39.955851+00:00",
-      "cycle_generated_at": "2026-04-30T14:40:44.511Z",
+      "executed_at": "2026-05-01T18:42:36.358Z",
+      "cycle_generated_at": "2026-05-01T14:06:53.048Z",
       "outcome": "CONFIRMED",
-      "outcome_evidence": "Tension T-10 maintained — baseline verified by acquisition",
-      "outcome_run_trace_id": "2026-04-30T14:21:08.173Z",
-      "outcome_recorded_at": "2026-04-30T14:41:28.319Z",
+      "outcome_evidence": "Tension T-11 maintained — baseline verified by acquisition",
+      "outcome_run_trace_id": "2026-05-01T13:48:18.414Z",
+      "outcome_recorded_at": "2026-05-01T14:07:17.648Z",
       "cost_usd_actual": 0.01,
       "payment_method": null,
       "correct_data": {
         "has_correction": false,
         "matches": []
       },
-      "verdict_cycle_timestamp": "2026-04-30T14:41:28.461Z",
+      "verdict_cycle_timestamp": "2026-05-01T14:07:17.785Z",
       "verdict_budget_deliberation": {
         "cycle_allowance_usd": 0.5,
         "cycle_slots_available": 5,
-        "approved_count": 2,
+        "approved_count": 1,
         "approved_cost_usd": 0,
-        "deferred_count": 2,
-        "denied_count": 1,
+        "deferred_count": 3,
+        "denied_count": 0,
         "inference_budget_context": {
           "first_call": {
             "allowance_usd_seen": 0.5,
@@ -61,70 +79,68 @@
         },
         "approved": [
           {
-            "request_id": "ACQ-L3-2026-04-30T14-21-08-173Z-003",
-            "reasoning": "XRPL tokenized Treasury market share data would resolve T-10 and determine whether the $418M figure (currently at 50% weight due to single source and null hypothesis) reflects XRPL-specific institutional demand or market-wide growth. This is the most efficient acquisition for resolving an active tension because the data likely exists on public analytics platforms (rwa.xyz, DeFi Llama). Expected impact score 3, maps to T-10. Cost justified by the ability to either confirm or reduce a CI-2 component assessment. Budget: within $0.50 cycle allowance.",
+            "request_id": "ACQ-L3-2026-05-01T13-48-18-414Z-001",
+            "reasoning": "RLUSD chain distribution is the highest-priority data gap in the system. It directly addresses T-11 (CI-1/CI-2 divergence), T-4 (RLUSD kill switch), T-7 (OKX test window), and SG-4 (structural gap). Knowing whether RLUSD is 83% on Ethereum would fundamentally change the XRPL-specific settlement thesis assessment. Impact score 5 is justified. Source category 'deterministic_ledger_read' suggests low cost for high-value deterministic data. This is the single most impactful acquisition possible this cycle.",
             "estimated_cost_usd": 0,
-            "tension_id": "T-10",
-            "structural_gap_id": null,
-            "_source": null
-          },
-          {
-            "request_id": "ACQ-L3-2026-04-30T14-21-08-173Z-005",
-            "reasoning": "BOJ/MOF official intervention or emergency meeting data is the highest-impact immediate acquisition. If BOJ has moved from verbal threats to formal action, the compound stress assessment moves toward EMERGENCY and the operator action window compresses from days to hours. Directly maps to T-1 (compound stress). Expected impact score 4. IMMEDIATE urgency. Budget: within remaining cycle allowance after ACQ-003.",
-            "estimated_cost_usd": 0,
-            "tension_id": "T-1",
-            "structural_gap_id": null,
+            "tension_id": "T-11",
+            "structural_gap_id": "SG-4",
             "_source": null
           }
         ],
         "deferred": [
           {
-            "request_id": "ACQ-L3-2026-04-30T14-21-08-173Z-001",
-            "reasoning": "Rakuten Wallet XRP purchase volume data would be high-impact (directly resolves whether deployment = adoption). However, urgency is NEXT_CYCLE and the integration launched today — meaningful volume data requires at least several days of accumulation. Deferring to next cycle when data will be more meaningful. Budget prioritized toward immediate-urgency requests.",
+            "request_id": "ACQ-L2-2026-05-01T13-48-18-414Z-001",
+            "reasoning": "Duplicate of ACQ-L3-2026-05-01T13-48-18-414Z-001 (same data, same question). Deferring L2 version in favor of L3 version which has higher urgency and impact score. Consolidating to avoid double-spending on identical data.",
             "deferral_type": null,
             "_source": null,
             "_reasoning_validation": null,
             "_validation_fail_reason": null,
             "knowledge_gap_named": null,
-            "cross_cited_request_ids": [],
-            "description": "What is the actual XRP purchase volume through Rakuten Wallet in the first 7 days of integration?",
+            "cross_cited_request_ids": [
+              "ACQ-L3-2026-05-01T13-48-18-414Z-001"
+            ],
+            "description": "RLUSD supply breakdown by chain (XRPL, Ethereum, others). This would reveal whether RLUSD is an XRPL product or primarily an Ethereum product that happens to also exist on XRPL.",
             "signal_ids": [
-              "20260430-1421-SIG-006"
+              "20260501-1348-SIG-003"
             ],
             "signal_descriptions": []
           },
           {
-            "request_id": "ACQ-L3-2026-04-30T14-21-08-173Z-002",
-            "reasoning": "RLUSD OKX volume data is high-impact (directly feeds T-7 test window). Same timing constraint as ACQ-001 — OKX listing just went live, meaningful volume data needs accumulation time. Deferring to next cycle.",
+            "request_id": "ACQ-L3-2026-05-01T13-48-18-414Z-002",
+            "reasoning": "Rakuten merchant spending mechanism clarification is important (impact score 4) but the assessment can proceed without it this cycle. The null hypothesis (investment on-ramp) is the working assumption. If Rakuten's integration turns out to be direct XRP payment at merchants, that would be a significant upgrade — but the downside of not knowing this cycle is modest because we score conservatively under the null. Deferring to preserve budget for the RLUSD chain distribution request which has broader thesis implications.",
             "deferral_type": null,
             "_source": null,
             "_reasoning_validation": null,
             "_validation_fail_reason": null,
             "knowledge_gap_named": null,
             "cross_cited_request_ids": [],
-            "description": "What is RLUSD daily trading volume on OKX in the first week post-listing?",
+            "description": "What does 'spend across 5M+ merchants' mean in the Rakuten Wallet XRP integration — direct XRP payment at merchants, or Rakuten Points conversion to XRP as an investment with points still used at merchants?",
             "signal_ids": [
-              "20260430-1421-SIG-005"
+              "20260501-1348-SIG-004"
             ],
             "signal_descriptions": []
-          }
-        ],
-        "denied": [
+          },
           {
-            "request_id": "ACQ-L3-2026-04-30T14-21-08-173Z-004",
-            "reasoning": "Brent crude intraday price from primary exchange would resolve the LZ-EH-005 data conflict ($109.74 vs $120-$125). However, expected impact score is 2 — the directional assessment (all thresholds breached) is identical at any price in the confirmed range. Resolving the exact peak does not change the compound stress level, the action recommendation, or any tension. Cost not justified for impact.",
+            "request_id": "ACQ-L3-2026-05-01T13-48-18-414Z-003",
+            "reasoning": "Full XRPL DEX order book depth would calibrate an existing signal but would not change the directional finding (volume is declining regardless of book depth measurement). Impact score 3 is appropriate. The volume decline from $5.6M to $4.28M is the more reliable metric and does not depend on book depth resolution. Deferring to preserve budget.",
+            "deferral_type": null,
             "_source": null,
-            "description": "What is the current intraday Brent crude price from a primary exchange source?",
+            "_reasoning_validation": null,
+            "_validation_fail_reason": null,
+            "knowledge_gap_named": null,
+            "cross_cited_request_ids": [],
+            "description": "What is the full XRPL DEX order book depth beyond the top 10 levels for XRP/USD?",
             "signal_ids": [
-              "20260430-1421-SIG-002"
+              "20260501-1348-SIG-011"
             ],
             "signal_descriptions": []
           }
         ],
+        "denied": [],
         "knowledge_gaps_named_during_ranking": [],
         "reasoning_weak_count": 0,
         "retry_fired": false,
-        "_generated_at": "2026-04-30T14:38:51.737Z"
+        "_generated_at": "2026-05-01T14:05:51.115Z"
       },
       "verdict_thesis_status": "CONTESTED",
       "verdict_confidence": "medium",
@@ -135,7 +151,14 @@
       "signal_ids": [
         "20260430-1421-SIG-003"
       ],
-      "signal_descriptions": null,
+      "signal_descriptions": [
+        {
+          "lineage_id": "MACRO-JAPAN-STRESS",
+          "canonical_name": "Japan Stress / BOJ / JGB Yields",
+          "signal_id": "20260430-1421-SIG-003",
+          "l1_evidence": "JGB 10Y: 2.525% (financeflow data, 2026-04-30). USD/JPY: 159.79 (frankfurter data, 2026-04-29). Brent: $109.74+ in feed, $120+ in real-time reports | Japanese 10-year government bond yield at 2.525%, above the 2.5% CRITICAL threshold defined in the Compound Stress Matrix. This is the first confirmed breach of this critical level. USD/JPY simultaneously at 159.79 (21 pips from 160 CRITICAL). All three stress legs are now at or above critical thresholds simultaneously."
+        }
+      ],
       "requesting_layer": 3,
       "request_type": "INTELLIGENCE_GAP",
       "description": "Has the BOJ or MOF issued any official intervention notice, emergency meeting call, or formal statement beyond verbal threats in the past 48 hours?",
@@ -171,8 +194,278 @@
       "cost_usd_actual": 0.03,
       "payment_method": "fiat-credit-reserve",
       "correct_data": {
-        "has_correction": false,
-        "matches": []
+        "has_correction": true,
+        "matches": [
+          {
+            "signal_id": "20260430-1421-SIG-003",
+            "lineage_id": "MACRO-JAPAN-STRESS",
+            "canonical_name": "Japan Stress / BOJ / JGB Yields",
+            "reasoning_diff": [
+              {
+                "value": "First",
+                "removed": true
+              },
+              {
+                "value": "JGB 10Y at 2.525% is a",
+                "added": true
+              },
+              {
+                "value": " confirmed breach of "
+              },
+              {
+                "value": "the ",
+                "added": true
+              },
+              {
+                "value": "2.5% CRITICAL threshold "
+              },
+              {
+                "value": "— first time",
+                "added": true
+              },
+              {
+                "value": ". "
+              },
+              {
+                "value": "Marginal overshoot",
+                "removed": true
+              },
+              {
+                "value": "USD/JPY at 159.79 is 21 pips from the 160 CRITICAL threshold, currently in elevated range. Supplementary intelligence confirms Japan has stepped up verbal intervention threats",
+                "added": true
+              },
+              {
+                "value": " ("
+              },
+              {
+                "value": "2bp",
+                "removed": true
+              },
+              {
+                "value": "Reuters, March 30",
+                "added": true
+              },
+              {
+                "value": ") "
+              },
+              {
+                "value": "but directionally significant ",
+                "removed": true
+              },
+              {
+                "value": "— "
+              },
+              {
+                "value": "trajectory",
+                "removed": true
+              },
+              {
+                "value": "this",
+                "added": true
+              },
+              {
+                "value": " is "
+              },
+              {
+                "value": "upward",
+                "removed": true
+              },
+              {
+                "value": "current-cycle evidence of authorities recognizing the stress",
+                "added": true
+              },
+              {
+                "value": ". "
+              },
+              {
+                "value": "Compounds with Brent and",
+                "removed": true
+              },
+              {
+                "value": "The compound effect of JGB breach +",
+                "added": true
+              },
+              {
+                "value": " USD/JPY "
+              },
+              {
+                "value": "near-critical + Brent well above critical creates the triple-leg ",
+                "added": true
+              },
+              {
+                "value": "stress"
+              },
+              {
+                "value": ". Indirect",
+                "removed": true
+              },
+              {
+                "value": " condition described in the",
+                "added": true
+              },
+              {
+                "value": " thesis "
+              },
+              {
+                "value": "relevance",
+                "removed": true
+              },
+              {
+                "value": "context. Per the Compound Stress Matrix",
+                "added": true
+              },
+              {
+                "value": ": "
+              },
+              {
+                "value": "rising",
+                "removed": true
+              },
+              {
+                "value": "'Two of Brent >$95,",
+                "added": true
+              },
+              {
+                "value": " JGB "
+              },
+              {
+                "value": "yields pressure BOJ toward intervention",
+                "removed": true
+              },
+              {
+                "value": "10Y >2.5%",
+                "added": true
+              },
+              {
+                "value": ", "
+              },
+              {
+                "value": "threaten Japan",
+                "removed": true
+              },
+              {
+                "value": "USD/JPY >160",
+                "added": true
+              },
+              {
+                "value": "'"
+              },
+              {
+                "value": "s fiscal position",
+                "removed": true
+              },
+              {
+                "value": " = CRITICAL. Currently: Brent CRITICAL confirmed",
+                "added": true
+              },
+              {
+                "value": ", "
+              },
+              {
+                "value": "and create second-order effects for settlement infrastructure demand",
+                "removed": true
+              },
+              {
+                "value": "JGB CRITICAL confirmed, USD/JPY 21 pips from CRITICAL",
+                "added": true
+              },
+              {
+                "value": ". "
+              },
+              {
+                "value": "Per CL-057",
+                "removed": true
+              },
+              {
+                "value": "Two of three legs are at CRITICAL = CRITICAL compound status confirmed. Track record: 50 appearances",
+                "added": true
+              },
+              {
+                "value": ", "
+              },
+              {
+                "value": "this is environmental pressure on Japan",
+                "removed": true
+              },
+              {
+                "value": "72% survival",
+                "added": true
+              },
+              {
+                "value": ", "
+              },
+              {
+                "value": "not direct evidence",
+                "removed": true
+              },
+              {
+                "value": "96% correction rate. The high correction rate demands vigilance against over-interpretation",
+                "added": true
+              },
+              {
+                "value": " of "
+              },
+              {
+                "value": "Japan macro as Japan ",
+                "added": true
+              },
+              {
+                "value": "adoption "
+              },
+              {
+                "value": "behavior",
+                "removed": true
+              },
+              {
+                "value": "per CL-057",
+                "added": true
+              },
+              {
+                "value": "."
+              }
+            ],
+            "old_reasoning": "First confirmed breach of 2.5% CRITICAL threshold. Marginal overshoot (2bp) but directionally significant — trajectory is upward. Compounds with Brent and USD/JPY stress. Indirect thesis relevance: rising JGB yields pressure BOJ toward intervention, threaten Japan's fiscal position, and create second-order effects for settlement infrastructure demand. Per CL-057, this is environmental pressure on Japan, not direct evidence of adoption behavior.",
+            "new_reasoning": "JGB 10Y at 2.525% is a confirmed breach of the 2.5% CRITICAL threshold — first time. USD/JPY at 159.79 is 21 pips from the 160 CRITICAL threshold, currently in elevated range. Supplementary intelligence confirms Japan has stepped up verbal intervention threats (Reuters, March 30) — this is current-cycle evidence of authorities recognizing the stress. The compound effect of JGB breach + USD/JPY near-critical + Brent well above critical creates the triple-leg stress condition described in the thesis context. Per the Compound Stress Matrix: 'Two of Brent >$95, JGB 10Y >2.5%, USD/JPY >160' = CRITICAL. Currently: Brent CRITICAL confirmed, JGB CRITICAL confirmed, USD/JPY 21 pips from CRITICAL. Two of three legs are at CRITICAL = CRITICAL compound status confirmed. Track record: 50 appearances, 72% survival, 96% correction rate. The high correction rate demands vigilance against over-interpretation of Japan macro as Japan adoption per CL-057.",
+            "corrections_applied": [
+              {
+                "id": "CL-047",
+                "belief": "Layer 2 signal title 'Brent crude at $94.35 — CRITICAL threshold breached' — Layer 1 headline claimed critical breach",
+                "reality": "Layer 2 correctly identified and corrected this in the knowledge audit: $94.35 < $95 critical threshold. The title said 'CRITICAL threshold breached' but the data shows elevated, not critical. Layer 2's correction is confirmed. The signal is scored at elevated (8/10) not critical.",
+                "lesson": "Proximity to a threshold is not breach of a threshold. Categorical severity labels must reflect the actual relationship between the observed value and the defined boundary."
+              },
+              {
+                "id": "CL-057",
+                "belief": "BOJ policy signals scored as DECLINING Japan adoption component in CI-4",
+                "reality": "Layer 2 scored macro stress on Japan (USD/JPY, JGB) as a DECLINING component of the Japan/Asia Adoption Index (CI-4-C). Per CL-050, macro stress on Japan is environmental pressure, not evidence of declining adoption of XRPL by Japanese institutions. The macro data is about what is happening TO Japan, not about what Japanese institutions are DOING regarding XRPL adoption. These are fundamentally different evidentiary categories.",
+                "lesson": "Environmental conditions acting on a population are not evidence of that population's behavior. Macro stress indicators measure what is happening TO an economy or sector, not what institutions WITHIN that economy are choosing to do. These are distinct evidentiary categories that must not be conflated when scoring adoption or behavioral indices."
+              },
+              {
+                "id": "CL-050",
+                "belief": "SBI silence during USD/JPY stress indicates focus shifted to core business stability over XRPL expansion — Japanese institutions in 'defensive mode'",
+                "reality": "Absence of SBI signals cannot be interpreted as evidence of defensive positioning per LZ-RC-003. The macro stress on Japan is verified data; the behavioral inference about SBI is built on absence of evidence. There could be multiple explanations for SBI silence this cycle (timing, internal focus, no newsworthy activity, etc.). Inferring 'defensive mode' from silence is apophenia.",
+                "lesson": "Silence from an entity is informationally empty. The absence of signals cannot support any specific behavioral inference. Multiple equally valid explanations exist for any absence, and selecting among them without evidence is pattern-matching on noise. Absence is a data gap to be declared, not evidence to be interpreted."
+              },
+              {
+                "id": "CL-035",
+                "belief": "Coordinated central bank intervention (SPR release, G7 statement) is likely if oil sustains above $100",
+                "reality": "SPECULATIVE at 3 assumptions with no supporting data. No intervention signals observed. Forward-looking prediction about central bank behavior per LZ-RC-005. Does not meet burden of proof for thesis status influence.",
+                "lesson": "Historical precedent establishes what is possible, not what is occurring. A prediction of coordinated multi-party action requires current-cycle evidence of coordination — communications between parties, scheduling of joint meetings, pre-positioning of resources, or public signaling of intent."
+              },
+              {
+                "id": "CL-035",
+                "belief": "Coordinated central bank intervention (SPR release, G7 statement) is likely if oil sustains above $100",
+                "reality": "SPECULATIVE at 3 assumptions with no supporting data. No intervention signals observed. Forward-looking prediction about central bank behavior per LZ-RC-005. Does not meet burden of proof for thesis status influence.",
+                "lesson": "Historical precedent establishes what is possible, not what is occurring. A prediction of coordinated multi-party action requires current-cycle evidence of coordination — communications between parties, scheduling of joint meetings, pre-positioning of resources, or public signaling of intent."
+              },
+              {
+                "id": "CL-057",
+                "belief": "BOJ policy signals scored as DECLINING Japan adoption component in CI-4",
+                "reality": "Layer 2 scored macro stress on Japan (USD/JPY, JGB) as a DECLINING component of the Japan/Asia Adoption Index (CI-4-C). Per CL-050, macro stress on Japan is environmental pressure, not evidence of declining adoption of XRPL by Japanese institutions. The macro data is about what is happening TO Japan, not about what Japanese institutions are DOING regarding XRPL adoption. These are fundamentally different evidentiary categories.",
+                "lesson": "Environmental conditions acting on a population are not evidence of that population's behavior. Macro stress indicators measure what is happening TO an economy or sector, not what institutions WITHIN that economy are choosing to do. These are distinct evidentiary categories that must not be conflated when scoring adoption or behavioral indices."
+              }
+            ]
+          }
+        ]
       },
       "verdict_cycle_timestamp": "2026-04-30T14:41:28.461Z",
       "verdict_budget_deliberation": {
@@ -216,12 +509,7 @@
             "_reasoning_validation": null,
             "_validation_fail_reason": null,
             "knowledge_gap_named": null,
-            "cross_cited_request_ids": [],
-            "description": "What is the actual XRP purchase volume through Rakuten Wallet in the first 7 days of integration?",
-            "signal_ids": [
-              "20260430-1421-SIG-006"
-            ],
-            "signal_descriptions": []
+            "cross_cited_request_ids": []
           },
           {
             "request_id": "ACQ-L3-2026-04-30T14-21-08-173Z-002",
@@ -231,24 +519,14 @@
             "_reasoning_validation": null,
             "_validation_fail_reason": null,
             "knowledge_gap_named": null,
-            "cross_cited_request_ids": [],
-            "description": "What is RLUSD daily trading volume on OKX in the first week post-listing?",
-            "signal_ids": [
-              "20260430-1421-SIG-005"
-            ],
-            "signal_descriptions": []
+            "cross_cited_request_ids": []
           }
         ],
         "denied": [
           {
             "request_id": "ACQ-L3-2026-04-30T14-21-08-173Z-004",
             "reasoning": "Brent crude intraday price from primary exchange would resolve the LZ-EH-005 data conflict ($109.74 vs $120-$125). However, expected impact score is 2 — the directional assessment (all thresholds breached) is identical at any price in the confirmed range. Resolving the exact peak does not change the compound stress level, the action recommendation, or any tension. Cost not justified for impact.",
-            "_source": null,
-            "description": "What is the current intraday Brent crude price from a primary exchange source?",
-            "signal_ids": [
-              "20260430-1421-SIG-002"
-            ],
-            "signal_descriptions": []
+            "_source": null
           }
         ],
         "knowledge_gaps_named_during_ranking": [],
@@ -1549,302 +1827,6 @@
         "reasoning_weak_count": 0,
         "retry_fired": true,
         "_generated_at": "2026-04-29T22:04:43.480Z"
-      },
-      "verdict_thesis_status": "CONTESTED",
-      "verdict_confidence": "medium",
-      "verdict_action_recommendation": "INCREASE_MONITORING"
-    },
-    {
-      "request_id": "ACQ-L3-2026-04-29T19-28-40-700Z-001",
-      "signal_ids": [
-        "20260429-1928-SIG-005"
-      ],
-      "signal_descriptions": [
-        {
-          "lineage_id": "INTEGRATION-RLUSD",
-          "canonical_name": "RLUSD Market Cap & Supply",
-          "signal_id": "20260429-1928-SIG-005",
-          "l1_evidence": "XRPL metrics: rlusd_supply 372,572,550. CoinGecko market_cap: $1,564,119,799. Previous context cited $1.583B and $387M respectively. | XRPL on-chain RLUSD supply reads $372.6M while CoinGecko market cap shows $1.564B. Market cap declined from $1.583B (last reported recovery) to $1.564B — contraction resumed. On-chain XRPL supply specifically dropped from ~$387M reference to $372.6M. The OKX listing and Bullish integration have not yet arrested the decline in circulating supply metrics."
-        }
-      ],
-      "requesting_layer": 3,
-      "request_type": "INTELLIGENCE_GAP",
-      "description": "What is the chain-level breakdown of RLUSD supply (XRPL vs Ethereum vs other) over the past 30 days, and how has the distribution shifted since the OKX listing announcement?",
-      "intended_epistemic_vector": "INFORM",
-      "expected_impact_score": 4,
-      "l3_impact_on_analysis": "Would resolve the chain migration hypothesis. If Ethereum RLUSD is growing while XRPL RLUSD is declining, the total picture may be neutral-to-positive (migration, not contraction). If both chains declining, the contraction is confirmed structural. This directly affects CI-1 assessment and the RLUSD kill switch evaluation.",
-      "l3_confidence_data_exists": "high",
-      "l3_estimated_value": "High — resolves the most important data contradiction in the current cycle",
-      "tension_id": "T-7",
-      "structural_gap_id": null,
-      "source_category": "deterministic_ledger_read",
-      "preferred_vendor": "Cross-chain RLUSD supply tracker — Ethereum contract address 0x8292bb45bf1ee4d140127049757c2e0ff06317ed (from OKX listing tweet) plus XRPL native supply",
-      "channel_id": null,
-      "disposition": "APPROVED",
-      "disposition_reasoning": "This is the highest-impact acquisition available. The RLUSD chain-level breakdown (XRPL vs Ethereum) directly resolves the central contradiction in this cycle: is the RLUSD decline a net contraction or chain migration? This maps to T-7 (infrastructure-activity divergence), T-4 (RLUSD kill switch structural integrity), and T-3 (RLUSD-regulatory double bind). Impact score 4, IMMEDIATE urgency, deterministic ledger read with high confidence data exists. Addresses the Blind Auditor's X402_NEGLIGENT_HOARDING flag by deploying capital against the most actionable unresolved tension.",
-      "dispositioned_at": "2026-04-29T19:47:38.068Z",
-      "agent": "workflow-agent",
-      "chain": "base",
-      "settlement_asset": "USDC",
-      "vendor": "chainlink_cre",
-      "tx_hash": "0x6d4045047fdae7a3d30843191bbcc8183c2b22773053fb9cafaf9dfeb662e2a5",
-      "amount": null,
-      "response_status": "SUCCESS",
-      "response_data": {
-        "request_id": "ACQ-L3-2026-04-29T19-28-40-700Z-001",
-        "result": {
-          "status": "SUCCESS",
-          "source": "xrpl-rlusd-supply",
-          "source_category": "deterministic_ledger_read",
-          "response": "RLUSD circulating supply on XRPL: 372,572,560.35 RLUSD (raw: 372572560.3517403). Source: XRPL gateway_balances against issuer rMxCKbEDwqr76QuheSUMdEGf4B9xJ8m5De (currency code 524C555344000000000000000000000000000000). Validated ledger index: 103897509. Ledger hash: C3673129AF36EEC34649F145B8CF4F61DAD82FFFC9B5C1697C29467C0A0A8C9C. Node: wss://xrplcluster.com. Read timestamp: 2026-04-29T20:38:24.387Z.",
-          "chars_acquired": 403,
-          "rlusd_supply_xrpl": 372572560.3517403,
-          "ledger_index": 103897509,
-          "ledger_hash": "C3673129AF36EEC34649F145B8CF4F61DAD82FFFC9B5C1697C29467C0A0A8C9C",
-          "timestamp": "2026-04-29T20:38:24.387Z"
-        },
-        "settlement": {
-          "network": "base-sepolia",
-          "receiver": "0xf8c4Be305969A821A581D8098D97E3E8a457Ea80",
-          "price": "$0.01"
-        }
-      },
-      "model": null,
-      "mock": false,
-      "executed_at": "2026-04-29T20:38:25.216Z",
-      "cycle_generated_at": "2026-04-29T19:47:17.754Z",
-      "outcome": "CONFIRMED",
-      "outcome_evidence": "Tension T-7 maintained — baseline verified by acquisition",
-      "outcome_run_trace_id": "2026-04-29T19:28:40.700Z",
-      "outcome_recorded_at": "2026-04-29T19:47:38.077Z",
-      "cost_usd_actual": 0.01,
-      "payment_method": null,
-      "correct_data": {
-        "has_correction": true,
-        "matches": [
-          {
-            "lineage_id": "INTEGRATION-RLUSD",
-            "canonical_name": "RLUSD Market Cap & Supply",
-            "signal_id": "20260429-1928-SIG-005",
-            "reasoning_diff": [
-              {
-                "value": "Official @Ripple and @OKX announcements —",
-                "removed": true
-              },
-              {
-                "value": "XRPL on-chain data is",
-                "added": true
-              },
-              {
-                "value": " primary source"
-              },
-              {
-                "value": ". Market cap declined from $1.583B to $1.564B — contraction resumed ",
-                "added": true
-              },
-              {
-                "value": "per "
-              },
-              {
-                "value": "CL-001 verification. XRPL on-chain dropped from ~$387M to $372.6M. The contradiction with SIG-004 (OKX expansion) is the finding per ",
-                "added": true
-              },
-              {
-                "value": "LZ-EH-"
-              },
-              {
-                "value": "002. Concrete deployment",
-                "removed": true
-              },
-              {
-                "value": "005",
-                "added": true
-              },
-              {
-                "value": ": "
-              },
-              {
-                "value": "live trading, 280+ pairs, collateral capability, XRPL native support. Bullish/Ripple Prime integration",
-                "removed": true
-              },
-              {
-                "value": "distribution",
-                "added": true
-              },
-              {
-                "value": " is "
-              },
-              {
-                "value": "a separate institutional channel ",
-                "removed": true
-              },
-              {
-                "value": "expanding "
-              },
-              {
-                "value": "simultaneously",
-                "removed": true
-              },
-              {
-                "value": "while supply is contracting",
-                "added": true
-              },
-              {
-                "value": ". "
-              },
-              {
-                "value": "Two integration vectors in one day. Per CL",
-                "removed": true
-              },
-              {
-                "value": "Possible chain migration (XRPL→Ethereum for OKX) could partially explain XRPL",
-                "added": true
-              },
-              {
-                "value": "-"
-              },
-              {
-                "value": "007",
-                "removed": true
-              },
-              {
-                "value": "specific decline without net redemption",
-                "added": true
-              },
-              {
-                "value": ", "
-              },
-              {
-                "value": "this is actual deployment",
-                "removed": true
-              },
-              {
-                "value": "but total market cap decline confirms net contraction. Track record: 70% survival",
-                "added": true
-              },
-              {
-                "value": ", "
-              },
-              {
-                "value": "not infrastructure",
-                "removed": true
-              },
-              {
-                "value": "94% correction rate — historically most error",
-                "added": true
-              },
-              {
-                "value": "-"
-              },
-              {
-                "value": "implies-deployment",
-                "removed": true
-              },
-              {
-                "value": "prone signal",
-                "added": true
-              },
-              {
-                "value": ". "
-              },
-              {
-                "value": "Directly impacts RLUSD circulation kill switch and CI-1/CI-2",
-                "removed": true
-              },
-              {
-                "value": "Confidence MEDIUM",
-                "added": true
-              },
-              {
-                "value": "."
-              },
-              {
-                "value": " Brad Garlinghouse engagement confirms organizational significance.",
-                "removed": true
-              }
-            ],
-            "corrections_applied": [
-              {
-                "id": "CL-001",
-                "belief": "RLUSD contraction is structural (from thesis context framing, inherited into Layer 1)",
-                "reality": "Layer 2 data shows RLUSD recovered from $1.494B to $1.583B — ABOVE the pre-contraction level of $1.564B. The 'contraction' framing is stale and contradicted by current data. The real threat is pace insufficiency, not structural contraction.",
-                "root_cause": "Thesis context framing used stale language ('contraction') that wasn't updated when data recovered. The inherited framing entered Layer 1 and propagated downstream without being challenged until Layer 2 data contradicted it.",
-                "root_cause_type": "CONTRADICTED_BY_DATA",
-                "lesson": "Stale status labels in thesis context are as dangerous as stale data. A framing inherited from a previous cycle can anchor all downstream layers incorrectly.",
-                "trigger": "Any inference that uses a directional status word (contraction, decline, collapse, recovering) without verifying that label against the most recent data in the current run.",
-                "lesson_type": "STALE_ANCHOR",
-                "confidence_in_lesson": "HIGH",
-                "status": "ACTIVE"
-              }
-            ],
-            "old_reasoning": "Official @Ripple and @OKX announcements — primary source per LZ-EH-002. Concrete deployment: live trading, 280+ pairs, collateral capability, XRPL native support. Bullish/Ripple Prime integration is a separate institutional channel expanding simultaneously. Two integration vectors in one day. Per CL-007, this is actual deployment, not infrastructure-implies-deployment. Directly impacts RLUSD circulation kill switch and CI-1/CI-2. Brad Garlinghouse engagement confirms organizational significance.",
-            "new_reasoning": "XRPL on-chain data is primary source. Market cap declined from $1.583B to $1.564B — contraction resumed per CL-001 verification. XRPL on-chain dropped from ~$387M to $372.6M. The contradiction with SIG-004 (OKX expansion) is the finding per LZ-EH-005: distribution is expanding while supply is contracting. Possible chain migration (XRPL→Ethereum for OKX) could partially explain XRPL-specific decline without net redemption, but total market cap decline confirms net contraction. Track record: 70% survival, 94% correction rate — historically most error-prone signal. Confidence MEDIUM."
-          }
-        ]
-      },
-      "verdict_cycle_timestamp": "2026-04-29T19:47:38.236Z",
-      "verdict_budget_deliberation": {
-        "cycle_allowance_usd": 0.49,
-        "cycle_slots_available": 4,
-        "approved_count": 1,
-        "approved_cost_usd": 0,
-        "deferred_count": 2,
-        "denied_count": 2,
-        "inference_budget_context": {
-          "first_call": {
-            "allowance_usd_seen": 0.49,
-            "slots_seen": 4
-          },
-          "retry": null
-        },
-        "approved": [
-          {
-            "request_id": "ACQ-L3-2026-04-29T19-28-40-700Z-001",
-            "reasoning": "This is the highest-impact acquisition available. The RLUSD chain-level breakdown (XRPL vs Ethereum) directly resolves the central contradiction in this cycle: is the RLUSD decline a net contraction or chain migration? This maps to T-7 (infrastructure-activity divergence), T-4 (RLUSD kill switch structural integrity), and T-3 (RLUSD-regulatory double bind). Impact score 4, IMMEDIATE urgency, deterministic ledger read with high confidence data exists. Addresses the Blind Auditor's X402_NEGLIGENT_HOARDING flag by deploying capital against the most actionable unresolved tension.",
-            "estimated_cost_usd": 0,
-            "tension_id": "T-7",
-            "structural_gap_id": null,
-            "_source": null
-          }
-        ],
-        "deferred": [
-          {
-            "request_id": "ACQ-L3-2026-04-29T19-28-40-700Z-002",
-            "reasoning": "Tokenized Treasury holder concentration is important for CI-2 assessment but the $418M verification gap (T-10) is less urgent than the RLUSD chain breakdown. Impact score 3, NEXT_CYCLE urgency. Budget constraint: with ACQ-001 approved, remaining budget and slots should be preserved for higher-impact acquisitions. Additionally, the on_chain_analytics category has 6 prior purchases with 60% NO_CHANGE outcome rate per the Blind Auditor — this category has historically underdelivered.",
-            "deferral_type": null,
-            "_source": null,
-            "_reasoning_validation": null,
-            "_validation_fail_reason": null,
-            "knowledge_gap_named": null,
-            "cross_cited_request_ids": []
-          },
-          {
-            "request_id": "ACQ-L3-2026-04-29T19-28-40-700Z-004",
-            "reasoning": "SBI/Japan institutional status maps to SG-3 (Japan/Asia structural gap). Impact score 4 but urgency is NEXT_CYCLE and source category is competitive_intelligence — this is not a deterministic data read. The structural gap has persisted for many cycles and one acquisition is unlikely to resolve it. Deferred in favor of the RLUSD chain breakdown which has higher resolution probability.",
-            "deferral_type": null,
-            "_source": null,
-            "_reasoning_validation": null,
-            "_validation_fail_reason": null,
-            "knowledge_gap_named": null,
-            "cross_cited_request_ids": []
-          }
-        ],
-        "denied": [
-          {
-            "request_id": "ACQ-L3-2026-04-29T19-28-40-700Z-003",
-            "reasoning": "Whether Ripple/RLUSD was evaluated by Meta/Stripe is competitive intelligence with low confidence the data exists (Layer 3 assessed LOW). Expected impact score 3 but the competitive displacement classification is already confirmed regardless of whether Ripple was evaluated or not — the structural effect (Meta deploying on competing infrastructure) is identical either way. Cost does not justify expected marginal insight.",
-            "_source": null
-          },
-          {
-            "request_id": "ACQ-L2-2026-04-29T19-28-40-700Z-001",
-            "reasoning": "XRPL DEX bid/ask historical baseline has impact score 2 (lowest of all requests). The DEX represents 0.26% of total volume. Per LZ-EH-004, this anomaly is likely noise on a thin market. Historical baseline would contextualize the signal but even if the 307:1 ratio is unprecedented, the venue's irrelevance to total trading volume limits the analytical value. Cost does not justify impact.",
-            "_source": null
-          }
-        ],
-        "knowledge_gaps_named_during_ranking": [],
-        "reasoning_weak_count": 0,
-        "retry_fired": false,
-        "_generated_at": "2026-04-29T19:46:15.879Z"
       },
       "verdict_thesis_status": "CONTESTED",
       "verdict_confidence": "medium",
@@ -7288,29 +7270,29 @@
     }
   ],
   "summary": {
-    "total": 23,
+    "total": 22,
     "by_agent": {
-      "research": 11,
+      "research": 10,
       "workflow": 12
     },
     "by_outcome": {
-      "CONFIRMED": 7,
+      "CONFIRMED": 6,
       "SURVIVED": 3,
       "NO_CHANGE": 13
     },
     "by_chain": {
-      "xrpl": 11,
+      "xrpl": 10,
       "base": 12
     }
   },
-  "_generated_at": "2026-04-30T18:15:55.285Z",
+  "_generated_at": "2026-05-01T18:42:36.480Z",
   "latest_budget_deliberation": {
     "cycle_allowance_usd": 0.5,
     "cycle_slots_available": 5,
-    "approved_count": 2,
+    "approved_count": 1,
     "approved_cost_usd": 0,
-    "deferred_count": 2,
-    "denied_count": 1,
+    "deferred_count": 3,
+    "denied_count": 0,
     "inference_budget_context": {
       "first_call": {
         "allowance_usd_seen": 0.5,
@@ -7320,75 +7302,73 @@
     },
     "approved": [
       {
-        "request_id": "ACQ-L3-2026-04-30T14-21-08-173Z-003",
-        "reasoning": "XRPL tokenized Treasury market share data would resolve T-10 and determine whether the $418M figure (currently at 50% weight due to single source and null hypothesis) reflects XRPL-specific institutional demand or market-wide growth. This is the most efficient acquisition for resolving an active tension because the data likely exists on public analytics platforms (rwa.xyz, DeFi Llama). Expected impact score 3, maps to T-10. Cost justified by the ability to either confirm or reduce a CI-2 component assessment. Budget: within $0.50 cycle allowance.",
+        "request_id": "ACQ-L3-2026-05-01T13-48-18-414Z-001",
+        "reasoning": "RLUSD chain distribution is the highest-priority data gap in the system. It directly addresses T-11 (CI-1/CI-2 divergence), T-4 (RLUSD kill switch), T-7 (OKX test window), and SG-4 (structural gap). Knowing whether RLUSD is 83% on Ethereum would fundamentally change the XRPL-specific settlement thesis assessment. Impact score 5 is justified. Source category 'deterministic_ledger_read' suggests low cost for high-value deterministic data. This is the single most impactful acquisition possible this cycle.",
         "estimated_cost_usd": 0,
-        "tension_id": "T-10",
-        "structural_gap_id": null,
-        "_source": null
-      },
-      {
-        "request_id": "ACQ-L3-2026-04-30T14-21-08-173Z-005",
-        "reasoning": "BOJ/MOF official intervention or emergency meeting data is the highest-impact immediate acquisition. If BOJ has moved from verbal threats to formal action, the compound stress assessment moves toward EMERGENCY and the operator action window compresses from days to hours. Directly maps to T-1 (compound stress). Expected impact score 4. IMMEDIATE urgency. Budget: within remaining cycle allowance after ACQ-003.",
-        "estimated_cost_usd": 0,
-        "tension_id": "T-1",
-        "structural_gap_id": null,
+        "tension_id": "T-11",
+        "structural_gap_id": "SG-4",
         "_source": null
       }
     ],
     "deferred": [
       {
-        "request_id": "ACQ-L3-2026-04-30T14-21-08-173Z-001",
-        "reasoning": "Rakuten Wallet XRP purchase volume data would be high-impact (directly resolves whether deployment = adoption). However, urgency is NEXT_CYCLE and the integration launched today — meaningful volume data requires at least several days of accumulation. Deferring to next cycle when data will be more meaningful. Budget prioritized toward immediate-urgency requests.",
+        "request_id": "ACQ-L2-2026-05-01T13-48-18-414Z-001",
+        "reasoning": "Duplicate of ACQ-L3-2026-05-01T13-48-18-414Z-001 (same data, same question). Deferring L2 version in favor of L3 version which has higher urgency and impact score. Consolidating to avoid double-spending on identical data.",
         "deferral_type": null,
         "_source": null,
         "_reasoning_validation": null,
         "_validation_fail_reason": null,
         "knowledge_gap_named": null,
-        "cross_cited_request_ids": [],
-        "description": "What is the actual XRP purchase volume through Rakuten Wallet in the first 7 days of integration?",
+        "cross_cited_request_ids": [
+          "ACQ-L3-2026-05-01T13-48-18-414Z-001"
+        ],
+        "description": "RLUSD supply breakdown by chain (XRPL, Ethereum, others). This would reveal whether RLUSD is an XRPL product or primarily an Ethereum product that happens to also exist on XRPL.",
         "signal_ids": [
-          "20260430-1421-SIG-006"
+          "20260501-1348-SIG-003"
         ],
         "signal_descriptions": []
       },
       {
-        "request_id": "ACQ-L3-2026-04-30T14-21-08-173Z-002",
-        "reasoning": "RLUSD OKX volume data is high-impact (directly feeds T-7 test window). Same timing constraint as ACQ-001 — OKX listing just went live, meaningful volume data needs accumulation time. Deferring to next cycle.",
+        "request_id": "ACQ-L3-2026-05-01T13-48-18-414Z-002",
+        "reasoning": "Rakuten merchant spending mechanism clarification is important (impact score 4) but the assessment can proceed without it this cycle. The null hypothesis (investment on-ramp) is the working assumption. If Rakuten's integration turns out to be direct XRP payment at merchants, that would be a significant upgrade — but the downside of not knowing this cycle is modest because we score conservatively under the null. Deferring to preserve budget for the RLUSD chain distribution request which has broader thesis implications.",
         "deferral_type": null,
         "_source": null,
         "_reasoning_validation": null,
         "_validation_fail_reason": null,
         "knowledge_gap_named": null,
         "cross_cited_request_ids": [],
-        "description": "What is RLUSD daily trading volume on OKX in the first week post-listing?",
+        "description": "What does 'spend across 5M+ merchants' mean in the Rakuten Wallet XRP integration — direct XRP payment at merchants, or Rakuten Points conversion to XRP as an investment with points still used at merchants?",
         "signal_ids": [
-          "20260430-1421-SIG-005"
+          "20260501-1348-SIG-004"
         ],
         "signal_descriptions": []
-      }
-    ],
-    "denied": [
+      },
       {
-        "request_id": "ACQ-L3-2026-04-30T14-21-08-173Z-004",
-        "reasoning": "Brent crude intraday price from primary exchange would resolve the LZ-EH-005 data conflict ($109.74 vs $120-$125). However, expected impact score is 2 — the directional assessment (all thresholds breached) is identical at any price in the confirmed range. Resolving the exact peak does not change the compound stress level, the action recommendation, or any tension. Cost not justified for impact.",
+        "request_id": "ACQ-L3-2026-05-01T13-48-18-414Z-003",
+        "reasoning": "Full XRPL DEX order book depth would calibrate an existing signal but would not change the directional finding (volume is declining regardless of book depth measurement). Impact score 3 is appropriate. The volume decline from $5.6M to $4.28M is the more reliable metric and does not depend on book depth resolution. Deferring to preserve budget.",
+        "deferral_type": null,
         "_source": null,
-        "description": "What is the current intraday Brent crude price from a primary exchange source?",
+        "_reasoning_validation": null,
+        "_validation_fail_reason": null,
+        "knowledge_gap_named": null,
+        "cross_cited_request_ids": [],
+        "description": "What is the full XRPL DEX order book depth beyond the top 10 levels for XRP/USD?",
         "signal_ids": [
-          "20260430-1421-SIG-002"
+          "20260501-1348-SIG-011"
         ],
         "signal_descriptions": []
       }
     ],
+    "denied": [],
     "knowledge_gaps_named_during_ranking": [],
     "reasoning_weak_count": 0,
     "retry_fired": false,
-    "_generated_at": "2026-04-30T14:38:51.737Z"
+    "_generated_at": "2026-05-01T14:05:51.115Z"
   },
   "latest_assessment": {
     "thesis_status": "CONTESTED",
     "confidence_in_status": "medium",
     "action_recommendation": "INCREASE_MONITORING",
-    "timestamp": "2026-04-30T14:41:28.461Z"
+    "timestamp": "2026-05-01T14:07:17.785Z"
   }
 }
