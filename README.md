@@ -7,7 +7,6 @@ The Integrity Protocol is a four-layer cognitive architecture that audits how AI
 The x402 Agent Hub is the operational interface for two autonomous agents acquiring data across two independent blockchains, governed by the same reasoning discipline.
 
 **Live Demo (AWS Amplify):** [main.dsuo7ekm8i4d4.amplifyapp.com](https://main.dsuo7ekm8i4d4.amplifyapp.com)  
-**Production Dashboard:** [integrity-protocol.github.io/Overwatch-Terminal](https://integrity-protocol.github.io/Overwatch-Terminal/)
 
 ## Start Here
 
