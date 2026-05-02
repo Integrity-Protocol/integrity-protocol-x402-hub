@@ -258,10 +258,7 @@ export async function GET() {
           sac2: null,
         },
         acquire: (() => {
-          const rawChain = t.chain === 'xrpl' ? 'XRPL Mainnet' : t.chain === 'base' ? 'Base Mainnet' : '—';
-          const normalizedChain = (rawChain === 'Base Mainnet' || rawChain === 'base-mainnet' || rawChain === 'base_mainnet')
-            ? 'Base Sepolia'
-            : rawChain;
+          const normalizedChain = t.chain === 'xrpl' ? 'XRPL Mainnet' : t.chain === 'base' ? 'Base Sepolia' : '—';
           const vendor = mapVendor(t.vendor);
           const rawModel = t.model;
           const model = (!rawModel || rawModel === '' || rawModel === '—') ? null : rawModel;
