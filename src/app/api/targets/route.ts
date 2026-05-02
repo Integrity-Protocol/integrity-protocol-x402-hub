@@ -39,7 +39,7 @@ interface DrillData {
   };
   acquire: {
     vendor: string;
-    model: string;
+    model: string | null;
     amt: string;
     chain: string;
     hash: string;
@@ -109,6 +109,18 @@ function deriveDeferralType(deferralType: string | null | undefined, reasoning: 
   if (r.includes('budget') || r.includes('allowance') || r.includes('cost')) return 'BUDGET';
   if (r.includes('priority') || r.includes('lower') || r.includes('rank')) return 'PRIORITY';
   return 'DEFERRED';
+}
+
+const VENDOR_DISPLAY_MAP: Record<string, string> = {
+  'chainlink_cre': 'Chainlink CRE',
+  'blockrun_llm': 'BlockRun',
+  'firecrawl': 'Firecrawl',
+  'messari': 'Messari',
+};
+
+function mapVendor(raw: string | null | undefined): string {
+  if (!raw) return '—';
+  return VENDOR_DISPLAY_MAP[raw] || raw;
 }
 
 function formatAmount(tx: any): string {
@@ -186,7 +198,7 @@ export async function GET() {
         hash: truncateHash(t.tx_hash),
         fullHash: t.tx_hash || null,
         amt: formatAmount(t),
-        vendor: t.vendor || '—',
+        vendor: mapVendor(t.vendor),
         query: t.description || '—',
         rid: t.request_id || '',
         status: t.response_status || 'confirmed',
@@ -245,15 +257,24 @@ export async function GET() {
           sac1: null,
           sac2: null,
         },
-        acquire: {
-          vendor: t.vendor || '—',
-          model: t.model || '—',
-          amt: formatAmount(t),
-          chain: t.chain === 'xrpl' ? 'XRPL Mainnet' : t.chain === 'base' ? 'Base Mainnet' : '—',
-          hash: truncateHash(t.tx_hash),
-          fullHash: t.tx_hash || null,
-          query: t.description || '—',
-        },
+        acquire: (() => {
+          const rawChain = t.chain === 'xrpl' ? 'XRPL Mainnet' : t.chain === 'base' ? 'Base Mainnet' : '—';
+          const normalizedChain = (rawChain === 'Base Mainnet' || rawChain === 'base-mainnet' || rawChain === 'base_mainnet')
+            ? 'Base Sepolia'
+            : rawChain;
+          const vendor = mapVendor(t.vendor);
+          const rawModel = t.model;
+          const model = (!rawModel || rawModel === '' || rawModel === '—') ? null : rawModel;
+          return {
+            vendor,
+            model,
+            amt: formatAmount(t),
+            chain: normalizedChain,
+            hash: truncateHash(t.tx_hash),
+            fullHash: t.tx_hash || null,
+            query: t.description || '—',
+          };
+        })(),
         correct: (() => {
           const cd = t.correct_data;
           if (cd?.has_correction && Array.isArray(cd.matches) && cd.matches.length > 0) {

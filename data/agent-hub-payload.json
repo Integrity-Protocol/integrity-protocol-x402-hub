@@ -7227,9 +7227,9 @@
   "latest_budget_deliberation": {
     "cycle_allowance_usd": 0.5,
     "cycle_slots_available": 5,
-    "approved_count": 1,
+    "approved_count": 2,
     "approved_cost_usd": 0,
-    "deferred_count": 3,
+    "deferred_count": 2,
     "denied_count": 1,
     "inference_budget_context": {
       "first_call": {
@@ -7240,18 +7240,26 @@
     },
     "approved": [
       {
-        "request_id": "ACQ-L3-2026-04-23T02-53-04-112Z-001",
-        "reasoning": "RLUSD decline mechanism is the highest-priority intelligence gap. Understanding whether the decline is concentrated (counterparty-specific) or broad-based (demand weakness) directly informs T-4 and T-3 tension scoring and the kill switch trajectory assessment. Expected impact score 4. Cost justified against the $0.50 cycle budget. This acquisition directly addresses the Blind Auditor's X402_NEGLIGENT_HOARDING flag.",
+        "request_id": "ACQ-L3-2026-04-30T14-21-08-173Z-003",
+        "reasoning": "XRPL tokenized Treasury market share data would resolve T-10 and determine whether the $418M figure (currently at 50% weight due to single source and null hypothesis) reflects XRPL-specific institutional demand or market-wide growth. This is the most efficient acquisition for resolving an active tension because the data likely exists on public analytics platforms (rwa.xyz, DeFi Llama). Expected impact score 3, maps to T-10. Cost justified by the ability to either confirm or reduce a CI-2 component assessment. Budget: within $0.50 cycle allowance.",
         "estimated_cost_usd": 0,
-        "tension_id": "T-4",
+        "tension_id": "T-10",
+        "structural_gap_id": null,
+        "_source": null
+      },
+      {
+        "request_id": "ACQ-L3-2026-04-30T14-21-08-173Z-005",
+        "reasoning": "BOJ/MOF official intervention or emergency meeting data is the highest-impact immediate acquisition. If BOJ has moved from verbal threats to formal action, the compound stress assessment moves toward EMERGENCY and the operator action window compresses from days to hours. Directly maps to T-1 (compound stress). Expected impact score 4. IMMEDIATE urgency. Budget: within remaining cycle allowance after ACQ-003.",
+        "estimated_cost_usd": 0,
+        "tension_id": "T-1",
         "structural_gap_id": null,
         "_source": null
       }
     ],
     "deferred": [
       {
-        "request_id": "ACQ-L3-2026-04-23T02-53-04-112Z-002",
-        "reasoning": "Warsh CBDC direction is informative but CI-5 has 0 of 4 assessable components — resolving one direction on one component won't change the index from INSUFFICIENT_DATA. Lower priority than RLUSD mechanism and Hormuz shipping data. Budget constraint requires deferral.",
+        "request_id": "ACQ-L3-2026-04-30T14-21-08-173Z-001",
+        "reasoning": "Rakuten Wallet XRP purchase volume data would be high-impact (directly resolves whether deployment = adoption). However, urgency is NEXT_CYCLE and the integration launched today — meaningful volume data requires at least several days of accumulation. Deferring to next cycle when data will be more meaningful. Budget prioritized toward immediate-urgency requests.",
         "deferral_type": null,
         "_source": null,
         "_reasoning_validation": null,
@@ -7260,18 +7268,8 @@
         "cross_cited_request_ids": []
       },
       {
-        "request_id": "ACQ-L3-2026-04-23T02-53-04-112Z-003",
-        "reasoning": "Hormuz shipping status would directly calibrate the most severe compound stress leg. Impact score 4, urgency IMMEDIATE. However, the cycle budget after approving the RLUSD acquisition may not support this. Per the Blind Auditor's QUESTION_RECYCLING flag on market_data category, previous acquisitions in this category have had mixed outcomes. Deferred to next cycle if budget permits, or if Brent moves >$105 (escalation trigger).",
-        "deferral_type": null,
-        "_source": null,
-        "_reasoning_validation": null,
-        "_validation_fail_reason": null,
-        "knowledge_gap_named": null,
-        "cross_cited_request_ids": []
-      },
-      {
-        "request_id": "ACQ-L3-2026-04-23T02-53-04-112Z-004",
-        "reasoning": "BOJ intervention signals are relevant to T-1 compound stress assessment but impact score 3 and urgency NEXT_CYCLE. Lower priority than RLUSD mechanism. The pipeline would observe BOJ intervention through market price action (USD/JPY reversal) before intelligence sources report it. Market data provides the early warning; the intelligence acquisition would provide context but not lead time.",
+        "request_id": "ACQ-L3-2026-04-30T14-21-08-173Z-002",
+        "reasoning": "RLUSD OKX volume data is high-impact (directly feeds T-7 test window). Same timing constraint as ACQ-001 — OKX listing just went live, meaningful volume data needs accumulation time. Deferring to next cycle.",
         "deferral_type": null,
         "_source": null,
         "_reasoning_validation": null,
@@ -7282,15 +7280,15 @@
     ],
     "denied": [
       {
-        "request_id": "ACQ-L2-2026-04-23T02-53-04-112Z-001",
-        "reasoning": "Duplicate of ACQ-L3-2026-04-23T02-53-04-112Z-002 (same question about Warsh CBDC direction). Impact score 3 on a signal that affects CI-5 which has 0 of 4 components assessable — resolving one component would not change the INSUFFICIENT_DATA status. Budget better deployed elsewhere.",
+        "request_id": "ACQ-L3-2026-04-30T14-21-08-173Z-004",
+        "reasoning": "Brent crude intraday price from primary exchange would resolve the LZ-EH-005 data conflict ($109.74 vs $120-$125). However, expected impact score is 2 — the directional assessment (all thresholds breached) is identical at any price in the confirmed range. Resolving the exact peak does not change the compound stress level, the action recommendation, or any tension. Cost not justified for impact.",
         "_source": null
       }
     ],
     "knowledge_gaps_named_during_ranking": [],
     "reasoning_weak_count": 0,
     "retry_fired": false,
-    "_generated_at": "2026-04-23T03:09:58.842Z"
+    "_generated_at": "2026-04-30T14:38:51.737Z"
   },
   "latest_assessment": {
     "thesis_status": "CONTESTED",

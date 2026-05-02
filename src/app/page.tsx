@@ -40,7 +40,7 @@ interface DrillData {
   }
   acquire: {
     vendor: string
-    model: string
+    model: string | null
     amt: string
     chain: string
     hash: string
@@ -555,7 +555,7 @@ function Modal({ tx, drill, onClose }: ModalProps) {
             <DataRow label="VENDOR" value={d.acquire.vendor} />
             <DataRow label="AMOUNT" value={d.acquire.amt} color={C.olive} />
             <DataRow label="CHAIN" value={d.acquire.chain} />
-            <DataRow label="MODEL" value={d.acquire.model} />
+            {d.acquire.model && <DataRow label="MODEL" value={d.acquire.model} />}
             {d.acquire.fullHash ? (
               <a
                 href={d.acquire.fullHash.startsWith("0x")
