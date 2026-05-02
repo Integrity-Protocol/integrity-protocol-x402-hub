@@ -101,6 +101,16 @@ function truncateHash(hash: string | null): string {
   return hash.slice(0, 12) + '..' + hash.slice(-8);
 }
 
+function deriveDeferralType(deferralType: string | null | undefined, reasoning: string | null | undefined): string {
+  if (deferralType && deferralType.trim() !== '') return deferralType;
+  const r = (reasoning || '').toLowerCase();
+  if (r.includes('duplicate') || r.includes('same question')) return 'DUPLICATE';
+  if (r.includes('0 of') || r.includes('assessable') || r.includes('insufficient')) return 'DATA_GAP';
+  if (r.includes('budget') || r.includes('allowance') || r.includes('cost')) return 'BUDGET';
+  if (r.includes('priority') || r.includes('lower') || r.includes('rank')) return 'PRIORITY';
+  return 'DEFERRED';
+}
+
 function formatAmount(tx: any): string {
   if (tx.chain === 'xrpl') {
     const amt = tx.amount || tx.cost_usd_actual || 0;
@@ -143,7 +153,7 @@ export async function GET() {
       deferred: (budgetDelib.deferred || []).map((d: any, dIndex: number) => ({
         request_id: d.request_id,
         reasoning: d.reasoning || '',
-        deferral_type: d.deferral_type || null,
+        deferral_type: deriveDeferralType(d.deferral_type, d.reasoning),
         _source: d._source || 'first_call',
         cross_cited: d.cross_cited_request_ids && d.cross_cited_request_ids.length > 0
           ? d.cross_cited_request_ids[0]
