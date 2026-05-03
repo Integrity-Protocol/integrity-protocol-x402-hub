@@ -1,0 +1,1360 @@
+{
+  "generated_at": "2026-05-03T05:51:52.360Z",
+  "total_violations": 71893,
+  "total_runs": 143,
+  "avg_per_run": 503,
+  "by_severity": {
+    "SERIOUS": {
+      "count": 5143,
+      "pct": 7.15
+    },
+    "MODERATE": {
+      "count": 36050,
+      "pct": 50.14
+    },
+    "MINOR": {
+      "count": 30700,
+      "pct": 42.7
+    }
+  },
+  "by_gate": {
+    "perception": {
+      "count": 15685,
+      "pct": 21.82
+    },
+    "contextualization": {
+      "count": 15429,
+      "pct": 21.46
+    },
+    "inference": {
+      "count": 18277,
+      "pct": 25.42
+    },
+    "judgment": {
+      "count": 22502,
+      "pct": 31.3
+    }
+  },
+  "by_rule_category": {
+    "EH": {
+      "name": "Evidence Hierarchy",
+      "count": 7031,
+      "pct": 9.78
+    },
+    "RC": {
+      "name": "Reasoning Constraints",
+      "count": 29817,
+      "pct": 41.47
+    },
+    "CC": {
+      "name": "Coherence Controls",
+      "count": 4266,
+      "pct": 5.93
+    },
+    "MR": {
+      "name": "Measurement Rules",
+      "count": 2160,
+      "pct": 3
+    },
+    "EPH": {
+      "name": "Epistemic Honesty",
+      "count": 27854,
+      "pct": 38.74
+    },
+    "OTHER": {
+      "name": "Other / Unrecognized",
+      "count": 765,
+      "pct": 1.06
+    }
+  },
+  "by_rule": [
+    {
+      "rule_id": "LZ-EPH-002",
+      "category": "EPH",
+      "count": 14377,
+      "pct": 20
+    },
+    {
+      "rule_id": "LZ-EPH-003",
+      "category": "EPH",
+      "count": 10531,
+      "pct": 14.65
+    },
+    {
+      "rule_id": "LZ-RC-001",
+      "category": "RC",
+      "count": 7830,
+      "pct": 10.89
+    },
+    {
+      "rule_id": "LZ-RC-002",
+      "category": "RC",
+      "count": 7734,
+      "pct": 10.76
+    },
+    {
+      "rule_id": "LZ-RC-003",
+      "category": "RC",
+      "count": 5810,
+      "pct": 8.08
+    },
+    {
+      "rule_id": "LZ-RC-005",
+      "category": "RC",
+      "count": 5561,
+      "pct": 7.74
+    },
+    {
+      "rule_id": "LZ-CC-001",
+      "category": "CC",
+      "count": 4266,
+      "pct": 5.93
+    },
+    {
+      "rule_id": "LZ-EH-005",
+      "category": "EH",
+      "count": 3352,
+      "pct": 4.66
+    },
+    {
+      "rule_id": "LZ-EPH-001",
+      "category": "EPH",
+      "count": 2946,
+      "pct": 4.1
+    },
+    {
+      "rule_id": "LZ-RC-004",
+      "category": "RC",
+      "count": 2882,
+      "pct": 4.01
+    },
+    {
+      "rule_id": "LZ-MR-003",
+      "category": "MR",
+      "count": 1455,
+      "pct": 2.02
+    },
+    {
+      "rule_id": "LZ-EH-004",
+      "category": "EH",
+      "count": 1249,
+      "pct": 1.74
+    },
+    {
+      "rule_id": "LZ-EH-003",
+      "category": "EH",
+      "count": 840,
+      "pct": 1.17
+    },
+    {
+      "rule_id": "LZ-EH-002",
+      "category": "EH",
+      "count": 825,
+      "pct": 1.15
+    },
+    {
+      "rule_id": "LZ-EH-001",
+      "category": "EH",
+      "count": 765,
+      "pct": 1.06
+    },
+    {
+      "rule_id": "AD15-EXTENSION-FRICTION",
+      "category": "OTHER",
+      "count": 705,
+      "pct": 0.98
+    },
+    {
+      "rule_id": "LZ-MR-002",
+      "category": "MR",
+      "count": 465,
+      "pct": 0.65
+    },
+    {
+      "rule_id": "LZ-MR-001",
+      "category": "MR",
+      "count": 240,
+      "pct": 0.33
+    },
+    {
+      "rule_id": "CI-L4-INVALID-DIRECTION",
+      "category": "OTHER",
+      "count": 45,
+      "pct": 0.06
+    },
+    {
+      "rule_id": "CL048-MUTUAL-EXCLUSIVITY",
+      "category": "OTHER",
+      "count": 15,
+      "pct": 0.02
+    }
+  ],
+  "by_gate_and_severity": {
+    "perception": {
+      "SERIOUS": 1579,
+      "MODERATE": 9632,
+      "MINOR": 4474
+    },
+    "contextualization": {
+      "SERIOUS": 919,
+      "MODERATE": 8323,
+      "MINOR": 6187
+    },
+    "inference": {
+      "SERIOUS": 890,
+      "MODERATE": 9046,
+      "MINOR": 8341
+    },
+    "judgment": {
+      "SERIOUS": 1755,
+      "MODERATE": 9049,
+      "MINOR": 11698
+    }
+  },
+  "trend": [
+    {
+      "run_timestamp": "2026-03-09T04:40:39.055Z",
+      "total": 35,
+      "serious": 6,
+      "moderate": 13,
+      "minor": 16,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-09T13:39:45.853Z",
+      "total": 40,
+      "serious": 3,
+      "moderate": 25,
+      "minor": 12,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-09T21:27:40.942Z",
+      "total": 43,
+      "serious": 4,
+      "moderate": 27,
+      "minor": 12,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-09T21:49:10.418Z",
+      "total": 465,
+      "serious": 90,
+      "moderate": 240,
+      "minor": 135,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-11T19:51:48.355Z",
+      "total": 540,
+      "serious": 30,
+      "moderate": 330,
+      "minor": 180,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-12T02:42:36.458Z",
+      "total": 495,
+      "serious": 15,
+      "moderate": 270,
+      "minor": 210,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-12T13:38:18.512Z",
+      "total": 570,
+      "serious": 60,
+      "moderate": 330,
+      "minor": 180,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-13T02:41:39.207Z",
+      "total": 420,
+      "serious": 15,
+      "moderate": 225,
+      "minor": 180,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-13T13:34:42.164Z",
+      "total": 465,
+      "serious": 15,
+      "moderate": 270,
+      "minor": 180,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-14T02:38:36.412Z",
+      "total": 405,
+      "serious": 30,
+      "moderate": 240,
+      "minor": 135,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-14T13:27:12.053Z",
+      "total": 450,
+      "serious": 30,
+      "moderate": 285,
+      "minor": 135,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-15T02:56:25.563Z",
+      "total": 540,
+      "serious": 75,
+      "moderate": 255,
+      "minor": 210,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-15T13:28:35.414Z",
+      "total": 495,
+      "serious": 60,
+      "moderate": 240,
+      "minor": 195,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-16T02:58:25.995Z",
+      "total": 555,
+      "serious": 45,
+      "moderate": 300,
+      "minor": 210,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-16T05:36:47.313Z",
+      "total": 480,
+      "serious": 60,
+      "moderate": 240,
+      "minor": 180,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-16T14:03:33.733Z",
+      "total": 540,
+      "serious": 45,
+      "moderate": 255,
+      "minor": 240,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-17T00:38:46.013Z",
+      "total": 555,
+      "serious": 30,
+      "moderate": 345,
+      "minor": 180,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-17T02:02:04.364Z",
+      "total": 390,
+      "serious": 15,
+      "moderate": 240,
+      "minor": 135,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-17T02:42:53.243Z",
+      "total": 540,
+      "serious": 15,
+      "moderate": 300,
+      "minor": 225,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-17T14:01:39.341Z",
+      "total": 435,
+      "serious": 30,
+      "moderate": 225,
+      "minor": 180,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-18T02:48:12.511Z",
+      "total": 540,
+      "serious": 60,
+      "moderate": 330,
+      "minor": 150,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-18T14:02:30.067Z",
+      "total": 525,
+      "serious": 60,
+      "moderate": 270,
+      "minor": 195,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-19T02:49:50.041Z",
+      "total": 480,
+      "serious": 45,
+      "moderate": 255,
+      "minor": 180,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-19T13:43:54.082Z",
+      "total": 480,
+      "serious": 45,
+      "moderate": 270,
+      "minor": 165,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-20T02:42:41.867Z",
+      "total": 510,
+      "serious": 15,
+      "moderate": 255,
+      "minor": 240,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-20T13:36:27.908Z",
+      "total": 480,
+      "serious": 15,
+      "moderate": 270,
+      "minor": 195,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-21T02:30:20.918Z",
+      "total": 405,
+      "serious": 0,
+      "moderate": 195,
+      "minor": 210,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-21T13:25:56.182Z",
+      "total": 570,
+      "serious": 15,
+      "moderate": 240,
+      "minor": 315,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-22T02:50:44.647Z",
+      "total": 465,
+      "serious": 0,
+      "moderate": 270,
+      "minor": 195,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-22T13:29:45.451Z",
+      "total": 600,
+      "serious": 45,
+      "moderate": 285,
+      "minor": 270,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-22T16:48:01.808Z",
+      "total": 555,
+      "serious": 45,
+      "moderate": 315,
+      "minor": 195,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-22T22:26:14.698Z",
+      "total": 495,
+      "serious": 15,
+      "moderate": 300,
+      "minor": 180,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-23T01:28:07.987Z",
+      "total": 555,
+      "serious": 30,
+      "moderate": 315,
+      "minor": 210,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-23T02:53:41.461Z",
+      "total": 540,
+      "serious": 45,
+      "moderate": 255,
+      "minor": 240,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-23T13:48:30.621Z",
+      "total": 540,
+      "serious": 15,
+      "moderate": 270,
+      "minor": 255,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-24T02:45:54.096Z",
+      "total": 645,
+      "serious": 15,
+      "moderate": 360,
+      "minor": 270,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-24T14:02:52.364Z",
+      "total": 480,
+      "serious": 0,
+      "moderate": 225,
+      "minor": 255,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-25T02:50:40.317Z",
+      "total": 465,
+      "serious": 75,
+      "moderate": 210,
+      "minor": 180,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-25T14:02:36.693Z",
+      "total": 495,
+      "serious": 30,
+      "moderate": 270,
+      "minor": 195,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-26T02:55:40.750Z",
+      "total": 510,
+      "serious": 30,
+      "moderate": 240,
+      "minor": 240,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-26T14:07:53.310Z",
+      "total": 450,
+      "serious": 45,
+      "moderate": 210,
+      "minor": 195,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-27T02:57:38.088Z",
+      "total": 675,
+      "serious": 120,
+      "moderate": 375,
+      "minor": 180,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-27T03:53:41.127Z",
+      "total": 540,
+      "serious": 60,
+      "moderate": 285,
+      "minor": 195,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-27T13:45:02.020Z",
+      "total": 420,
+      "serious": 15,
+      "moderate": 210,
+      "minor": 195,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-27T16:32:07.382Z",
+      "total": 480,
+      "serious": 0,
+      "moderate": 240,
+      "minor": 240,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-27T17:07:55.798Z",
+      "total": 510,
+      "serious": 30,
+      "moderate": 255,
+      "minor": 225,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-27T18:15:23.424Z",
+      "total": 480,
+      "serious": 0,
+      "moderate": 240,
+      "minor": 240,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-27T20:39:37.364Z",
+      "total": 450,
+      "serious": 15,
+      "moderate": 210,
+      "minor": 225,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-27T22:39:36.154Z",
+      "total": 645,
+      "serious": 30,
+      "moderate": 345,
+      "minor": 270,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-28T02:48:42.330Z",
+      "total": 525,
+      "serious": 45,
+      "moderate": 315,
+      "minor": 165,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-28T05:13:27.812Z",
+      "total": 510,
+      "serious": 15,
+      "moderate": 255,
+      "minor": 240,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-28T13:32:41.308Z",
+      "total": 510,
+      "serious": 45,
+      "moderate": 225,
+      "minor": 240,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-28T18:04:47.972Z",
+      "total": 525,
+      "serious": 75,
+      "moderate": 255,
+      "minor": 195,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-28T20:35:31.381Z",
+      "total": 510,
+      "serious": 45,
+      "moderate": 270,
+      "minor": 195,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-29T00:38:12.947Z",
+      "total": 705,
+      "serious": 75,
+      "moderate": 360,
+      "minor": 270,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-29T03:03:51.912Z",
+      "total": 525,
+      "serious": 15,
+      "moderate": 255,
+      "minor": 255,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-29T13:33:35.910Z",
+      "total": 630,
+      "serious": 105,
+      "moderate": 315,
+      "minor": 210,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-30T03:05:49.804Z",
+      "total": 570,
+      "serious": 30,
+      "moderate": 315,
+      "minor": 225,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-30T14:14:01.207Z",
+      "total": 480,
+      "serious": 15,
+      "moderate": 270,
+      "minor": 195,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-30T23:04:36.136Z",
+      "total": 570,
+      "serious": 45,
+      "moderate": 300,
+      "minor": 225,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-31T02:59:29.672Z",
+      "total": 555,
+      "serious": 75,
+      "moderate": 315,
+      "minor": 165,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-03-31T14:13:39.511Z",
+      "total": 540,
+      "serious": 30,
+      "moderate": 330,
+      "minor": 180,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-01T03:14:20.107Z",
+      "total": 555,
+      "serious": 90,
+      "moderate": 255,
+      "minor": 210,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-01T14:16:13.005Z",
+      "total": 450,
+      "serious": 60,
+      "moderate": 195,
+      "minor": 195,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-02T02:59:46.145Z",
+      "total": 525,
+      "serious": 30,
+      "moderate": 240,
+      "minor": 255,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-02T14:07:12.655Z",
+      "total": 525,
+      "serious": 0,
+      "moderate": 225,
+      "minor": 300,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-03T02:57:27.878Z",
+      "total": 495,
+      "serious": 15,
+      "moderate": 255,
+      "minor": 225,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-03T13:42:13.964Z",
+      "total": 405,
+      "serious": 0,
+      "moderate": 180,
+      "minor": 225,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-04T02:47:29.256Z",
+      "total": 525,
+      "serious": 45,
+      "moderate": 225,
+      "minor": 255,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-04T13:34:29.424Z",
+      "total": 450,
+      "serious": 45,
+      "moderate": 195,
+      "minor": 210,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-05T03:04:27.566Z",
+      "total": 420,
+      "serious": 15,
+      "moderate": 225,
+      "minor": 180,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-05T13:34:42.468Z",
+      "total": 480,
+      "serious": 60,
+      "moderate": 315,
+      "minor": 105,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-06T03:16:36.506Z",
+      "total": 450,
+      "serious": 45,
+      "moderate": 225,
+      "minor": 180,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-06T13:59:29.908Z",
+      "total": 645,
+      "serious": 15,
+      "moderate": 315,
+      "minor": 315,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-07T02:59:29.555Z",
+      "total": 525,
+      "serious": 0,
+      "moderate": 315,
+      "minor": 210,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-07T14:11:10.176Z",
+      "total": 435,
+      "serious": 15,
+      "moderate": 240,
+      "minor": 180,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-08T02:59:40.804Z",
+      "total": 510,
+      "serious": 60,
+      "moderate": 195,
+      "minor": 255,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-08T14:15:36.869Z",
+      "total": 495,
+      "serious": 15,
+      "moderate": 195,
+      "minor": 285,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-09T02:55:27.573Z",
+      "total": 525,
+      "serious": 30,
+      "moderate": 270,
+      "minor": 225,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-09T14:24:37.486Z",
+      "total": 525,
+      "serious": 45,
+      "moderate": 255,
+      "minor": 225,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-10T03:09:32.910Z",
+      "total": 555,
+      "serious": 45,
+      "moderate": 285,
+      "minor": 225,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-10T14:02:13.173Z",
+      "total": 510,
+      "serious": 15,
+      "moderate": 225,
+      "minor": 270,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-10T19:54:37.083Z",
+      "total": 600,
+      "serious": 45,
+      "moderate": 315,
+      "minor": 240,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-10T23:33:10.522Z",
+      "total": 555,
+      "serious": 30,
+      "moderate": 285,
+      "minor": 240,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-11T02:52:20.690Z",
+      "total": 720,
+      "serious": 75,
+      "moderate": 315,
+      "minor": 330,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-11T17:24:58.506Z",
+      "total": 585,
+      "serious": 45,
+      "moderate": 255,
+      "minor": 285,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-12T03:11:37.368Z",
+      "total": 510,
+      "serious": 45,
+      "moderate": 285,
+      "minor": 180,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-12T13:39:55.337Z",
+      "total": 495,
+      "serious": 15,
+      "moderate": 255,
+      "minor": 225,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-13T03:15:42.653Z",
+      "total": 510,
+      "serious": 75,
+      "moderate": 255,
+      "minor": 180,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-13T14:22:22.696Z",
+      "total": 585,
+      "serious": 0,
+      "moderate": 240,
+      "minor": 345,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-14T03:08:52.194Z",
+      "total": 510,
+      "serious": 60,
+      "moderate": 240,
+      "minor": 210,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-14T14:24:41.976Z",
+      "total": 510,
+      "serious": 45,
+      "moderate": 255,
+      "minor": 210,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-14T17:00:16.613Z",
+      "total": 465,
+      "serious": 15,
+      "moderate": 180,
+      "minor": 270,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-14T18:12:27.957Z",
+      "total": 675,
+      "serious": 75,
+      "moderate": 360,
+      "minor": 240,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-14T18:50:55.585Z",
+      "total": 495,
+      "serious": 0,
+      "moderate": 240,
+      "minor": 255,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-15T03:06:09.469Z",
+      "total": 465,
+      "serious": 45,
+      "moderate": 255,
+      "minor": 165,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-15T03:31:20.125Z",
+      "total": 420,
+      "serious": 30,
+      "moderate": 150,
+      "minor": 240,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-15T14:19:13.953Z",
+      "total": 450,
+      "serious": 0,
+      "moderate": 150,
+      "minor": 300,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-16T03:14:09.955Z",
+      "total": 555,
+      "serious": 30,
+      "moderate": 330,
+      "minor": 195,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-16T04:19:29.969Z",
+      "total": 495,
+      "serious": 15,
+      "moderate": 240,
+      "minor": 240,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-16T06:55:00.714Z",
+      "total": 510,
+      "serious": 30,
+      "moderate": 240,
+      "minor": 240,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-16T14:26:55.970Z",
+      "total": 465,
+      "serious": 45,
+      "moderate": 240,
+      "minor": 180,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-17T02:50:29.047Z",
+      "total": 465,
+      "serious": 45,
+      "moderate": 165,
+      "minor": 255,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-17T06:45:11.023Z",
+      "total": 600,
+      "serious": 75,
+      "moderate": 255,
+      "minor": 270,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-17T14:11:18.313Z",
+      "total": 510,
+      "serious": 30,
+      "moderate": 240,
+      "minor": 240,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-18T03:00:03.253Z",
+      "total": 570,
+      "serious": 60,
+      "moderate": 285,
+      "minor": 225,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-18T13:41:56.235Z",
+      "total": 600,
+      "serious": 105,
+      "moderate": 285,
+      "minor": 210,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-18T21:36:27.680Z",
+      "total": 660,
+      "serious": 75,
+      "moderate": 375,
+      "minor": 210,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-19T00:55:17.767Z",
+      "total": 495,
+      "serious": 30,
+      "moderate": 225,
+      "minor": 240,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-19T03:16:37.003Z",
+      "total": 480,
+      "serious": 45,
+      "moderate": 195,
+      "minor": 240,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-19T13:40:48.102Z",
+      "total": 495,
+      "serious": 0,
+      "moderate": 225,
+      "minor": 270,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-20T03:16:45.329Z",
+      "total": 510,
+      "serious": 45,
+      "moderate": 240,
+      "minor": 225,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-20T14:24:26.773Z",
+      "total": 405,
+      "serious": 30,
+      "moderate": 150,
+      "minor": 225,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-21T03:10:24.856Z",
+      "total": 495,
+      "serious": 45,
+      "moderate": 270,
+      "minor": 180,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-21T14:23:23.035Z",
+      "total": 495,
+      "serious": 45,
+      "moderate": 240,
+      "minor": 210,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-22T03:09:59.027Z",
+      "total": 540,
+      "serious": 15,
+      "moderate": 210,
+      "minor": 315,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-22T06:06:39.654Z",
+      "total": 525,
+      "serious": 60,
+      "moderate": 255,
+      "minor": 210,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-22T14:24:11.351Z",
+      "total": 465,
+      "serious": 30,
+      "moderate": 180,
+      "minor": 255,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-23T03:10:56.075Z",
+      "total": 435,
+      "serious": 30,
+      "moderate": 135,
+      "minor": 270,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-23T14:25:06.004Z",
+      "total": 450,
+      "serious": 45,
+      "moderate": 195,
+      "minor": 210,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-24T03:12:48.674Z",
+      "total": 540,
+      "serious": 30,
+      "moderate": 270,
+      "minor": 240,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-24T14:18:58.051Z",
+      "total": 525,
+      "serious": 15,
+      "moderate": 300,
+      "minor": 210,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-25T03:01:46.118Z",
+      "total": 570,
+      "serious": 75,
+      "moderate": 255,
+      "minor": 240,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-25T06:40:38.645Z",
+      "total": 480,
+      "serious": 0,
+      "moderate": 270,
+      "minor": 210,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-25T13:44:16.346Z",
+      "total": 480,
+      "serious": 30,
+      "moderate": 285,
+      "minor": 165,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-26T02:10:21.119Z",
+      "total": 465,
+      "serious": 15,
+      "moderate": 165,
+      "minor": 285,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-26T03:39:48.619Z",
+      "total": 450,
+      "serious": 30,
+      "moderate": 225,
+      "minor": 195,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-26T13:44:39.453Z",
+      "total": 450,
+      "serious": 30,
+      "moderate": 225,
+      "minor": 195,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-26T16:31:37.545Z",
+      "total": 660,
+      "serious": 45,
+      "moderate": 345,
+      "minor": 270,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-27T01:12:06.169Z",
+      "total": 525,
+      "serious": 90,
+      "moderate": 270,
+      "minor": 165,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-27T03:45:01.880Z",
+      "total": 450,
+      "serious": 60,
+      "moderate": 210,
+      "minor": 180,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-27T14:40:47.418Z",
+      "total": 525,
+      "serious": 30,
+      "moderate": 300,
+      "minor": 195,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-28T03:50:39.316Z",
+      "total": 465,
+      "serious": 90,
+      "moderate": 225,
+      "minor": 150,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-28T14:56:10.197Z",
+      "total": 585,
+      "serious": 30,
+      "moderate": 300,
+      "minor": 255,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-29T03:49:10.486Z",
+      "total": 510,
+      "serious": 30,
+      "moderate": 240,
+      "minor": 240,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-29T14:43:31.885Z",
+      "total": 510,
+      "serious": 0,
+      "moderate": 285,
+      "minor": 225,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-29T19:47:17.754Z",
+      "total": 435,
+      "serious": 45,
+      "moderate": 225,
+      "minor": 165,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-29T22:05:40.129Z",
+      "total": 480,
+      "serious": 0,
+      "moderate": 195,
+      "minor": 285,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-30T03:49:12.912Z",
+      "total": 435,
+      "serious": 15,
+      "moderate": 210,
+      "minor": 210,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-04-30T14:40:44.511Z",
+      "total": 510,
+      "serious": 15,
+      "moderate": 255,
+      "minor": 240,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-05-01T03:59:27.597Z",
+      "total": 555,
+      "serious": 15,
+      "moderate": 285,
+      "minor": 255,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-05-01T14:06:53.048Z",
+      "total": 480,
+      "serious": 45,
+      "moderate": 255,
+      "minor": 180,
+      "signal_count": 15
+    },
+    {
+      "run_timestamp": "2026-05-02T03:16:05.831Z",
+      "total": 435,
+      "serious": 30,
+      "moderate": 210,
+      "minor": 195,
+      "signal_count": 15
+    }
+  ]
+}
