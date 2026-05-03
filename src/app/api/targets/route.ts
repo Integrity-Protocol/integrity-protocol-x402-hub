@@ -112,7 +112,7 @@ function deriveDeferralType(deferralType: string | null | undefined, reasoning: 
 }
 
 const VENDOR_DISPLAY_MAP: Record<string, string> = {
-  'chainlink_cre': 'XRPL Ledger',
+  'chainlink_cre': 'XRP Ledger',
   'blockrun_llm': 'BlockRun',
   'firecrawl': 'Firecrawl',
   'messari': 'Messari',
