@@ -13,12 +13,12 @@ The x402 Agent Hub is the operational interface for two autonomous agents acquir
 The system is live. Here's what to look at and where to click.
 
 **1. The Glass Box — watch the system correct itself in real time.**
-Open the [Agent Hub](https://main.dsuo7ekm8i4d4.amplifyapp.com). In the Research Agent's recent transactions, click the Brent crude transaction (E82F661E13CD..B04844BB). The 5-node drilldown shows the full reasoning chain: what the system observed, the knowledge gap it identified, the x402 payment it made to fill the gap, and the correction — where it crosses out its own prior reasoning in red strikethrough and replaces it with verified data. This is the system catching its own hallucination before it became a decision.
+Open the [Agent Hub](https://main.dsuo7ekm8i4d4.amplifyapp.com). Open a Workflow Agent recent transaction. The 5-node drilldown shows the full reasoning chain: what the system observed, the knowledge gap it identified, the x402 payment it made to fill the gap, and the correction — where it crosses out its own prior reasoning in red strikethrough and replaces it with verified data. This is the system catching its own hallucination before it became a decision.
 
 **2. Budgetary Discipline — the system controls its own spending.**
 In the Triage Ledger at the bottom of the Hub, click any row. Approved requests show the full acquisition chain. Deferred requests show why the system held off this cycle — budget constraints, priority ranking, or insufficient justification. Denied requests show the system refusing to spend entirely with full cost-benefit reasoning. The system doesn't just buy data — it defends every spending decision.
 
-**3. The Flight Recorder — 128+ corrections the system wrote about itself.**
+**3. The Flight Recorder — 131+ corrections the system wrote about itself.**
 The Flight Recorder is on the production dashboard, not the Hub. Direct link: [Flight Recorder](https://integrity-protocol.github.io/Overwatch-Terminal/flight-recorder.html). Select any correction chain in the left panel. Each chain shows the full lifecycle: error detected, correction authored, rule applied, and every subsequent run where the rule fired. Example: CL-047 has fired in 120 consecutive pipeline runs.
 
 **4. The Cognitive Trace — see every hallucination caught in a single run.**
