@@ -6,29 +6,50 @@ The Integrity Protocol is a four-layer cognitive architecture that audits how AI
 
 The x402 Agent Hub is the operational interface for two autonomous agents acquiring data across two independent blockchains, governed by the same reasoning discipline.
 
-**Live Demo (AWS Amplify):** [main.dsuo7ekm8i4d4.amplifyapp.com](https://main.dsuo7ekm8i4d4.amplifyapp.com)  
+**Live Demo (AWS Amplify):** [main.dsuo7ekm8i4d4.amplifyapp.com](https://main.dsuo7ekm8i4d4.amplifyapp.com)
+**Website:** [integrityai.ai](https://integrityai.ai)
+
+---
 
 ## Start Here
 
 The system is live. Here's what to look at and where to click.
 
-**1. The Glass Box — watch the system correct itself in real time.**
-Open the [Agent Hub](https://main.dsuo7ekm8i4d4.amplifyapp.com). Open a Workflow Agent recent transaction. The 5-node drilldown shows the full reasoning chain: what the system observed, the knowledge gap it identified, the x402 payment it made to fill the gap, and the correction — where it crosses out its own prior reasoning in red strikethrough and replaces it with verified data. This is the system catching its own hallucination before it became a decision.
+**1. The Glass Box** — watch the system correct itself in real time. Open the [Agent Hub](https://main.dsuo7ekm8i4d4.amplifyapp.com). Open a Workflow Agent recent transaction. The 5-node drilldown shows the full reasoning chain: what the system observed, the knowledge gap it identified, the x402 payment it made to fill the gap, and the correction — where it crosses out its own prior reasoning in red strikethrough and replaces it with verified data. This is the system catching its own hallucination before it became a decision.
 
-**2. Budgetary Discipline — the system controls its own spending.**
-In the Triage Ledger at the bottom of the Hub, click any row. Approved requests show the full acquisition chain. Deferred requests show why the system held off this cycle — budget constraints, priority ranking, or insufficient justification. Denied requests show the system refusing to spend entirely with full cost-benefit reasoning. The system doesn't just buy data — it defends every spending decision.
+**2. Budgetary Discipline** — the system controls its own spending. In the Triage Ledger at the bottom of the Hub, click any row. Approved requests show the full acquisition chain. Deferred requests show why the system held off this cycle — budget constraints, priority ranking, or insufficient justification. Denied requests show the system refusing to spend entirely with full cost-benefit reasoning. The system doesn't just buy data — it defends every spending decision.
 
-**3. The Flight Recorder — 131+ corrections the system wrote about itself.**
-The Flight Recorder is on the production dashboard, not the Hub. Direct link: [Flight Recorder](https://integrity-protocol.github.io/Overwatch-Terminal/flight-recorder.html). Select any correction chain in the left panel. Each chain shows the full lifecycle: error detected, correction authored, rule applied, and every subsequent run where the rule fired. Example: CL-047 has fired in 120 consecutive pipeline runs.
+**3. The Flight Recorder** — 131+ corrections the system wrote about itself. The Flight Recorder is on the production dashboard, not the Hub. Direct link: [Flight Recorder](https://integrity-protocol.github.io/Overwatch-Terminal/flight-recorder.html). Select any correction chain in the left panel. Each chain shows the full lifecycle: error detected, correction authored, rule applied, and every subsequent run where the rule fired. Example: CL-047 has fired in 120 consecutive pipeline runs.
 
-**4. The Cognitive Trace — see every hallucination caught in a single run.**
-Also on the production dashboard. Direct link: [Cognitive Trace](https://integrity-protocol.github.io/Overwatch-Terminal/trace.html). Each trace represents one pipeline run. The system catches 30-40 hallucinations per run. Note: initial page load takes ~30 seconds due to the volume of trace files.
+**4. The Cognitive Trace** — see every hallucination caught in a single run. Also on the production dashboard. Direct link: [Cognitive Trace](https://integrity-protocol.github.io/Overwatch-Terminal/trace.html). Each trace represents one pipeline run. The system catches 30-40 hallucinations per run. Note: initial page load takes ~30 seconds due to the volume of trace files.
+
+---
+
+## Production Numbers
+
+The pipeline has been running autonomously twice daily on live data since February 2026.
+
+| Metric | Count |
+|---|---|
+| AI Hallucinations Caught | 71,893 |
+| Pipeline Runs | 145+ |
+| Self-Corrections | 131+ |
+| x402 Acquisitions Tracked | 200+ |
+| Mainnet Payments | 28+ |
+| Architecture Decisions | 24 |
+| Layer Zero Rules | 17 |
+| Learning Loops | 4 |
+| Patents Filed | 3 (provisional) |
+
+Every signal at every gate is checked against the 17 Layer Zero rules. Across 145 runs, the system has caught 71,893 gate violations — instances where the LLM attempted to reason outside its constraints. These include unsupported confidence claims, missing evidence citations, severity scores without justification, and conclusions that skip required analytical steps.
+
+Violations escalate through the pipeline: Perception (21%), Contextualization (22%), Inference (26%), Judgment (31%). The escalation pattern is architecturally expected — later gates catch compounding errors that earlier layers let through.
 
 ---
 
 ## The Architecture
 
-Four layers, derived from how a fire lieutenant actually processes a scene. Each layer receives only the output of the layer before it. Data compresses as it moves through the pipeline — approximately 100 observations enter, 1 assessment survives.
+Four layers, derived from how a fire lieutenant actually processes a scene. Each layer receives only the output of the layer before it. Every analytical layer is bound by a deterministic gate. Data compresses as it moves through the pipeline — approximately 100 observations enter, 1 assessment survives.
 
 **Layer 1: SWEEP** — Widest-aperture perception. No analytical judgment. Like a 360 walk-around at a fire scene. Pulls from multiple data sources, produces 100+ observations, prunes to the top 15 by structural sort (source tier, severity, recency). Layer 1 does not read the Corrections Ledger — intake must remain unbiased by past errors.
 
@@ -54,6 +75,22 @@ If approved, the payment executes on-chain. If denied, the denial reasoning is l
 The system's value is not in what it buys — it's in what it refuses to buy. Budget constraint forces the system to rank and articulate its knowledge gaps, surfacing questions that unlimited spending would never produce.
 
 **Blind Tagging:** The analytical layers never know which data was paid for. x402-acquired data enters looking identical to free data. The trace assembler tags it retroactively after judgment. The system cannot give paid data preferential treatment because it cannot distinguish paid from free during analysis.
+
+---
+
+## Four Learning Loops
+
+Four interconnected learning loops at increasing levels of abstraction. Remove any one and the architecture is incomplete.
+
+**Economic Discipline** — Did I spend wisely? Every purchase outcome is tracked. Wasted spending gets logged with the same root cause analysis as a bad analytical call.
+
+**Cognitive Discipline** — Did the system ask the right questions? Every analytical outcome is classified — did the conclusion survive, get corrected, or produce no change? If a line of reasoning never moves the analysis, the system stops pursuing it.
+
+**Behavioral Calibration** — Tracks reasoning behaviors over time. When patterns emerge, calibration entries are written to correct them.
+
+**Reasoning Stability** — Catches the system changing its mind without new evidence. Compares assessments across runs and flags unjustified drift.
+
+The Cognitive Trace — a per-signal reasoning chain tracked through all four analytical layers — is the connective tissue linking all four loops.
 
 ---
 
@@ -91,24 +128,6 @@ The Agent Hub renders live pipeline data in a single-page tactical interface:
 When the system acquires verified data, it shows the before and after. Prior reasoning is struck through. Corrected reasoning appears below with the verified data applied. This is the Glass Box — you see exactly what the system thought before it had the facts, and how the facts changed its mind.
 
 The Glass Box is not a feature. It is the point. Most AI systems show you the answer. This one shows you the homework.
-
----
-
-## Production Numbers
-
-The pipeline has been running twice daily on live data since February 2026.
-
-| Metric | Count |
-|---|---|
-| Pipeline Runs | 133+ |
-| Learning Chains | 354+ |
-| Corrections Entries | 128+ |
-| Acquisitions Tracked | 200+ |
-| Architecture Decisions | 24 |
-| Layer Zero Rules | 17 |
-| Compound Indices | 5 |
-| Learning Loops | 4 |
-| Patents Filed | 3 (provisional) |
 
 ---
 
