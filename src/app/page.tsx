@@ -1,6 +1,7 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, Suspense } from "react"
+import { useSearchParams } from "next/navigation"
 
 // ── Interfaces ─────────────────────────────────────────────────────
 interface Transaction {
@@ -734,7 +735,7 @@ function Modal({ tx, drill, onClose }: ModalProps) {
 }
 
 // ── Main Layout ─────────────────────────────────────────────────────
-export default function AgentHub() {
+function HubInner() {
   const [sel, setSel] = useState<Transaction | null>(null)
   const [modal, setModal] = useState<Transaction | null>(null)
   const [deferredModal, setDeferredModal] = useState<any>(null)
@@ -772,6 +773,24 @@ export default function AgentHub() {
         setLoading(false)
       })
   }, [])
+
+  const searchParams = useSearchParams()
+
+  useEffect(() => {
+    if (!data) return
+    const targetSignalId = searchParams.get('signal_id')
+    if (!targetSignalId) return
+    const drill = data.drill || {}
+    const txList = [...(data.rTxs || []), ...(data.wTxs || [])]
+    for (const tx of txList) {
+      const d = drill[tx.rid]
+      if (d?.signal?.signal_ids?.some((sid: string) => sid.includes(targetSignalId))) {
+        setSel(tx)
+        setModal(tx)
+        break
+      }
+    }
+  }, [data, searchParams])
 
   if (loading) {
     return (
@@ -1164,5 +1183,13 @@ export default function AgentHub() {
           </div>
         )}
     </div>
+  )
+}
+
+export default function Hub() {
+  return (
+    <Suspense>
+      <HubInner />
+    </Suspense>
   )
 }
